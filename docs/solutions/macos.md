@@ -1,0 +1,100 @@
+---
+title: macOS
+icon: material/apple
+---
+
+# macOS
+
+_გვერდი განახლების პროცესშია_
+
+macOS სისტემა Windows-თან შედარებით, მომხმარებელზე ნაკლებ ინფორმაციას აგროვებს და უკეთეს
+უსაფრთხოებას უზრუნველყოფს, hardware და software-ს მჭიდრო კონტროლის გამო. ამის მიუხედავად,
+default პარამეტრები არ უზრუნველყოფენ უსაფრთხოების საჭირო დონეს.
+
+Intel-ზე მომუშავე მაკები ვერ აკმაყოფილებენ თანამედროვე უსაფრთხოების დონეს. რეკომენდირებულია
+Apple Silicon (M1/M2/M3+)-ის მქონე მაკების გამოყენება.
+
+
+## სისტემის კონფიგურაცია
+
+### FOI Security Policy
+
+ჩვენი სისტემური პროფილი გამართავს უსაფრთხოების და ტელემეტრიის პარამეტრების უმრავლესობას ავტომატურად
+და აუცილებელია რიგი უსაფრთხოების პარამეტრის შესაცვლელად, რადგან ისინი სტანდარტული მომხმარებლის
+ინტერფეისში არაა ხელმისაწვდომი.
+
+სისტემური პროფილის დასაყენებლად, გადადით ბმულზე - [FOI Security Policy](/policies/#ios)
+
+### FileVault
+
+FileVault დაშიფრავს თქვენს მოწყობილობაზე არსებულ პაროლებს.
+
+- **System Preferences > Security & Privacy > FileVault**
+    - [x] ჩართეთ FileVault
+        - :exclamation: შეინახეთ Recovery Key Bitwarden-ში
+        - :exclamation: არ შეინახოთ iCloud-ზე
+
+დაამატეთ 2 ახალი მომხმარებელი:
+- unlock - (Administrator)
+- admin - (Administrator)
+
+მომხმარებლის პაროლები დააგენერირეთ Bitwarden-ის გამოყენებით.
+
+გაუთიშეთ ყველა მომხმარებელს, unlock მომხმარებლის გარდა, დისკის ჩართვა:
+
+გახსენით Terminal აპლიკაცია და ჩაწერეთ შემდეგი ბრძანება, ყველა მომხმარებლის ჩამოსათვლელად:
+
+```
+sudo fdesetup list
+```
+
+შემდეგ, წაშალეთ ყველა მომხმარებელი, unlock-ის გარდა, გამოიყენეთ შემდეგი ბრძანება:
+
+```
+sudo fdesetup remove -user username
+```
+
+გადატვირთეთ მოწყობილობა, ხელახლა შეიყვანეთ ბრძანება და დარწმუნდით, რომ ჩამონათვალში მხოლოდ
+unlock მომხმარებელია:
+
+```
+sudo fdesetup list
+```
+
+### iCloud
+
+#### Advanced Data Protection
+
+Mac-ებს აქვთ მოწყობილობის შიფრაციის ფუნქცია, მაგრამ ამის მიუხედავად, სტანდარტულად,
+iCloud-ზე შენახული მონაცემები დაშიფრული არაა. რაც იმას ნიშნავს, რომ Apple-ს ან მესამე პირებს
+თქვენი მონაცემების შესაგროვებლად მხოლოდ თქვენს iCloud ანგარიშზე წვდომა სჭირდებათ.
+
+გასათვალისწინებელია, რომ Apple სახელმწიფოებთან თანამშრომლობის ფარგლებში, მოთხოვნის შემთხვევაში,
+iCloud-ზე შენახულ ინფორმაციას გადასცემს შესაბამის ორგანოებს.
+
+Advanced Data Protection-ის ჩართვით, iCloud-ზე მონაცემები დაშიფრული იქნება.
+
+ინსტრუქციები:
+
+/// admonition | ყურადღება!
+    type: warning
+Recovery Key-ის დაკარგვის შემთხვევაში, iCloud-ზე შენახული მონაცემები დაიკარგება! მისი აღდგენა
+კი შეუძლებელი იქნება. აუცილებლად შეინახეთ Recovery Key Bitwarden-ში.
+///
+
+1. **System Preferences > iCloud > Advanced Data Protection > Turn on**.
+2. Recovery Option-ებში აირჩიეთ მხოლოდ (!) recovery key.
+3. შეინახეთ Recovery key Bitwarden-ში
+
+### Software Updates
+
+დარწმუნდით, რომ ჩართული გაქვთ ავტომატური განახლებები. არასდროს გადადოთ განახლება!
+
+- **System Preferences > General > Automatic Updates**
+    - [x] ჩართეთ **Download new updates when available**
+    - [x] ჩართეთ **Install MacOS Updates**
+    - [x] ჩართეთ **Install app updates from the App Store**
+    - [x] ჩართეთ **Install security responses and system files**
+
+Disable **Allow user to reset password using Apple ID** on all accounts.
+
