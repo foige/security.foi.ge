@@ -34,9 +34,11 @@
 			<key>PayloadType</key>
 			<string>com.apple.mobiledevice.passwordpolicy</string>
 			<key>PayloadUUID</key>
-			<string>BEC33994-D0CD-440F-A08E-D2E62D44546D</string>
+			<string>DCA17B81-21D9-41FA-A4D9-4ED16544E57A</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
+			<key>forcePIN</key>
+			<true/>
 			<key>maxFailedAttempts</key>
 			<integer>10</integer>
 			<key>minLength</key>
@@ -338,7 +340,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>91A4CE1A-CAE3-4AA2-9826-961109897531</string>
+	<string>A073E67B-9D72-4A44-99A4-6FC2D331AC5A</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 	<key>TargetDeviceType</key>
