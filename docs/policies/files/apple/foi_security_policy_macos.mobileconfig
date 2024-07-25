@@ -56,15 +56,23 @@
 			<key>PayloadType</key>
 			<string>com.apple.applicationaccess</string>
 			<key>PayloadUUID</key>
-			<string>952E7FBC-DBAB-4AE6-A4FC-727CEB078E7F</string>
+			<string>3346F574-690D-4D08-A54F-4D1F1662610F</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 			<key>allowApplePersonalizedAdvertising</key>
 			<false/>
+			<key>allowAutoUnlock</key>
+			<false/>
 			<key>allowDiagnosticSubmission</key>
+			<false/>
+			<key>allowPasswordProximityRequests</key>
+			<false/>
+			<key>allowPasswordSharing</key>
 			<false/>
 			<key>allowUSBRestrictedMode</key>
 			<true/>
+			<key>enforcedFingerprintTimeout</key>
+			<integer>28800</integer>
 		</dict>
 		<dict>
 			<key>BlockThirdPartyCookies</key>
@@ -340,7 +348,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>A073E67B-9D72-4A44-99A4-6FC2D331AC5A</string>
+	<string>71EBC27D-25BF-46E3-B674-7D2C61E47CF6</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 	<key>TargetDeviceType</key>
