@@ -18,7 +18,34 @@ _გვერდი განახლების პროცესშია_
 
 თუ მოწყობილობას უსაფრთხოების ჩიპი საერთოდ არ აქვს, რეკომენდირებულია მისი შეცვლა!
 
-## Windows 11 Pro / Enterprise IoT
+### Windows 10 > 11 განახლება
+
+არ შეიძლება რომელიმე ოპერაციული სისტემის ძველ ვერსიაზე დარჩენა მხოლოდ იმიტომ, რომ ახალი არ მოგწონთ.
+ხშირ შემთხვევაში, ძველი ვერსიები აღარ იღებენ უსაფრთხოების განახლებებს, რაც მაღალი რისკის შემცველია.
+
+#### განახლებასთან დაკავშირებული პრობლემები
+
+##### მოწყობილობა ვერ უკავშირდება ინტერნეტს, განახლების დასაწყისში
+
+
+- დააჭირეთ ++shift+f10++
+- გახსნილ ფანჯარაში შეიყვანეთ:
+
+```cmd
+OOBE\BYPASSNRO
+```
+
+## საწყისი კონფიგურაცია
+
+### OneDrive
+
+გათიშეთ OneDrive სინქრონიზაცია. OneDrive-ზე თქვენი ფაილები დაუშიფრავი სახით ინახება.
+
+- გადაიტანეთ ყველა ფოლდერი OneDrive-დან C:/Users/{თქვენი იუზერის სახელი}/ ფოლდერში
+- **Computer > OneDrive > Right Click > Manage Backup** 
+- **Stop Backup** ყველა ფოლდერზე.
+
+## Windows გამოცემები
 
 Windows-ის Home ვერსიებში არ არის ხელმისაწვდომი მნიშვნელოვანი უსაფრთხოების პარამეტრები და 
 აუცილებელია Pro ან Enterprise ვერსია. [;)](https://github.com/massgravel/Microsoft-Activation-Scripts)
@@ -28,14 +55,23 @@ Windows-ის Home ვერსიებში არ არის ხელმ
 გამოცემაში ამ მონაცემების შეგროვების მინიმუმამდე დაყვანაა შესაძლებელი. ამიტომ, 
 რეკომენდირებულია ამ გამოცემის გამოყენება.
 
-## Convert microsoft account to local
+## მონაცემების შიფრაცია
 
-## უსაფრთხოების დამატებითი პარამეტრები
+1. გადმოწერეთ პროგრამა - [SoftPerfect RAM Disk](https://www.softperfect.com/products/ramdisk/)
+2. ჩართეთ Bitlocker C: დისკზე
+3. ჩართეთ Bitlocker სხვა დისკებზე
+4. Bitlocker-ის შიფრაციის გასაღები შეინახეთ Bitwarden-ში
+
+## სხვა ნაბიჯები
+
+- Convert microsoft account to local
+- SoftPerfect RamDisk - uninstall
+
+უსაფრთხოების დამატებითი პარამეტრები
 
 https://support.microsoft.com/en-us/windows/device-protection-in-windows-security-afa11526-de57-b1c5-599f-3a4c6a61c5e2#hardwarescore
 
-## More profiles
+More profiles
 
 https://www.privacyguides.org/en/os/windows/group-policies/
 
-## SoftPerfect RamDisk - uninstall
