@@ -1,6 +1,6 @@
 ; ----------------------------------------------------------------------
 ; PARSING Computer POLICY
-; Source file:  C:\Users\slims\Downloads\foi_security_policy_win\LGPO\backup\{A4E5D4D6-9F6F-4240-A02A-7ED6BE36086D}\DomainSysvol\GPO\Machine\registry.pol
+; Source file:  C:\Users\slims\Desktop\foi_security_policy_win\LGPO\backup\{9EB7875B-7F03-4CA6-81AF-BE6F64719DBB}\DomainSysvol\GPO\Machine\registry.pol
 
 Computer
 SOFTWARE\Microsoft\OneDrive
@@ -159,26 +159,6 @@ EXSZ:2.16.840.1.101.3.4.1.2;2.16.840.1.101.3.4.1.42
 
 Computer
 SOFTWARE\Policies\Microsoft\FVE
-OSPassphrase
-DWORD:1
-
-Computer
-SOFTWARE\Policies\Microsoft\FVE
-OSPassphraseComplexity
-DWORD:2
-
-Computer
-SOFTWARE\Policies\Microsoft\FVE
-OSPassphraseLength
-DWORD:12
-
-Computer
-SOFTWARE\Policies\Microsoft\FVE
-OSPassphraseASCIIOnly
-DWORD:0
-
-Computer
-SOFTWARE\Policies\Microsoft\FVE
 OSRecovery
 DWORD:1
 
@@ -295,7 +275,27 @@ DWORD:7
 Computer
 SOFTWARE\Policies\Microsoft\FVE
 MinimumPIN
-DWORD:14
+DWORD:8
+
+Computer
+SOFTWARE\Policies\Microsoft\FVE
+OSPassphrase
+DWORD:1
+
+Computer
+SOFTWARE\Policies\Microsoft\FVE
+OSPassphraseComplexity
+DWORD:2
+
+Computer
+SOFTWARE\Policies\Microsoft\FVE
+OSPassphraseLength
+DWORD:8
+
+Computer
+SOFTWARE\Policies\Microsoft\FVE
+OSPassphraseASCIIOnly
+DWORD:0
 
 Computer
 SOFTWARE\Policies\Microsoft\FVE
@@ -315,7 +315,7 @@ DWORD:2
 Computer
 SOFTWARE\Policies\Microsoft\FVE
 FDVPassphraseLength
-DWORD:14
+DWORD:8
 
 Computer
 SOFTWARE\Policies\Microsoft\PassportForWork
