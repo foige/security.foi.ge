@@ -74,21 +74,39 @@ Windows-ის Home ვერსიებში არ არის ხელმ
 
 ## მონაცემების შიფრაცია
 
-1. გადმოწერეთ პროგრამა - [SoftPerfect RAM Disk](https://www.softperfect.com/products/ramdisk/)
-2. ჩართეთ Bitlocker C: დისკზე
-3. ჩართეთ Bitlocker სხვა დისკებზე
-4. Bitlocker-ის შიფრაციის გასაღები შეინახეთ Bitwarden-ში
+შიფრაციის დროს, Windows მოითხოვს აღდგენის გასაღების შენახვას. შესაძლო ვარიანტებიდან,
+არცერთია უსაფრთხო - მყარ დისკზე ან USB-ზე შენახვის შემთხვევაში, შესაძლებელი იქნება გასაღების
+მოპოვება წაშლის შემდეგაც კი, Microsoft-ის ანგარიშზე შენახვის შემთხვევაში, თქვენი გასაღები 
+მესამე პირებსაც ექნებათ, ხოლო ამობეჭდვის შემთხვევაში, გასაღები გაივლის ლოკალურ ქსელს, სადაც
+მას სხვა პირებიც ნახავენ.
+
+ამიტომ, შეგვიძლია გამოვიყენოთ პროგრამა, რომელიც დროებით საცავს შექმნის ოპერატიულ მეხსიერებაში,
+რომელშიც მონაცემები მოწყობილობის რესტარტის შემდეგ ავტომატურად წაიშლება.
+
+- გადმოწერეთ პროგრამა - [SoftPerfect RAM Disk](https://www.softperfect.com/products/ramdisk/)
+- დააკლიკეთ + ღილაკს და შექმენით დროებითი საცავი (default 100mb საკმარისი იქნება)
+- დროებით საცავში შექმენით ფოლდერი ნებისმიერი სახელით
+
+Bitlocker-ის ჩასართავად 
+- დააჭირეთ C დისკს მარჯვენა კლიკით და აირჩიეთ "Turn on Bitlocker"
+- შეიყვანეთ პაროლი. გამოიყენეთ მინიმუმ 5 სიტყვა. ამ პაროლის შეყვანა მოგიწევთ მხოლოდ ერთხელ, მოწყობილობის რესტარტის შემდეგ
+- შეინახეთ პაროლი Bitwarden-ში
+- Recovery Key-ის შენახვის ეტაპზე, გამოიყენეთ "Save to File" და შეინახეთ წინა ნაბიჯზე შექმნილ ფოლდერში.
+- გახსენით დროებით ფოლდერში შექმნილი ფაილი და გადაიტანეთ შიგთავსი Bitwarden-ში
+- გაიმეორეთ იგივე სხვა დისკებზე.
+
+დასრულების შემდეგ, წაშალეთ SoftPerfect RamDisk პროგრამა
 
 ## სხვა ნაბიჯები
 
-- Convert microsoft account to local
-- SoftPerfect RamDisk - uninstall
+თუ მოწყობილობაში შესასვლელად იყენებთ Microsoft-ის ანგარიშს, [გადააკონვერტირეთ ის ლოკალურზე](https://support.microsoft.com/en-us/windows/change-from-a-local-account-to-a-microsoft-account-395203bf-9f1b-eb24-b042-5b8dae6c1d20)
 
 უსაფრთხოების დამატებითი პარამეტრები
 
-https://support.microsoft.com/en-us/windows/device-protection-in-windows-security-afa11526-de57-b1c5-599f-3a4c6a61c5e2#hardwarescore
+[https://support.microsoft.com/en-us/windows/device-protection-in-windows-security-afa11526-de57-b1c5-599f-3a4c6a61c5e2#hardwarescore](https://support.microsoft.com/en-us/windows/device-protection-in-windows-security-afa11526-de57-b1c5-599f-3a4c6a61c5e2#hardwarescore)
 
-More profiles
+სხვა ინსტრუქციები
 
-https://www.privacyguides.org/en/os/windows/group-policies/
+[https://www.privacyguides.org/en/os/windows/group-policies/]([https://www.privacyguides.org/en/os/windows/group-policies/)
+
 

@@ -58,6 +58,8 @@ nav:
       - "ოპერაციული სისტემები":
           - solutions/windows.md
           - solutions/macos.md
+          - solutions/ios.md
+          - solutions/android.md
       - "ქსელები":
           - solutions/dns.md
           - solutions/vpn.md
