@@ -3,7 +3,7 @@ title: Windows
 icon: material/microsoft-windows
 ---
 
-# Windows
+# Windows კონფიგურაცია
 _გვერდი განახლების პროცესშია_
 
 ## წინასწარი მოთხოვნები

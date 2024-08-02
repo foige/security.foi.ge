@@ -40,12 +40,18 @@ icon: material/key-variant
 აუცილებელია ისეთი პაროლების მენეჯერის გამოყენება, რომლის კოდიც საჯაროდ ხელმისაწვდომია. საჯაროობა
 უზრუნველყოფს საუკეთესო უსაფრთხოებას და სანდოობა არა სიტყვებით, არამედ ქმედებებით მიიღწევა.
 
-რეკომენდირებული პაროლების მენეჯერი: 
+### რეკომენდირებული პაროლების მენეჯერი
 
 <div class="grid cards" markdown>
 
-- 
-    [:simple-bitwarden: Bitwarden](https://bitwarden.com/)
+- [:simple-bitwarden: Bitwarden](https://bitwarden.com/)
+
+    ---
+    **Bitwarden** არის ღია წყაროს მქონე და უფასო პაროლების მენეჯერი.
+    ის ავტომატურად ქმნის ძლიერ, უსაფრთხო პაროლებს და უზრუნველყოფს მათ სინქრონიზაციას ყველა 
+    მოწყობილობაზე. **Bitwarden** იყენებს მაღალი დონის შიფრირებას მონაცემების დასაცავად. 
+
+    **Bitwarden** გთავაზობთ ბრაუზერის გაფართოებებს და მობილურ აპლიკაციებს iOS და Android პლატფორმებისთვის.
 
 </div>
 
@@ -83,7 +89,7 @@ icon: material/key-variant
 
 ### პაროლების მენეჯერის პაროლის მოფიქრება
 
-/// admonition | ყურადღება!
+/// admonition | მინიმალური სიმძლავრე - 65 ბიტი
     type: warning
 პაროლების მენეჯერის პაროლი უნდა იყოს მინიმუმ 65 ბიტი სიმძლავრის!
 ///
@@ -92,8 +98,17 @@ icon: material/key-variant
 2. **Password Type**-ში აირჩიეთ "Memorable Password"
 3. [ცხრილის მიხედვით](#პაროლის-სირთულის-ცხრილი-), აირჩიეთ შესაბამისი სირთულე. აუცილებელია მინიმუმ 65 ბიტი სირთულის მიღწევა.
 4. მარცვლების შემთხვევაში, მოხსენით "Full Words", სიტყვების შემთხვევაში - ჩართეთ.
-4. ჩაიწერეთ დაგენერირებული პაროლი **ფურცელზე**! აუცილებელია, რომ ეს პაროლი არსად გამოიყენოთ
-   და არსად ჩაწეროთ, პაროლების მენეჯერის გარდა
+4. ჩაიწერეთ დაგენერირებული პაროლი **ფურცელზე**!
+
+    - არ გადაუღოთ სურათი
+    - არ დაასკანეროთ
+    - არ გაუზიაროთ არავის (არც საკუთარ თავს მაგ. note to self-ით)
+    - არ შეინახოთ ფაილში
+    - არ ჩაწეროთ არსად, Bitwarden-ის გარდა.
+
+6. ფურცელი შეინახეთ და გაუფრთხილდით იქამდე, სანამ პაროლს არ დაიმახსოვრებთ.
+7. პაროლის დამახსოვრების შემდეგ, ფურცელი დაწვით.
+
 
 ამ პაროლს გამოიყენებთ პაროლების მენეჯერის დასაშიფრად და გასახსნელად.
 
@@ -121,15 +136,43 @@ icon: material/key-variant
 
 შედით პარამეტრებში -  :simple-bitwarden: **Bitwarden > Settings**
 
-| პარამეტრი                                   | მნიშვნელობა                                  |
-|---------------------------------------------|----------------------------------------------|
-| **Vault Timeout**                           | `On system lock`                             |
-| **Vault timeout action**                    | `Lock`                                       |
-| **Unlock with PIN**                         | :material-checkbox-blank: :exclamation:      |
-| **Unlock with Touch ID / Windows Hello**    | :material-checkbox-outline:                  |
-| **Require password or PIN on app start**    | :material-checkbox-outline: :exclamation:    |
-| **Clear clipboard**                         | `30 Seconds`                                 |
-| **Allow browser integration**               | :material-checkbox-outline:                  |
+| სექცია           | პარამეტრი                                        | მნიშვნელობა                                                  |
+|------------------|--------------------------------------------------|--------------------------------------------------------------|
+| **Security**     |                                                  |                                                              |
+|                  | **Vault Timeout**                                | `On system lock`                                             |
+|                  | **Vault timeout action**                         | `Lock`                                                       |
+|                  | **Unlock with PIN**                              | :x: :exclamation: :exclamation: :exclamation:                |
+|                  | **Unlock with Touch ID / Windows Hello**         | :white_check_mark:                                           |
+|                  | **Require password or PIN on app start**         | :white_check_mark: :exclamation: :exclamation: :exclamation: |
+|                  | **Approve login requests**                       | :x:                                                          |
+| **Preferences**  |                                                  |                                                              |
+|                  | **Minimize when copying to clipboard**           | :x:                                                          |
+|                  | **Clear clipboard**                              | `30 Seconds`                                                 |
+| **App Settings** |                                                  |                                                              |
+|                  | **Show menu bar icon**                           | :white_check_mark:                                           |
+|                  | **Minimize to menu bar**                         | :white_check_mark:                                           |
+|                  | **Close to menu bar**                            | :white_check_mark:                                           |
+|                  | **Start to menu bar**                            | :white_check_mark:                                           |
+|                  | **Start automatically on login**                 | :white_check_mark:                                           |
+|                  | **Always show in the Dock**                      | :white_check_mark:                                           |
+|                  | **Allow browser integration**                    | :white_check_mark:                                           |
+|                  | **Require verification for browser integration** | :x:                                                          |
+|                  | **Use hardware acceleration**                    | :white_check_mark:                                           |
+
+
+
+/// admonition | macOS-ზე ბიომეტრიული აუთენტიფიკაცია ლეპტოპის დახურვის შემდეგ
+    type: tip
+
+Bitwarden-ში არსებული [ხარვეზის](https://github.com/bitwarden/clients/issues/5591) გამო, თუ ლეპტოპს დახურავთ, ხელახლა გახსნისას ბიომეტრიული აუთენტიფიკაციის ოფცია არ გამოჩნდება.
+
+დროებითი გამოსავალი:
+
+1. Bitwarden-ის აუთენტიფიკაციის ეკრანზე დააჭირეთ კლავიშების კომბინაციას: ++cmd+l++
+2. ამის შემდეგ "Unlock with Touch ID" ღილაკი უნდა გამოჩნდეს.
+
+ეს პრობლემა მხოლოდ ლეპტოპის დახურვით დაბლოკვისას ჩნდება და მოგვარდება Bitwarden-ის მომავალ განახლებებში.
+///
 
 ### ბრაუზერი
 
@@ -140,12 +183,12 @@ icon: material/key-variant
 
 *Browser* > :simple-bitwarden: **Bitwarden** > **Settings** > **Account Security**
 
-| პარამეტრი                  | მნიშვნელობა                             |
-|----------------------------|-----------------------------------------|
-| **Unlock with biometrics** | :material-checkbox-outline:             |
-| **Unlock with PIN**        | :material-checkbox-blank: :exclamation: |
-| **Vault timeout**          | `1 minute`                              |
-| *Vault timeout action**    | `Lock`                                  |
+| პარამეტრი                  | მნიშვნელობა                                    |
+|----------------------------|------------------------------------------------|
+| **Unlock with biometrics** | :white_check_mark:                             |
+| **Unlock with PIN**        | :x: :exclamation: :exclamation:  :exclamation: |
+| **Vault timeout**          | `1 minute`                                     |
+| **Vault timeout action**   | `Lock`                                         |
 
 ### Android/iOS
 
@@ -170,12 +213,12 @@ icon: material/key-variant
 
 პარამეტრები:
 
-| პარამეტრი                  | მნიშვნელობა                             |
-|----------------------------|-----------------------------------------|
-| **Unlock with biometrics** | :material-checkbox-outline:             |
-| **Unlock with PIN code**   | :material-checkbox-blank: :exclamation: |
-| **Session timeout**        | `15 minutes`                            |
-| **Vault timeout action**   | `Lock`                                  |
+| პარამეტრი                  | მნიშვნელობა                                 |
+|----------------------------|---------------------------------------------|
+| **Unlock with biometrics** | :white_check_mark:                          |
+| **Unlock with PIN code**   | :x: :exclamation::exclamation::exclamation: |
+| **Session timeout**        | `15 minutes`                                |
+| **Vault timeout action**   | `Lock`                                      |
 
 ## შემდეგი ნაბიჯები
 
