@@ -3,8 +3,6 @@ title: macOS
 icon: material/apple
 ---
 
-_გვერდი განახლების პროცესშია_
-
 # macOS უსაფრთხოების პოლიტიკა
 
 
