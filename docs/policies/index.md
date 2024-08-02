@@ -93,10 +93,10 @@ Press any key to continue . . .
 3. იპოვეთ გადმოწერილი პროფილი:
     
     MacOS 15:
-    - Apple Menu  > System Settings > General > Device Management.
+    - Apple Menu :material-apple: > System Settings > General > Device Management.
 
     MacOS 14:
-    - Apple Menu  > System Settings > Privacy and Security > Profiles.
+    - Apple Menu :material-apple: > System Settings > Privacy and Security > Profiles.
 
 4. Downloaded სექციაში იპოვეთ "FOI Security Policy" და ორჯერ დააკლიკეთ.
 5. გახსნილ ფანჯარაში დააჭირეთ Install-ს.
