@@ -23,7 +23,9 @@ markdown_extensions:
       permalink: true
       toc_depth: 4
 plugins:
-  - privacy
+  - privacy:
+      assets_exclude:
+        - plausible.io/*
   - material-plausible:
   - include-markdown
   - search
