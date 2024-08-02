@@ -5,11 +5,6 @@ icon: material/key-variant
 
 # პაროლების მენეჯერი
 
-## აუცილებელი მოთხოვნები
-
-- [x] [FOI Security Policy](/policies/)
-
----
 
 /// admonition | პრობლემა
     type: danger
