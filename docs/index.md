@@ -29,7 +29,7 @@ PBKDF2-ს იყენებს და მეორე Argon2-ს? DNS-over-TLS
 -   
 
 
-    [:octicons-arrow-right-24: გადაწყვეტილებებზე გადასვლა](/solutions/)
+    [:octicons-arrow-right-24: გადაწყვეტებზე გადასვლა](/solutions/)
 
 
 </div>

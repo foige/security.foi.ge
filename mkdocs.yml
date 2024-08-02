@@ -61,7 +61,7 @@ nav:
   - მთავარი: index.md
 #  - გიდი:
 #      - guide/prerequisites.md
-  - გადაწყვეტილებები:
+  - გადაწყვეტები:
       - solutions/index.md
       - "საბაზისო":
           - solutions/passwords.md
