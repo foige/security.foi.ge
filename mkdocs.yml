@@ -4,12 +4,14 @@ repo_url: https://github.com/foige/security
 repo_name: ""
 markdown_extensions:
   - attr_list
+  - abbr
   - md_in_html
   - tables
   - pymdownx.blocks.details
   - pymdownx.arithmatex
   - pymdownx.blocks.admonition
   - pymdownx.keys
+  - pymdownx.snippets
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.blocks.tab:
@@ -57,8 +59,8 @@ theme:
     - search.highlight
 nav:
   - მთავარი: index.md
-  - გიდი:
-      - guide/prerequisites.md
+#  - გიდი:
+#      - guide/prerequisites.md
   - გადაწყვეტილებები:
       - solutions/index.md
       - "საბაზისო":

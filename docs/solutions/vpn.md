@@ -7,11 +7,26 @@ icon: material/vpn
 
 _გვერდი განახლების პროცესშია_
 
-რეკომენდირებული VPN პროვაიდერი: 
+## აუცილებელი მოთხოვნები
+
+- [x] [პაროლების მენეჯერი](/solutions/passwords)
+
+## რეკომენდირებული VPN პროვაიდერი
+
 
 <div class="grid cards" markdown>
 
-- 
-    [Mullvad](https://mullvad.net/en)
+- ![Mullvad](/assets/img/logo/mullvad.svg){ .lg .middle .twemoji } [Mullvad](https://mullvad.net/en)
+
+    ---
+    **Mullvad** არის შვედეთში დაფუძნებული VPN პროვაიდერი, რომლის ყველა აპლიკაცია ღია წყაროს
+    მქონეა. **Mullvad** არ მოითხოვს არანაირ პერსონალურ მონაცემს, მათ შორის, არც ელექტრონულ ფოსტას
+    და შესაძლებელია კრიპტოვალუტით გადახდა.
 
 </div>
+
+## ინსტალაცია
+
+- შექმენით ანგარიში - [Mullvad](https://mullvad.net/en/create/)
+- შეინახეთ **Account Number** Bitwarden-ში.
+- შეავსეთ ანგარიში. რეკომენდირებულია **Monero**-ით გადახდა.

@@ -7,6 +7,11 @@ icon: material/apple-ios
 
 _გვერდი განახლების პროცესშია_
 
+## აუცილებელი მოთხოვნები
+
+- [x] [FOI Security Policy](/policies/#ios)
+- [x] [პაროლების მენეჯერი](/solutions/passwords)
+
 ## სისტემის კონფიგურაცია
 
 ### პაროლი

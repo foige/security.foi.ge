@@ -1,9 +1,15 @@
 ---
-title: პაროლები
+title: პაროლების მენეჯერი
 icon: material/key-variant
 ---
 
-# პაროლები
+# პაროლების მენეჯერი
+
+## აუცილებელი მოთხოვნები
+
+- [x] [FOI Security Policy](/policies/)
+
+---
 
 /// admonition | პრობლემა
     type: danger
@@ -44,7 +50,7 @@ icon: material/key-variant
 
 <div class="grid cards" markdown>
 
-- [:simple-bitwarden: Bitwarden](https://bitwarden.com/)
+- ![Bitwarden](/assets/img/logo/bitwarden.svg){ .lg .middle .twemoji } [Bitwarden](https://bitwarden.com/)
 
     ---
     **Bitwarden** არის ღია წყაროს მქონე და უფასო პაროლების მენეჯერი.

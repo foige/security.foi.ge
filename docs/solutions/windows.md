@@ -6,7 +6,10 @@ icon: material/microsoft-windows
 # Windows კონფიგურაცია
 _გვერდი განახლების პროცესშია_
 
-## წინასწარი მოთხოვნები
+## აუცილებელი მოთხოვნები
+
+- [x] [FOI Security Policy](/policies/#windows)
+- [x] [პაროლების მენეჯერი](/solutions/passwords)
 
 ### უსაფრთხოების ჩიპი (TPM)
 
