@@ -19,4 +19,3 @@ _გვერდი განახლების პროცესშია_
 - შეინახეთ Bitwarden-ში
 - Settings > Security > Device Unlock > Screen Lock > Password > დააყენეთ ახალი პაროლი
 
-### DNS

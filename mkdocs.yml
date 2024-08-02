@@ -23,13 +23,18 @@ markdown_extensions:
       permalink: true
       toc_depth: 4
 plugins:
+  - privacy
   - include-markdown
   - search
   - zip_folders:
       folders:
         - policies/files/foi_security_policy_win
+extra_css:
+  - assets/stylesheets/extra.css
 theme:
   name: material
+  font:
+    text: Noto Sans Georgian
   palette:
     scheme: slate
   custom_dir: theme
@@ -66,31 +71,6 @@ nav:
   - FOI Security Policy:
       - policies/index.md
       - "გამოყენებული პარამეტრების სია":
-        - policies/browser.md
-        - policies/windows.md
-        - policies/macos.md
-#  - Policies:
-#    - Information Security Policy: policies/information-security-policy.md
-#    - Data Protection Policy: policies/data-protection-policy.md
-#    - Acceptable Use Policy: policies/acceptable-use-policy.md
-#  - Procedures:
-#    - Incident Response Procedure: procedures/incident-response-procedure.md
-#    - Data Breach Procedure: procedures/data-breach-procedure.md
-#    - Data Classification Procedure: procedures/data-classification-procedure.md
-#  - Standards:
-#    - Password Policy: standards/password-policy.md
-#    - Encryption Policy: standards/encryption-policy.md
-#    - Remote Access Policy: standards/remote-access-policy.md
-#  - Guidelines:
-#    - Data Classification Guidelines: guidelines/data-classification-guidelines.md
-#    - Data Handling Guidelines: guidelines/data-handling-guidelines.md
-#    - Data Retention Guidelines: guidelines/data-retention-guidelines.md
-#  - Training:
-#    - Security Awareness Training: training/security-awareness-training.md
-#    - Data Protection Training: training/data-protection-training.md
-#  - Resources:
-#    - Useful Links: resources/useful-links.md
-#    - Glossary: resources/glossary.md
-#    - FAQ: resources/faq.md
-#  - Blog: blog.md
-#  - Search: search.md
+          - policies/browser.md
+          - policies/windows.md
+          - policies/macos.md
