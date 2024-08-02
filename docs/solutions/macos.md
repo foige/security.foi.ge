@@ -40,7 +40,7 @@ sudo bioutil -rs
 
 ### FileVault
 
-FileVault დაშიფრავს თქვენს მოწყობილობაზე არსებულ პაროლებს.
+FileVault დაშიფრავს თქვენს მოწყობილობაზე არსებულ ფაილებს.
 
 - **System Preferences > Security & Privacy > FileVault**
     - [x] ჩართეთ FileVault
