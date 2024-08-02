@@ -12,6 +12,7 @@ pymdown-extensions = "^10.8.1"
 mkdocs-include-markdown-plugin = "^6.2.1"
 mkdocs = "^1.6.0"
 mkdocs-zip-folders = "^1.0.3"
+material-plausible-plugin = "^0.2.0"
 
 
 [build-system]

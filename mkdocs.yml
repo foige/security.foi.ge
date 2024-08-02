@@ -24,6 +24,8 @@ markdown_extensions:
       toc_depth: 4
 plugins:
   - privacy
+  - material-plausible:
+      domain: foi.ge
   - include-markdown
   - search
   - zip_folders:
