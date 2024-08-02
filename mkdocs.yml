@@ -25,12 +25,15 @@ markdown_extensions:
 plugins:
   - privacy
   - material-plausible:
-      domain: foi.ge
   - include-markdown
   - search
   - zip_folders:
       folders:
         - policies/files/foi_security_policy_win
+extra:
+  analytics:
+    provider: plausible
+    domain: security.foi.ge
 extra_css:
   - assets/stylesheets/extra.css
 theme:
