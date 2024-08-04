@@ -60,14 +60,38 @@
 			<key>PayloadType</key>
 			<string>com.apple.mobiledevice.passwordpolicy</string>
 			<key>PayloadUUID</key>
-			<string>9042CACE-047F-4B7E-B558-A5EF202BBC8F</string>
+			<string>FA9E182B-2B11-4E4C-8007-31DFFD9B9E10</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 			<key>forcePIN</key>
 			<true/>
+			<key>maxFailedAttempts</key>
+			<integer>11</integer>
 			<key>minLength</key>
 			<integer>8</integer>
 			<key>requireAlphanumeric</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Restrictions</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.applicationaccess.CD12E968-DA04-4227-932C-2742EB24AD02</string>
+			<key>PayloadType</key>
+			<string>com.apple.applicationaccess</string>
+			<key>PayloadUUID</key>
+			<string>CD12E968-DA04-4227-932C-2742EB24AD02</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>allowApplePersonalizedAdvertising</key>
+			<false/>
+			<key>allowAutoUnlock</key>
+			<false/>
+			<key>allowDiagnosticSubmission</key>
+			<false/>
+			<key>allowPasswordSharing</key>
+			<false/>
+			<key>forceAuthenticationBeforeAutoFill</key>
 			<true/>
 		</dict>
 	</array>
@@ -82,7 +106,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>D4E9A622-EE5A-4472-9946-0F74EF6BAFBE</string>
+	<string>4A5F4FB1-5DF2-4720-B9C4-0873403FEF2C</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 	<key>TargetDeviceType</key>
