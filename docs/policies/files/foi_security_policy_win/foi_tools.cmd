@@ -63,7 +63,7 @@ echo Installing FOI Security Policy...
 echo Copying definitions from: "%ScriptDir%\PolicyDefinitions" to "%SystemRoot%\PolicyDefinitions\"
 xcopy /S /Y "%ScriptDir%\PolicyDefinitions" "%SystemRoot%\PolicyDefinitions\"
 cd "%ScriptDir%\LGPO"
-for /D %%D in ("%ScriptDir%\LGPO\backup\*") do (
+for /D %%D in ("%ScriptDir%\LGPO\policy\*") do (
     "%ScriptDir%\LGPO\LGPO.exe" /g "%%D"
     goto ProcessComplete
 )
