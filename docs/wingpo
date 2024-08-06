@@ -1,0 +1,46 @@
+# Variables
+$repoUrl = "https://github.com/foige/security/archive/refs/heads/main.zip"
+$rand = Get-Random
+$tempBase = $env:TEMP
+$destinationFolder = "foi_$rand"
+$destination = Join-Path -Path $tempBase -ChildPath $destinationFolder
+$zipFile = Join-Path -Path $destination -ChildPath "$destinationFolder.zip"
+$extractedFolderName = "security-main"
+$cmdRelativePath = "docs\policies\files\windows"
+$fullCmdPath = Join-Path -Path $destination -ChildPath "$extractedFolderName\$cmdRelativePath"
+$cmdFile = Join-Path -Path $fullCmdPath -ChildPath "foi_tools.cmd"
+
+
+# Create the destination directory if it does not exist
+if (-Not (Test-Path $destination)) {
+    New-Item -ItemType Directory -Force -Path $destination
+}
+
+# Download the ZIP file
+Invoke-WebRequest -Uri $repoUrl -OutFile $zipFile
+
+# Verify that the ZIP file exists and has non-zero size
+while (-Not (Test-Path $zipFile) -or (Get-Item $zipFile).Length -eq 0) {
+    Start-Sleep -Seconds 2
+    Write-Output "Waiting for the ZIP file to be ready..."
+}
+
+# Extract the ZIP file
+try {
+    Expand-Archive -Path $zipFile -DestinationPath $destination -Force
+} catch {
+    Write-Output "Failed to expand the ZIP file: $_"
+    exit
+}
+
+# Execute the specific CMD file from its directory
+if (Test-Path $cmdFile) {
+    Start-Process "cmd.exe" -ArgumentList "/c `"$cmdFile`"" -Verb RunAs -WorkingDirectory $fullCmdPath
+    Write-Output "CMD script executed from: $fullCmdPath"
+} else {
+    Write-Output "No CMD file found at $cmdFile."
+}
+
+# Optional: Clean up by removing the downloaded ZIP file
+Remove-Item $zipFile -Force
+exit
