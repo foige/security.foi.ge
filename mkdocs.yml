@@ -28,10 +28,8 @@ plugins:
   - material-plausible
   - include-markdown
   - search
-  - zip_folders:
-      folders:
-        - policies/files/foi_security_policy_win
 extra:
+  generator: false
   analytics:
     provider: plausible
     domain: security.foi.ge
@@ -80,3 +78,5 @@ nav:
           - policies/browser.md
           - policies/windows.md
           - policies/macos.md
+  - ტრენერებისთვის:
+      - trainers/index.md

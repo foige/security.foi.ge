@@ -19,7 +19,7 @@ _გვერდი განახლების პროცესშია_
 
 Android-ზე პაროლის მაქსიმალური სიგრძე 17-ია, ამიტომ შეგიძლიათ ისარგებლოთ [1Password Online Generator](https://1password.com/password-generator/)-ით.
 
-- დააგენერირეთ 4 ან 5 მარცვალი 1Password-ით
+- დააგენერირეთ 4 მარცვალი **1Password**-ის გენერატორით. (1Password-ს მხოლოდ იმიტომ ვიყენებთ, რომ Bitwarden-ს მხოლოდ პაროლების და სიტყვების გენერირება შეუძლია, მარცვლების - არა)
 - შეინახეთ Bitwarden-ში
 - Settings > Security > Device Unlock > Screen Lock > Password > დააყენეთ ახალი პაროლი
 
