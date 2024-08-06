@@ -1,6 +1,6 @@
 ; ----------------------------------------------------------------------
 ; PARSING Computer POLICY
-; Source file:  C:\Users\slims\Desktop\foi_security_policy_win\LGPO\backup\{9EB7875B-7F03-4CA6-81AF-BE6F64719DBB}\DomainSysvol\GPO\User\registry.pol
+; Source file:  C:\Users\slims\Backups\LGPO\backup_20240806_080644\{D0431EA8-B5D1-439D-9583-F66F33437529}\DomainSysvol\GPO\User\registry.pol
 
 Computer
 SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot

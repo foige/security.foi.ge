@@ -321,9 +321,9 @@ FOI Security Policy მოიცავს შემდეგ კონფიგ�
 
 /// admonition | FDVManageDRA (ფიქსირებული დისკის Data Recovery Agent-ის მართვა)
     type: info
-- [ ] გამორთული (DWORD:0)
+- [ ] ჩართული (DWORD:1)
 
-განმარტება: არ იყენებს Data Recovery Agent-ს ფიქსირებული დისკებისთვის.
+განმარტება:  იძლევა ფიქსირებულ დისკზე Auto-unlock-ის ფუნქციის ჩართვის უფლებას.
 ///
 
 /// admonition | FDVRecoveryPassword (ფიქსირებული დისკის აღდგენის პაროლი)
