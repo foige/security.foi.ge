@@ -32,9 +32,9 @@ echo     __________________________________________________
 echo.
 echo       [1] Install FOI Security Policy
 echo       [2] Enforce PIN Login (Disable Passwords)
-echo       [3] Enforce Fingerprint Timeout
+echo       [3] Enable Multi-Factor Login
 echo       [4] [EXPERT] Disable PIN Login Enforcement
-echo       [5] [EXPERT] Disable Fingerprint Timeout
+echo       [5] [EXPERT] Disable Multi-Factor Login
 echo       [6] [EXPERT] Save GPO
 echo       [7] Exit
 echo     __________________________________________________
