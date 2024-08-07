@@ -74,9 +74,10 @@ nav:
           - solutions/vpn.md
   - FOI Security Policy:
       - policies/index.md
-      - "გამოყენებული პარამეტრების სია":
-          - policies/browser.md
-          - policies/windows.md
-          - policies/macos.md
+      - "ინსტალაცია და პარამეტრები":
+          - "Windows": policies/windows.md
+          - "macOS": policies/macos.md
+          - "iOS": policies/ios.md
+          - "ბრაუზერები": policies/browser.md
   - ტრენერებისთვის:
       - trainers/index.md
