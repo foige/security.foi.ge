@@ -64,7 +64,6 @@ nav:
       - "საბაზისო":
           - solutions/passwords.md
           - solutions/mfa.md
-          - solutions/hardware-keys.md
       - "ოპერაციული სისტემები":
           - solutions/windows.md
           - solutions/macos.md
@@ -73,6 +72,8 @@ nav:
       - "ქსელები":
           - solutions/dns.md
           - solutions/vpn.md
+      - "საფრთხეები":
+          - solutions/hardware-keys.md
   - FOI Security Policy:
       - policies/index.md
       - "ინსტალაცია და პარამეტრები":
