@@ -14,7 +14,7 @@ DNS - დომენების სახელების სისტემ
 სტანდარტულად, DNS ტრაფიკი დაშიფრული არაა, რაც ნიშნავს, რომ DNS სერვერამდე გაგზავნილი მოთხოვნა ხილულია ყველასთვის:
 ///
 
-![Plaintext DNS](/assets/img/dns/diagram-plaintext.png)
+![Plaintext DNS](../assets/img/dns/diagram-plaintext.png)
 
 1. ქსელის ადმინისტრატორი (მაგ. WIFI-ს მფლობელი)
 2. ინტერნეტ სერვისის პროვაიდერი (რომელიც ხშირ შემთხვევაში, თავადაა იმ DNS სერვერის მფლობელი, რომელსაც სისტემა უკავშირდება)
@@ -33,7 +33,7 @@ DNS - დომენების სახელების სისტემ
 დაშიფრული DNS გვაძლევს საშუალებას, რომ ეს მოთხოვნები უხილავი გავხადოთ ყველასთვის, თავად DNS სერვერის მფლობელის გარდა.
 ///
 
-![Encrypted DNS](/assets/img/dns/diagram-encrypted.png)
+![Encrypted DNS](../assets/img/dns/diagram-encrypted.png)
 
 /// admonition | ყურადღება
     type: warning

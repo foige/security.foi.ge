@@ -4,12 +4,11 @@ icon: material/microsoft-windows
 ---
 
 # Windows კონფიგურაცია
-_გვერდი განახლების პროცესშია_
 
 ## აუცილებელი მოთხოვნები
 
-- [x] [FOI Security Policy](/policies/#windows)
-- [x] [პაროლების მენეჯერი](/solutions/passwords)
+- [x] [FOI Security Policy](../policies/index.md)
+- [x] [პაროლების მენეჯერი](passwords.md)
 
 ### უსაფრთხოების ჩიპი (TPM)
 
@@ -108,10 +107,4 @@ Windows 10 და 11 მომხმარებლებზე დიდი ო
 
 უსაფრთხოების დამატებითი პარამეტრები
 
-[https://support.microsoft.com/en-us/windows/device-protection-in-windows-security-afa11526-de57-b1c5-599f-3a4c6a61c5e2#hardwarescore](https://support.microsoft.com/en-us/windows/device-protection-in-windows-security-afa11526-de57-b1c5-599f-3a4c6a61c5e2#hardwarescore)
-
-სხვა ინსტრუქციები
-
-[https://www.privacyguides.org/en/os/windows/group-policies/]([https://www.privacyguides.org/en/os/windows/group-policies/)
-
-
+[https://support.microsoft.com/en-us/windows/device-protection-in-windows-security-afa11526-de57-b1c5-599f-3a4c6a61c5e2](https://support.microsoft.com/en-us/windows/device-protection-in-windows-security-afa11526-de57-b1c5-599f-3a4c6a61c5e2)

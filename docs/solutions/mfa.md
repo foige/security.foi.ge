@@ -3,8 +3,6 @@ title: მრავალბიჯიანი აუთენტიფიკა
 icon: material/two-factor-authentication
 ---
 
-_გვერდი განახლების პროცესშია_
-
 # მრავალბიჯიანი აუთენტიფიკაცია
 
 მრავალბიჯიანი აუთენტიფიკაცია (2FA / MFA) არის უსაფრთხოების დამატებითი ფენა, 
@@ -20,13 +18,13 @@ _გვერდი განახლების პროცესშია_
 
 ## აუცილებელი მოთხოვნები
 
-- [x] [პაროლების მენეჯერი](/solutions/passwords)
+- [x] [პაროლების მენეჯერი](passwords.md)
 
 ## რეკომენდირებული აპლიკაცია
 
 <div class="grid cards" markdown>
 
-- ![2FAS](/assets/img/logo/2fas.svg){ .lg .middle .twemoji } [2FAS](https://2fas.com/)
+- ![2FAS](../assets/img/logo/2fas.svg){ .lg .middle .twemoji } [2FAS](https://2fas.com/)
 
     ---
     **2FAS** არის ღია წყაროს მქონე და უფასო 2FA კოდების გენერატორი.
@@ -43,7 +41,7 @@ _გვერდი განახლების პროცესშია_
 ან აპლიკაციის წაშლის შემდეგ, დაკარგავთ წვდომას ყველა ანგარიშზე, რომელზეც 2FA გქონდათ გააქტიურებული.
 
 /// tab | iOS
-- დარწმუნდით, რომ iCloud-ზე გააქტიურებული გაქვთ [Advanced Data Protection](/solutions/macos/#advanced-data-protection)
+- დარწმუნდით, რომ iCloud-ზე გააქტიურებული გაქვთ [Advanced Data Protection](macos.md#advanced-data-protection)
 - ჩართეთ Backup iCloud-ზე
 
 ///

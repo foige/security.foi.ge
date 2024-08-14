@@ -5,18 +5,16 @@ icon: material/vpn
 
 # VPN
 
-_გვერდი განახლების პროცესშია_
-
 ## აუცილებელი მოთხოვნები
 
-- [x] [პაროლების მენეჯერი](/solutions/passwords)
+- [x] [პაროლების მენეჯერი](passwords.md)
 
 ## რეკომენდირებული VPN პროვაიდერი
 
 
 <div class="grid cards" markdown>
 
-- ![Mullvad](/assets/img/logo/mullvad.svg){ .lg .middle .twemoji } [Mullvad](https://mullvad.net/en)
+- ![Mullvad](../assets/img/logo/mullvad.svg){ .lg .middle .twemoji } [Mullvad](https://mullvad.net/en)
 
     ---
     **Mullvad** არის შვედეთში დაფუძნებული VPN პროვაიდერი, რომლის ყველა აპლიკაცია ღია წყაროს

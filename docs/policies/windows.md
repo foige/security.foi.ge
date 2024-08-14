@@ -51,7 +51,7 @@ Press any key to continue . . .
 2. დაალაგეთ სია "State" სვეტის მიხედვით.
 3. სია დაახლოებით ასე უნდა გამოიყურებოდეს:
 
-   ![Computer Configuration](/assets/img/policies/win_policy_sample.png)
+   ![Computer Configuration](../assets/img/policies/win_policy_sample.png)
 
 ამ ჩამონათვალში შეგიძლიათ ნახოთ, ან შეცვალოთ FOI Security Policy-ის მიერ დაყენებული ყველა პარამეტრი.
 
