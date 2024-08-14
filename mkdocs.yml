@@ -73,6 +73,7 @@ nav:
           - solutions/dns.md
           - solutions/vpn.md
       - "საფრთხეები":
+          - solutions/behavior.md
           - solutions/hardware-keys.md
   - FOI Security Policy:
       - policies/index.md
