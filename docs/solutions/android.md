@@ -5,21 +5,68 @@ icon: material/android
 
 # Android
 
-_გვერდი განახლების პროცესშია_
-
 ## აუცილებელი მოთხოვნები
 
-- [x] [პაროლების მენეჯერი](/solutions/passwords)
+- [x] [პაროლების მენეჯერი](passwords.md)
+
+{% include-markdown "../../includes/device_has_updates.md"%}
+
+## რეკომენდირებული მოწყობილობები
+
+Android მოწყობილობების მიერ მხარდაჭერილი უსაფრთხოების ფუნქციები ფრაგმენტირებულია. შედეგად,
+ყველა მოწყობილობა თანაბარ უსაფრთხოებას ვერ უზრუნველყოფს და შესაძლოა, მონაცემების მოპოვება მომხმარებლის
+პაროლის გარეშეც მოხდეს.
+
+ამიტომ, რეკომენდებულია მხოლოდ იმ მოწყობილობების გამოყენება, რომლებიც Android-ის მიერ მხარდაჭერილ
+ყველა უსაფრთხოების პარამეტრს აკმაყოფილებენ. ერთ-ერთი ასეთი ფუნქციაა [StrongBox](https://source.android.com/docs/security/best-practices/hardware),
+რომელიც ნიშნავს, რომ მოწყობილობას აქვს დამატებითი უსაფრთხოების ჩიპი, რომელიც მომხმარებლის ინფორმაციას იცავს და გამძლეა
+მონაცემების არასანქცირებული ამოღებისგან.
+
+Android სმარტფონების არასრული ჩამონათვალი, რომლებსაც აქვთ ასეთი უსაფრთხოების ჩიპი, შეგიძლიათ იხილოთ [ბმულზე](https://www.android-device-security.org/database/?realMeasurementsOnly=true&preDefinedScore=defaultSecurity&securityScoreCalculationApproach=true&securityScoreLabel-API%20Level=High&securityScoreLabel-Patchlevel=High&securityScoreLabel-Fingerprint=High&securityScoreLabel-Keymaster%20Version=Moderate&securityScoreLabel-Key%20Attestation%20Unique%20ID=High&securityScoreLabel-Keystore%20Export=High&securityScoreLabel-Keystore%20Import=Low&securityScoreLabel-OpenApi%20eSE=Low&securityScoreLabel-Embedded%20SIM%20(eSIM)=Low&securityScoreLabel-Strongbox=High&securityScoreLabel-A%2FB%20System%20Updates=High&securityScoreLabel-Identity%20Credential=High&securityScoreLabel-Protected%20Confirmation=High&securityScoreLabel-Trusted%20Execution%20Environment=High&securityScoreLabel-Encrypted%20Shared%20Preferences=High&securityScoreLabel-Android%20Virtualization%20Framework=Moderate&securityScoreLabel-Multiple%20User%20Support=High&show=Strongbox&page=1&rows=50&Strongbox=True&securityScoreSelectedCols=Fingerprint;Keymaster%20Version;Keystore%20Export;Keystore%20Import;Strongbox;A%2FB%20System%20Updates;Identity%20Credential;Protected%20Confirmation;Trusted%20Execution%20Environment;Encrypted%20Shared%20Preferences;Android%20Virtualization%20Framework;Multiple%20User%20Support;OpenApi%20eSE;Embedded%20SIM%20(eSIM)&securityScoreWeight-Release%20Date=10&securityScoreWeight-Fingerprint=43&securityScoreWeight-Keymaster%20Version=55&securityScoreWeight-Keystore%20Export=55&securityScoreWeight-Keystore%20Import=55&securityScoreWeight-OpenApi%20eSE=66&securityScoreWeight-Embedded%20SIM%20(eSIM)=61&securityScoreWeight-Strongbox=66&securityScoreWeight-A%2FB%20System%20Updates=20&securityScoreWeight-Identity%20Credential=74&securityScoreWeight-Protected%20Confirmation=76&securityScoreWeight-Trusted%20Execution%20Environment=66&securityScoreWeight-Encrypted%20Shared%20Preferences=65&securityScoreWeight-Android%20Virtualization%20Framework=50&securityScoreWeight-Multiple%20User%20Support=65&selectedDeviceModel=1&minThreshold-api_level=31&minThreshold-releasedate=2021-8-14&minThreshold-patchlevel=2024-05-01&minThreshold-Keymaster%20Version=4&minThreshold-OpenApi%20eSE=1&negateBooleans=Key%20Attestation%20Unique%20ID;Keystore%20Export;Rooted)
+
+/// admonition | Google Pixel
+    type: success
+
+Android-ზე მომუშავე სმარტფონებიდან **Google Pixel**, ზოგადად, ყველაზე უსაფრთხოა,
+რადგან ისინი იცავენ ყველა რეკომენდაციას, რომელიც Android-ის მიერ არის შემოთავაზებული.
+
+
+სხვა მწარმოებლებს ამ რეკომენდაციების შესრულება არ ევალებათ.
+
+Pixel სმარტფონები ასევე,
+სხვა Android მოწყობილობებთან შედარებით, ყველაზე სწრაფად და დიდი ხნის განმავლობაში იღებენ განახლებებს.
+
+///
 
 ## სისტემის კონფიგურაცია
 
 ### პაროლი
 
+/// admonition | პაროლის ლიმიტი
+    type: warning
+
+სამწუხაროდ, Android არ იძლევა 16 სიმბოლოზე უფრო გრძელი პაროლის დაყენების შესაძლებლობას.
+აუცილებელი 65 ბიტი სიმძლავრის ენტროპიის მისაღწევად კი 5 სიტყვის გენერირების შემთხვევაში,
+16 სიმბოლოს დიდი ალბათობით, გადააჭარბებთ.
+
+ერთადერთი გამოსავალი 65 ბიტ ენტროპიამდე ახლოს მისასვლელად, არის 5 მარცვლის დაგენერირება, მაგრამ
+მარცვლებს შორის არ გამოიყენოთ გამოტოვება, ოღონდ აუცილებლად დარწმუნდით, რომ ორი ან სამი მარცვალი
+ერთად სიტყვას არ ქმნის.
+
+უსაფრთხო პაროლის მაგალითი (**არ გამოიყენოთ მაგალითად მოცემული პაროლი!**):
+
+`plak.meh.feap.pum.cauk` (22 სიმბოლო)
+
+გამოტოვებებების გარეშე და ერთ-ერთი სიტყვის შემოკლებით:
+
+`plakmehfeappumca` (16 სიმბოლო)
+
+///
+
 დააყენეთ რთული პაროლი, რომელიც მხოლოდ ციფრებისგან არ შედგება.
 
-Android-ზე პაროლის მაქსიმალური სიგრძე 17-ია, ამიტომ შეგიძლიათ ისარგებლოთ [1Password Online Generator](https://1password.com/password-generator/)-ით.
-
-- დააგენერირეთ 4 მარცვალი **1Password**-ის გენერატორით. (1Password-ს მხოლოდ იმიტომ ვიყენებთ, რომ Bitwarden-ს მხოლოდ პაროლების და სიტყვების გენერირება შეუძლია, მარცვლების - არა)
+- დააგენერირეთ 5 მარცვალი **[1Password გენერატორით](https://1password.com/password-generator/)**. (1Password-ს მხოლოდ იმიტომ ვიყენებთ, რომ Bitwarden-ს მხოლოდ პაროლების და სიტყვების გენერირება შეუძლია, მარცვლების - არა)
 - შეინახეთ Bitwarden-ში
+- პაროლის დამახსოვრებამდე, ასევე შეინახეთ ფურცელზე. დამახსოვრების შემდეგ, ეს ფურცელი დაწვით
 - Settings > Security > Device Unlock > Screen Lock > Password > დააყენეთ ახალი პაროლი
 
