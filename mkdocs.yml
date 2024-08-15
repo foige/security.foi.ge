@@ -69,7 +69,8 @@ nav:
           - solutions/macos.md
           - solutions/ios.md
           - solutions/android.md
-      - "ქსელები":
+      - "რეკომენდაციები":
+          - solutions/messaging.md
           - solutions/dns.md
           - solutions/vpn.md
       - "საფრთხეები":
