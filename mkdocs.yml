@@ -83,5 +83,8 @@ nav:
           - "macOS": policies/macos.md
           - "iOS": policies/ios.md
           - "ბრაუზერები": policies/browser.md
-  - ტრენერებისთვის:
-      - trainers/index.md
+  - "FOI-ს შესახებ":
+      - about/index.md
+      - about/tos.md
+      - about/privacy.md
+      - about/trainers.md
