@@ -32,7 +32,7 @@ echo     __________________________________________________
 echo.
 echo       [1] Install FOI Security Policy
 echo       [2] Enforce PIN Login (Disable Passwords)
-echo       [3] Enable Multi-Factor Login
+echo       [3] Enforce Fingerprint Timeout
 echo       [4] [EXPERT] Disable PIN Login Enforcement
 echo       [5] [EXPERT] Disable Multi-Factor Login
 echo       [6] [EXPERT] Save GPO
@@ -55,8 +55,8 @@ if "%choice%"=="1" goto InstallGPO
 :EnforcePINLogin
 cls
 echo Enforcing PIN login...
-reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{60b78e88-ead8-445c-9cfd-0b87f74ea6cd}" /v "Disabled" /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{60b78e88-ead8-445c-9cfd-0b87f74ea6cd}\LogonPasswordReset" /v "Disabled" /t REG_DWORD /d 1 /f
+powershell -ExecutionPolicy Bypass -Command "Set-ItemProperty -Path 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{60b78e88-ead8-445c-9cfd-0b87f74ea6cd}' -Name 'Disabled' -Value '1'"
+powershell -ExecutionPolicy Bypass -Command "Set-ItemProperty -Path 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{60b78e88-ead8-445c-9cfd-0b87f74ea6cd}\LogonPasswordReset' -Name 'Disabled' -Value '1'"
 echo PIN login has been enforced.
 pause
 goto MainMenu
@@ -64,46 +64,26 @@ goto MainMenu
 :DisablePINLogin
 cls
 echo Disabling PIN login enforcement...
-reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{60b78e88-ead8-445c-9cfd-0b87f74ea6cd}" /v "Disabled" /f
-reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{60b78e88-ead8-445c-9cfd-0b87f74ea6cd}\LogonPasswordReset" /v "Disabled" /f
+powershell -ExecutionPolicy Bypass -Command "Set-ItemProperty -Path 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{60b78e88-ead8-445c-9cfd-0b87f74ea6cd}' -Name 'Disabled' -Value '0'"
+powershell -ExecutionPolicy Bypass -Command "Set-ItemProperty -Path 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{60b78e88-ead8-445c-9cfd-0b87f74ea6cd}\LogonPasswordReset' -Name 'Disabled' -Value '0'"
 echo PIN login enforcement has been disabled.
 pause
 goto MainMenu
 
 :EnforceFingerprintTimeout
 cls
-echo WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
-echo WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
-echo WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
-echo.
-echo Make sure that both PIN and Fingerprint are enabled. Otherwise, YOU WILL BE LOCKED OUT.
-echo.
-echo Enter "yes" to proceed
-echo.
-set /p confirm="Enter your choice: "
-if /i not "%confirm%"=="yes" (
-    echo You entered "%confirm%". Returning to the main menu...
-    goto MainMenu
-)
 echo Enforcing fingerprint timeout...
-
-:: Enable multi-factor auth
-reg add "HKLM\SOFTWARE\Policies\Microsoft\PassportForWork\DeviceUnlock" /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\PassportForWork\DeviceUnlock" /v "GroupA" /t REG_SZ /d "{D6886603-9D2F-4EB2-B667-1971041FA96B},{8AF662BF-65A0-4D0A-A540-A338A999D36F},{BEC09223-B018-416D-A0AC-523971B639F5}" /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\PassportForWork\DeviceUnlock" /v "GroupB" /t REG_SZ /d "{27FBDB57-B613-4AF2-9D7E-4FA7A66C21AD},{D6886603-9D2F-4EB2-B667-1971041FA96B}" /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\PassportForWork\DeviceUnlock" /v "Plugins" /t REG_SZ /d "<rule schemaVersion=\"1.0\"> <signal type=\"bluetooth\" scenario=\"Authentication\" classOfDevice=\"512\" rssiMin=\"-10\" rssiMaxDelta=\"-10\"/> </rule> " /f
 :: Create timeout tasks
-schtasks /create /tn "FOI2FAPinEnforcementEnable" /xml "%ScriptDir%\tasks\FOI2FAPinEnforcementEnable.xml" /f
-schtasks /create /tn "FOI2FAPinEnforcementDisable" /xml "%ScriptDir%\tasks\FOI2FAPinEnforcementDisable.xml" /f
+schtasks /create /tn "FOIPinEnforcementEnable" /xml "%ScriptDir%\tasks\FOIPinEnforcementEnable.xml" /f
+schtasks /create /tn "FOIPinEnforcementDisable" /xml "%ScriptDir%\tasks\FOIPinEnforcementDisable.xml" /f
 pause
 goto MainMenu
 
 :DisableFingerprintTimeout
 cls
 echo Disabling fingerprint timeout...
-powershell -ExecutionPolicy Bypass -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\PassportForWork\DeviceUnlock' -Name 'GroupB' -Value '{27FBDB57-B613-4AF2-9D7E-4FA7A66C21AD},{D6886603-9D2F-4EB2-B667-1971041FA96B}'"
-schtasks /delete /tn "FOI2FAPinEnforcementEnable" /f
-schtasks /delete /tn "FOI2FAPinEnforcementDisable" /f
+schtasks /delete /tn "FOIPinEnforcementEnable" /f
+schtasks /delete /tn "FOIPinEnforcementDisable" /f
 pause
 goto MainMenu
 
