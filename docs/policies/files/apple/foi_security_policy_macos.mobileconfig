@@ -56,12 +56,14 @@
 			<key>PayloadType</key>
 			<string>com.apple.applicationaccess</string>
 			<key>PayloadUUID</key>
-			<string>3346F574-690D-4D08-A54F-4D1F1662610F</string>
+			<string>B93E336F-F3A8-42FE-B874-C211943CA005</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 			<key>allowApplePersonalizedAdvertising</key>
 			<false/>
 			<key>allowAutoUnlock</key>
+			<false/>
+			<key>allowCloudKeychainSync</key>
 			<false/>
 			<key>allowDiagnosticSubmission</key>
 			<false/>
@@ -348,7 +350,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>71EBC27D-25BF-46E3-B674-7D2C61E47CF6</string>
+	<string>99D8E863-30AF-46B7-A76F-7DAA8EAABA49</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 	<key>TargetDeviceType</key>

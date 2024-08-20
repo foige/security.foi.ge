@@ -67,6 +67,15 @@ FOI Security Policy მოიცავს შემდეგ კონფიგ�
 დაყენებული პარამეტრების დათვალიერება ასევე შეგიძლიათ 
 [iMazing Profile Editor](https://apps.apple.com/us/app/imazing-profile-editor/id1487860882?mt=12)-ის მეშვეობით
 
+### iCloud
+
+#### Allow iCloud Keychain sync
+
+- [ ] გამორთული
+
+განმარტება: გამორთულია უსაფრთხოების გაზრდის მიზნით, რათა შეიზღუდოს მოწყობილობაზე შენახულ 
+სენსიტიურ მონაცემებზე - პაროლებსა და სხვა გასაღებებზე არასანქცირებული წვდომა.
+
 ### პაროლი
 
 #### Require passcode on device
