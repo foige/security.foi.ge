@@ -43,7 +43,7 @@ icon: material/two-factor-authentication
         open: false
 
 
-<video width="414" controls>
+<video width="414" controls preload="none" poster="/assets/thumb/vid/ente-auth.jpg">
     <source src="https://security-media.foi.ge/vid/ente-auth.mp4" type="video/mp4">
 </video>
 

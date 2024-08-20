@@ -129,6 +129,17 @@ Windows Pro ან Enterprise ვერსიებში.
 
 #### Ramdisk-ის შექმნა
 
+/// details | ვიდეო მაგალითი
+        type: success
+        open: false
+
+
+<video controls preload="none" poster="/assets/thumb/vid/ramdisk.jpg">
+    <source src="https://security-media.foi.ge/vid/ramdisk.mp4" type="video/mp4">
+</video>
+
+///
+
 - გადმოწერეთ და დააინსტალირეთ [SoftPerfect RAM Disk](https://www.softperfect.com/products/ramdisk/)
 - შექმენით დროებითი საცავი (100mb საკმარისია)
 - საცავში შექმენით ახალი ფოლდერი ნებისმიერი სახელით
@@ -294,8 +305,9 @@ Windows ამ ფუნქციონალს არ გვთავაზო
     
     ```powershell
     [3] Enforce Fingerprint Timeout
+    ```
 
-8 საათში ერთხელ, ბიომეტრიული აუთენტიფიკაცია ერთჯერადად გაითიშება და ერთჯერადად პინის
+8 საათში ერთხელ, ბიომეტრიული აუთენტიფიკაცია შემდეგ შესვლამდე გაითიშება და ერთჯერადად პინის
 შეყვანას მოითხოვს.
 
 ## სხვა ინსტრუქციები
