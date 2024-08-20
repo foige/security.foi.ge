@@ -41,11 +41,12 @@ icon: material/two-factor-authentication
 /// details | ვიდეო მაგალითი
         type: success
         open: false
-    
+
+
 <video width="414" controls>
-    <source src="/assets/vid/ente-auth.mp4" type="video/mp4">
+    <source src="https://security-media.foi.ge/vid/ente-auth.mp4" type="video/mp4">
 </video>
-    
+
 ///
 
 1. გადმოწერეთ და დააყენეთ აპლიკაცია თქვენი მოწყობილობისთვის:
