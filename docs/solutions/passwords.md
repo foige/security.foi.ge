@@ -55,6 +55,17 @@ icon: material/key-variant
 
 ## დაშიფრული სანახის შექმნა
 
+/// details | ვიდეო მაგალითი
+        type: success
+        open: false
+
+
+<video controls preload="none" poster="/assets/thumb/vid/bitwarden-create-win.jpg">
+    <source src="https://security-media.foi.ge/vid/bitwarden-create-win.mp4" type="video/mp4">
+</video>
+
+///
+
 პაროლების მენეჯერი თქვენი მთავარი პაროლით (master password) იშიფრება. 
 ამიტომ აუცილებელია, რომ ეს პაროლი რთული და აუცილებლად კომპიუტერის მიერ, შემთხვევითი წესით
 გენერირებული იყოს.
