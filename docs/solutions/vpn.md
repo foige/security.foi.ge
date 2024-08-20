@@ -25,6 +25,6 @@ icon: material/vpn
 
 ## ინსტალაცია
 
-- შექმენით ანგარიში - [Mullvad](https://mullvad.net/en/create/)
+- შექმენით ანგარიში - [Mullvad](https://mullvad.net/en/account/create)
 - შეინახეთ **Account Number** Bitwarden-ში.
 - შეავსეთ ანგარიში. რეკომენდირებულია **Monero**-ით გადახდა.
