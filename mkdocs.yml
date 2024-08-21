@@ -39,7 +39,7 @@ extra:
     provider: plausible
     domain: security.foi.ge
 extra_css:
-  - assets/stylesheets/extra.css?v=1724222763
+  - assets/stylesheets/extra.css?v=1724224182
 theme:
   name: material
   font:
