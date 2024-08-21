@@ -269,6 +269,17 @@ icon: material/key-variant
 
 ### ბრაუზერი
 
+/// details | ვიდეო მაგალითი
+        type: success
+        open: false
+
+
+<video controls preload="none" poster="/assets/thumb/vid/bitwarden-chromium.jpg">
+    <source src="https://security-media.foi.ge/vid/bitwarden-chromium.mp4" type="video/mp4">
+</video>
+
+///
+
 1. დააყენეთ ბრაუზერის გაფართოება - [https://bitwarden.com/download/#downloads-web-browser](https://bitwarden.com/download/#downloads-web-browser)
 2. აირჩიეთ დაყენებული გაფართოება და დაპინეთ (Chrome/Brave - მარჯვენა კლიკი > Pin)
 
