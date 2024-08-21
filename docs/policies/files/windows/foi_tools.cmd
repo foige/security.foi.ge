@@ -112,8 +112,8 @@ cls
 echo Performing Backup...
 
 :: Get the current date and time to create a unique backup directory
-for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /value') do set datetime=%%I
-set backupDir=%BackupBaseDir%\backup_%datetime:~0,8%_%datetime:~8,6%
+for /f "delims=" %%I in ('powershell -Command "Get-Date -Format yyyyMMdd_HHmmss"') do set datetime=%%I
+set backupDir=%BackupBaseDir%\backup_%datetime%
 
 if not exist "%BackupBaseDir%\" mkdir "%BackupBaseDir%"
 mkdir "%backupDir%"
