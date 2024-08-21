@@ -31,3 +31,16 @@ video {
     margin-left: auto;
     margin-right: auto;
 }
+
+.codewrap code {
+  white-space : pre-wrap !important;
+}
+
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 {
+    font-weight: 600;
+}
+
+.md-typeset h2 {
+    font-size: 2.1em;
+}
+
