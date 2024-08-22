@@ -79,6 +79,7 @@ nav:
           - solutions/messaging.md
           - solutions/dns.md
           - solutions/vpn.md
+          - solutions/antivirus.md
       - "საფრთხეები":
           - solutions/behavior.md
           - solutions/hardware-keys.md
