@@ -1,5 +1,5 @@
 # Variables
-$repoUrl = "https://github.com/foige/security/archive/refs/heads/main.zip"
+$repoUrl = "https://github.com/foige/security.foi.ge/archive/refs/heads/main.zip"
 $rand = Get-Random
 $tempBase = $env:TEMP
 $destinationFolder = "foi_$rand"

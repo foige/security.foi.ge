@@ -33,7 +33,8 @@ video {
 }
 
 .codewrap code {
-  white-space : pre-wrap !important;
+    white-space: pre-wrap !important;
+    font-size: 0.80em;
 }
 
 .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 {
