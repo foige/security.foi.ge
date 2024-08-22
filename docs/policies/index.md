@@ -20,7 +20,7 @@
 <div class="grid cards" markdown>
 
 - [:material-apple: macOS](macos.md)
-- [:material-apple-ios: iOS 17](ios.md)
+- [:material-apple-ios: iOS](ios.md)
 - [:material-microsoft-windows: Windows](windows.md)
 
 </div>
