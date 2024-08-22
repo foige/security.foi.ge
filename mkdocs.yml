@@ -33,11 +33,10 @@ plugins:
   - material-plausible
   - include-markdown
   - search
+  - privacy
+  - minify
 extra:
   generator: false
-  analytics:
-    provider: plausible
-    domain: security.foi.ge
 extra_css:
   - assets/stylesheets/extra.css?v=1724224182
 theme:
