@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
-site_name: FOI უსაფრთხოება
+site_name: FOI კიბერუსაფრთხოება
 repo_url: https://github.com/foige/security
 repo_name: ""
 markdown_extensions:
@@ -81,6 +81,7 @@ nav:
           - solutions/vpn.md
           - solutions/antivirus.md
       - "საფრთხეები":
+          - solutions/misconceptions.md
           - solutions/behavior.md
           - solutions/hardware-keys.md
   - FOI Security Policy:
