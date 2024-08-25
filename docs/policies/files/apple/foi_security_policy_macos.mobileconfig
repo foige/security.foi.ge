@@ -34,15 +34,17 @@
 			<key>PayloadType</key>
 			<string>com.apple.mobiledevice.passwordpolicy</string>
 			<key>PayloadUUID</key>
-			<string>DCA17B81-21D9-41FA-A4D9-4ED16544E57A</string>
+			<string>388A10E2-DF90-403D-A022-2E604BE40186</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
+			<key>allowSimple</key>
+			<false/>
 			<key>forcePIN</key>
 			<true/>
 			<key>maxFailedAttempts</key>
 			<integer>10</integer>
 			<key>minLength</key>
-			<integer>8</integer>
+			<integer>12</integer>
 			<key>minutesUntilFailedLoginReset</key>
 			<integer>2</integer>
 			<key>requireAlphanumeric</key>
@@ -340,7 +342,7 @@
 		</dict>
 	</array>
 	<key>PayloadDisplayName</key>
-	<string>FOI Security Policy (macOS)</string>
+	<string>FOI Security Policy (macOS.2024-08-26)</string>
 	<key>PayloadIdentifier</key>
 	<string>ge.foi.security-policy-mac</string>
 	<key>PayloadOrganization</key>
@@ -350,7 +352,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>99D8E863-30AF-46B7-A76F-7DAA8EAABA49</string>
+	<string>DBB026A4-A044-477F-A9AE-FB541CCF18FE</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 	<key>TargetDeviceType</key>

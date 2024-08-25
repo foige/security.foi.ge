@@ -60,19 +60,21 @@
 			<key>PayloadType</key>
 			<string>com.apple.mobiledevice.passwordpolicy</string>
 			<key>PayloadUUID</key>
-			<string>A867F6AF-8D3A-4236-9DE7-7F6F3E13210C</string>
+			<string>A80154D0-2EE3-47C7-9FD9-B07D9966DF3A</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
+			<key>allowSimple</key>
+			<false/>
 			<key>forcePIN</key>
 			<true/>
 			<key>maxFailedAttempts</key>
 			<integer>11</integer>
 			<key>minLength</key>
-			<integer>8</integer>
+			<integer>12</integer>
 			<key>pinHistory</key>
 			<integer>2</integer>
 			<key>requireAlphanumeric</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>PayloadDisplayName</key>
@@ -82,7 +84,7 @@
 			<key>PayloadType</key>
 			<string>com.apple.applicationaccess</string>
 			<key>PayloadUUID</key>
-			<string>235183D1-FF7C-41B6-8F57-BADD63DC4670</string>
+			<string>CE7E7B01-DDA8-4B9B-ACEB-E5F0D4EF240B</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 			<key>allowApplePersonalizedAdvertising</key>
@@ -95,12 +97,10 @@
 			<false/>
 			<key>allowPasswordSharing</key>
 			<false/>
-			<key>forceAuthenticationBeforeAutoFill</key>
-			<true/>
 		</dict>
 	</array>
 	<key>PayloadDisplayName</key>
-	<string>FOI Security Policy (iOS)</string>
+	<string>FOI Security Policy (iOS.2024-08-26)</string>
 	<key>PayloadIdentifier</key>
 	<string>ge.foi.security-policy-ios</string>
 	<key>PayloadOrganization</key>
@@ -110,7 +110,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>CAB218C3-0D9E-4DD4-9787-9FB5537F4801</string>
+	<string>DB4DF3C5-69E2-4769-ABDC-C77BDD8E5E56</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 	<key>TargetDeviceType</key>
