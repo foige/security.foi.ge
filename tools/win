@@ -5,7 +5,7 @@ $tempBase = $env:TEMP
 $destinationFolder = "foi_$rand"
 $destination = Join-Path -Path $tempBase -ChildPath $destinationFolder
 $zipFile = Join-Path -Path $destination -ChildPath "$destinationFolder.zip"
-$extractedFolderName = "security-main"
+$extractedFolderName = "security.foi.ge-main"
 $cmdRelativePath = "docs\policies\files\windows"
 $fullCmdPath = Join-Path -Path $destination -ChildPath "$extractedFolderName\$cmdRelativePath"
 $cmdFile = Join-Path -Path $fullCmdPath -ChildPath "foi_tools.cmd"
@@ -43,4 +43,3 @@ if (Test-Path $cmdFile) {
 
 # Optional: Clean up by removing the downloaded ZIP file
 Remove-Item $zipFile -Force
-exit
