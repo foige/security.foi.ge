@@ -1,5 +1,5 @@
 #!/bin/bash
-SCRIPT_URL="https://raw.githubusercontent.com/foige/security/main/docs/policies/files/apple/foi_tools.sh"
+SCRIPT_URL="https://raw.githubusercontent.com/foige/security.foi.ge/main/docs/policies/files/apple/foi_tools.sh"
 
 timestamp=$(date +%Y%m%d%H%M%S)
 temp_script="/tmp/foi_tools_${timestamp}.sh"
