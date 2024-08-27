@@ -77,7 +77,7 @@ FileVault არის macOS-ის ფუნქცია, რომელიც
     ![Apple Settings](../assets/img/icons/apple/settings.svg){ .twemoji } **System Settings** > **Users & Groups** > **Add User**.
     შექმენით ახალი ადმინისტრატორის მომხმარებელი სახელით `unlock`.
 
-2. **Bitwarden**-ით დააგენერირეთ 5 სიტყვიანი პაროლი, ჩაამატეთ 1 ციფრი ნებისმიერ ადგილზე და შეინახეთ
+2. **Bitwarden**-ით დააგენერირეთ 5 სიტყვიანი პაროლი და შეინახეთ
 
     (**არ გამოიყენოთ მაგალითში მოცემული პაროლი!**)
     ![Bitwarden](../assets/img/solutions/macos_unlock_user_bitwarden.png)
@@ -136,7 +136,7 @@ FileVault არის macOS-ის ფუნქცია, რომელიც
     **System Settings** > **Users & Groups**
     ![Users & Groups](../assets/img/solutions/macos_change_password.png)
 
-2. Bitwarden-ით დააგენერირეთ 5 სიტყვიანი პაროლი, ჩაამატეთ 1 ციფრი ნებისმიერ ადგილზე და შეინახეთ
+2. Bitwarden-ით დააგენერირეთ 5 სიტყვიანი პაროლი და შეინახეთ
 
     (**არ გამოიყენოთ მაგალითში მოცემული პაროლი!**)
     ![Bitwarden](../assets/img/solutions/macos_standard_user_bitwarden.png)

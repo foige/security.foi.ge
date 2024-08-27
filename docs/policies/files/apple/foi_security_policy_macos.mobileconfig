@@ -34,7 +34,7 @@
 			<key>PayloadType</key>
 			<string>com.apple.mobiledevice.passwordpolicy</string>
 			<key>PayloadUUID</key>
-			<string>388A10E2-DF90-403D-A022-2E604BE40186</string>
+			<string>02DBC82C-F269-4C55-AA7A-5BC618BE4BF0</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 			<key>allowSimple</key>
@@ -48,7 +48,7 @@
 			<key>minutesUntilFailedLoginReset</key>
 			<integer>2</integer>
 			<key>requireAlphanumeric</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>PayloadDisplayName</key>
@@ -352,7 +352,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>DBB026A4-A044-477F-A9AE-FB541CCF18FE</string>
+	<string>E60D4AE3-DDE1-419D-882C-D78899521C98</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 	<key>TargetDeviceType</key>
