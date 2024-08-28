@@ -235,6 +235,7 @@ icon: material/key-variant
         | **Length**        | 5 ან მეტი                   |
         | **Password Type** | Memorable Password          |
         | **Full Words**    | :material-checkbox-outline: |
+
 - ჩაიწერეთ დაგენერირებული პაროლი **ფურცელზე**!
     - არ გადაუღოთ სურათი
     - არ დაასკანეროთ
