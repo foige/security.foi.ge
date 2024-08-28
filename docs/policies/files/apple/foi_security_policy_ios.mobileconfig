@@ -60,7 +60,7 @@
 			<key>PayloadType</key>
 			<string>com.apple.mobiledevice.passwordpolicy</string>
 			<key>PayloadUUID</key>
-			<string>A80154D0-2EE3-47C7-9FD9-B07D9966DF3A</string>
+			<string>F723F455-2956-4ECC-8CB0-33742B72E15E</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 			<key>allowSimple</key>
@@ -70,11 +70,9 @@
 			<key>maxFailedAttempts</key>
 			<integer>11</integer>
 			<key>minLength</key>
-			<integer>12</integer>
+			<integer>15</integer>
 			<key>pinHistory</key>
 			<integer>2</integer>
-			<key>requireAlphanumeric</key>
-			<false/>
 		</dict>
 		<dict>
 			<key>PayloadDisplayName</key>
@@ -100,7 +98,7 @@
 		</dict>
 	</array>
 	<key>PayloadDisplayName</key>
-	<string>FOI Security Policy (iOS.2024-08-26)</string>
+	<string>FOI Security Policy (iOS.2024-08-28)</string>
 	<key>PayloadIdentifier</key>
 	<string>ge.foi.security-policy-ios</string>
 	<key>PayloadOrganization</key>
@@ -110,7 +108,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>DB4DF3C5-69E2-4769-ABDC-C77BDD8E5E56</string>
+	<string>B613ADC4-E814-4A35-8E4C-1D8DBA93645C</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 	<key>TargetDeviceType</key>

@@ -34,7 +34,7 @@
 			<key>PayloadType</key>
 			<string>com.apple.mobiledevice.passwordpolicy</string>
 			<key>PayloadUUID</key>
-			<string>02DBC82C-F269-4C55-AA7A-5BC618BE4BF0</string>
+			<string>CDF4A0F0-0311-41BB-AAEE-DF030186571E</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 			<key>allowSimple</key>
@@ -43,12 +43,12 @@
 			<true/>
 			<key>maxFailedAttempts</key>
 			<integer>10</integer>
+			<key>maxInactivity</key>
+			<integer>15</integer>
 			<key>minLength</key>
-			<integer>12</integer>
+			<integer>15</integer>
 			<key>minutesUntilFailedLoginReset</key>
 			<integer>2</integer>
-			<key>requireAlphanumeric</key>
-			<false/>
 		</dict>
 		<dict>
 			<key>PayloadDisplayName</key>
@@ -220,14 +220,25 @@
 			<key>PayloadType</key>
 			<string>com.apple.SetupAssistant.managed</string>
 			<key>PayloadUUID</key>
-			<string>96B4E3B8-E9C3-4C69-8314-393504E25C30</string>
+			<string>9B9300DB-1294-421E-88F3-C957885559C7</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 			<key>SkipCloudSetup</key>
 			<true/>
 			<key>SkipScreenTime</key>
 			<true/>
+			<key>SkipSetupItems</key>
+			<array>
+				<string>AppleID</string>
+				<string>Biometric</string>
+				<string>Siri</string>
+				<string>UnlockWithWatch</string>
+			</array>
 			<key>SkipSiriSetup</key>
+			<true/>
+			<key>SkipTouchIDSetup</key>
+			<true/>
+			<key>SkipUnlockWithWatch</key>
 			<true/>
 		</dict>
 		<dict>
@@ -266,7 +277,7 @@
 			<key>PayloadType</key>
 			<string>com.apple.screensaver</string>
 			<key>PayloadUUID</key>
-			<string>DE067A86-1D48-400C-AB7E-34B613729FDB</string>
+			<string>CDADA1C1-53EA-45AF-99C0-9AD4718375CF</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 			<key>askForPassword</key>
@@ -342,7 +353,7 @@
 		</dict>
 	</array>
 	<key>PayloadDisplayName</key>
-	<string>FOI Security Policy (macOS.2024-08-26)</string>
+	<string>FOI Security Policy (macOS.2024-08-28)</string>
 	<key>PayloadIdentifier</key>
 	<string>ge.foi.security-policy-mac</string>
 	<key>PayloadOrganization</key>
@@ -352,7 +363,7 @@
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>E60D4AE3-DDE1-419D-882C-D78899521C98</string>
+	<string>B0962873-7BD3-416E-BD1D-7C7D90B9DF8D</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 	<key>TargetDeviceType</key>
