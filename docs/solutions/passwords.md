@@ -318,7 +318,7 @@ icon: material/key-variant
 
 ბრაუზერის გაფართოების პარამეტრები:
 
-*Browser* > :simple-bitwarden: **Bitwarden** > **Settings** > **Account Security**
+**Browser** > :simple-bitwarden: **Bitwarden** > **Settings** > **Account Security**
 
 | პარამეტრი                  | მნიშვნელობა                                    |
 |----------------------------|------------------------------------------------|
@@ -334,28 +334,63 @@ icon: material/key-variant
 
 /// tab | Android
 
-1. :material-cog: **Settings** > **Passwords, passkeys & autofill** > **Preferred service** > **Bitwarden**
-2. **Additional services** - გათიშეთ ყველა სხვა.
+- :material-cog: **Settings** > **Passwords, passkeys & autofill** > **Preferred service** > **Bitwarden**
+- **Additional services** - გათიშეთ ყველა სხვა.
 
 ///
 
 /// tab | iOS
 
-1. :material-cog: **Settings** > **Passwords**> **Password options**
-2. **Keychain** :fontawesome-solid-toggle-off:
-3. **Bitwarden** :fontawesome-solid-toggle-on:
-4. გათიშეთ ყველა სხვა ჩამოთვლილი, Bitwarden-ის გარდა.
+- :material-cog: **Settings** > **Passwords**> **Password options**
+- **Keychain** :fontawesome-solid-toggle-off:
+- **Bitwarden** :fontawesome-solid-toggle-on:
+- გათიშეთ ყველა სხვა ჩამოთვლილი, Bitwarden-ის გარდა.
 
 ///
 
-პარამეტრები:
+- გამართეთ უსართხოების პარამეტრები **Bitwarden** > **Settings** > **Account Security**:
 
-| პარამეტრი                  | მნიშვნელობა                                 |
-|----------------------------|---------------------------------------------|
-| **Unlock with biometrics** | :white_check_mark:                          |
-| **Unlock with PIN code**   | :x: :exclamation::exclamation::exclamation: |
-| **Session timeout**        | `15 minutes`                                |
-| **Vault timeout action**   | `Lock`                                      |
+/// admonition
+    type: warning
+
+**Bitwarden**-ს ერთი მნიშვნელოვანი ნაკლოვანება აქვს: მობილურ მოწყობილობებზე, ბიომეტრიული
+აუთენტიფიკაციის ჩართვის შემდეგ, სანახის გასახსნელად, ის პაროლს აღარასდროს მოგთხოვთ და ყოველთვის 
+ბიომეტრიით შეხვალთ. ამით თითქმის გარანტირებულია, რომ Bitwarden-ის პაროლს ვერასდროს დაიმახსოვრებთ
+და ეს პაროლი ფურცელზე მუდამ იარსებებს, რაც რისკებს ზრდის. 
+
+ამიტომ უკეთესია, თუ პირველი 2-3 კვირის განმავლობაში, ან იქამდე, სანამ პაროლს ნამდვილად არ 
+დაიმახსოვრებთ, **Bitwarden**-ში ბიომეტრიულ აუთენტიფიკაციას არ გამოიყენებთ.
+
+///
+
+**პარამეტრები**:
+
+<div class="grid cards" markdown>
+
+- **პაროლის დამახსოვრებამდე**
+
+    ---
+    
+    | პარამეტრი                  | მნიშვნელობა                                 |
+    |----------------------------|---------------------------------------------|
+    | **Unlock with biometrics** | :x: :exclamation:                           |
+    | **Unlock with PIN code**   | :x: :exclamation::exclamation::exclamation: |
+    | **Session timeout**        | `1 hour`                                    |
+    | **Vault timeout action**   | `Lock`                                      |
+
+
+- **პაროლის დამახსოვრების შემდეგ**
+
+    ---
+
+    | პარამეტრი                  | მნიშვნელობა                                 |
+    |----------------------------|---------------------------------------------|
+    | **Unlock with biometrics** | :white_check_mark:                          |
+    | **Unlock with PIN code**   | :x: :exclamation::exclamation::exclamation: |
+    | **Session timeout**        | `15 minutes`                                |
+    | **Vault timeout action**   | `Lock`                                      |
+
+</div>
 
 
 ## პაროლების იმპორტი
