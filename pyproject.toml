@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-mkdocs-material = "^9.5.29"
+mkdocs-material = {extras = ["imaging"], version = "^9.5.34"}
 pymdown-extensions = "^10.8.1"
 mkdocs-include-markdown-plugin = "^6.2.1"
 mkdocs = "^1.6.0"
