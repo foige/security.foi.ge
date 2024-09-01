@@ -472,6 +472,14 @@ ipconfig /release
 
 თუ მოწყობილობაში შესასვლელად იყენებთ Microsoft-ის ანგარიშს, [გადააკონვერტირეთ ის ლოკალურზე](https://support.microsoft.com/en-us/windows/change-from-a-local-account-to-a-microsoft-account-395203bf-9f1b-eb24-b042-5b8dae6c1d20)
 
-### უსაფრთხოების დამატებითი პარამეტრები
 
-[https://support.microsoft.com/en-us/windows/device-protection-in-windows-security-afa11526-de57-b1c5-599f-3a4c6a61c5e2](https://support.microsoft.com/en-us/windows/device-protection-in-windows-security-afa11526-de57-b1c5-599f-3a4c6a61c5e2)
+## შემდეგი ნაბიჯები
+
+- [x] აირჩიეთ თქვენი მობილურის ოპერაციული სისტემა და გააგრძელეთ მისი გამართვით:
+
+<div class="grid cards" markdown>
+
+- [:material-apple-ios: iOS](ios.md)
+- [:material-android: Android](android.md)
+
+</div>

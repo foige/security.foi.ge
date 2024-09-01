@@ -1,4 +1,5 @@
 ---
+description: "ციფრული უსაფრთხოების გზამკვლევი"
 hide:
   - navigation
 ---
