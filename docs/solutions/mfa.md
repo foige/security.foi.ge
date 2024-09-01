@@ -110,5 +110,17 @@ icon: material/two-factor-authentication
 ## რეკომენდაციები
 
 - [x] გამოიყენეთ მხოლოდ მობილური აპლიკაცია და **Ente Auth** არ დააყენოთ ლეპტოპზე
+- [x] სერვისებზე ერთადერთ ორბიჯიან აუთენტიფიკაციად გამოიყენეთ **Ente Auth**, ყველა სხვა (მაგ. მეილი, SMS) გათიშეთ
+
+## შემდეგი ნაბიჯები
+
 - [x] ყველა მნიშვნელოვან ანგარიშზე ჩართეთ მრავალბიჯიანი აუთენტიფიკაცია და ერთადერთ საშუალებად 
     აირჩიეთ **Ente Auth / Authenticator**, გათიშეთ SMS და ყველა სხვა მეთოდი.
+- [x] აირჩიეთ თქვენი Desktop ოპერაციული სისტემა და გააგრძელეთ მისი გამართვით:
+
+<div class="grid cards" markdown>
+
+- [:material-microsoft-windows: Windows](windows.md)
+- [:material-apple: macOS](macos.md)
+
+</div>

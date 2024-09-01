@@ -36,3 +36,12 @@ title: გადაწყვეტები
 ///
 
 
+<div class="grid cards" markdown>
+
+-   
+
+
+    [:octicons-arrow-right-24: დაიწყეთ პაროლების მენეჯერით](passwords.md)
+
+
+</div>
