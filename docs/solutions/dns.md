@@ -60,7 +60,7 @@ MacOS-ზე DoH-ის ჩართვა სისტემური პრო
 თუმცა აპლიკაციებს სისტემურ პროფილში არსებული პარამეტრების საკუთარით ჩანაცვლება შეუძლიათ.
 რაც ხშირ შემთხვევაში, აჩენს DNS ტრაფიკის გაჟონვის რისკს.
 
-ეს ეხება ყველა ბრაუზერს, რომელიც დაფუძნებულია [Chromium-ის ძრავზე][1] (მაგ. Chrome, Brave, Edge).
+ეს ეხება ყველა ბრაუზერს, რომელიც დაფუძნებულია [Chromium-ის ძრავზე][1]{:target="_blank"} (მაგ. Chrome, Brave, Edge).
 
 ამის გამო, FOI სისტემური პროფილი ბრაუზერების პარამეტრებსაც შეიცავს, რომელიც Chrome, Brave, Edge
 ბრაუზერებს მიუთითებს, რომ გამოიყენონ სისტემური DNS, ხოლო Firefox-ის შემთხვევაში - აკონფიგურებს 
@@ -78,7 +78,7 @@ Cloudflare DoH-ს პირდაპირ ბრაუზერში.
 CloudFlare-ის DNS სერვერი. ეს სერვერი სტანდარტულია და მასში რეკლამები ან სხვა დომენები დაბლოკილი არ არის.
 
 1. "CloudFlare DoH": `Enabled`
-2. შედით ბრაუზერიდან [https://one.one.one.one/help](https://one.one.one.one/help) და შეამოწმეთ - `Using DNS over HTTPS (DoH) - Yes`
+2. შედით ბრაუზერიდან [https://one.one.one.one/help](https://one.one.one.one/help){:target="_blank"} და შეამოწმეთ - `Using DNS over HTTPS (DoH) - Yes`
 
 ///
 
@@ -87,7 +87,7 @@ CloudFlare-ის DNS სერვერი. ეს სერვერი სტ
 AdGuard-ის DNS სერვერი. ამ სერვერზე დაბლოკილია რეკლამების, თრექინგის და ფიშინგის მნიშვნელოვანი ნაწილი.
 
 1. "AdGuard DoH": `Enabled`
-2. შედით ბრაუზერიდან [https://adguard.com/en/test.html](https://adguard.com/en/test.html) და შეამოწმეთ - `Protocol: DNS-over-HTTPS`
+2. შედით ბრაუზერიდან [https://adguard.com/en/test.html](https://adguard.com/en/test.html){:target="_blank"} და შეამოწმეთ - `Protocol: DNS-over-HTTPS`
 
 ///
 
@@ -146,7 +146,7 @@ CloudFlare-ის DNS სერვერი. ეს სერვერი სტ
 3. DNS over HTTPS-ში ვირჩევთ "On (automatic template)"
 4. DNS over HTTPS ავტომატურად შეივსება:  `https://cloudflare-dns.com/dns-query`
 5. Save
-6. შედით ბრაუზერიდან [https://one.one.one.one/help](https://one.one.one.one/help) და შეამოწმეთ - `Using DNS over HTTPS (DoH) - Yes`
+6. შედით ბრაუზერიდან [https://one.one.one.one/help](https://one.one.one.one/help){:target="_blank"} და შეამოწმეთ - `Using DNS over HTTPS (DoH) - Yes`
 
 ///
 
@@ -159,7 +159,7 @@ AdGuard-ის DNS სერვერი. ამ სერვერზე და
 3. DNS over HTTPS-ში ვირჩევთ "On (manual template)"
 4. DNS over HTTPS შეიყვანეთ:  `https://dns.adguard-dns.com/dns-query`
 5. Save
-6. შედით ბრაუზერიდან [https://adguard.com/en/test.html](https://adguard.com/en/test.html) და შეამოწმეთ - `Protocol: DNS-over-HTTPS`
+6. შედით ბრაუზერიდან [https://adguard.com/en/test.html](https://adguard.com/en/test.html){:target="_blank"} და შეამოწმეთ - `Protocol: DNS-over-HTTPS`
 
 ///
 
@@ -176,7 +176,7 @@ Ethernet.
 
 #### Android
 
-Android-ზე DoH მხოლოდ ორ DNS სერვისთან მუშაობს, რომელიც კოდშია გაწერილი [3].
+Android-ზე DoH მხოლოდ ორ DNS სერვისთან მუშაობს, რომელიც კოდშია გაწერილი [3]{:target="_blank"}.
 
 სტანდარტული 1.1.1.1 მაგივრად, სხვა სერვერის გამოყენების შემთხვევაში, DoH-ის ნაცვლად სისტემა
 DoT (DNS-over-TLS)-ს გამოიყენებს, რაც ხშირად, შესაძლოა დაბლოკილი იყოს ქსელის ადმინისტრატორის მიერ.
@@ -188,7 +188,7 @@ DoT (DNS-over-TLS)-ს გამოიყენებს, რაც ხშირ
 
 დამატებით წასაკითხი:
 
-[DNS over HTTPS and DNS over TLS][2] - Mullvad
+[DNS over HTTPS and DNS over TLS][2]{:target="_blank"} - Mullvad
 
 [1]: https://issues.chromium.org/issues/40875115
 [2]: https://mullvad.net/en/help/dns-over-https-and-dns-over-tls

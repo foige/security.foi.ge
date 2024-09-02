@@ -26,7 +26,7 @@ icon: material/two-factor-authentication
 
 <div class="grid cards" markdown>
 
-- ![Ente Auth](../assets/img/logo/ente-auth.svg){ .lg .middle .twemoji } [Ente Auth](https://ente.io/auth/)
+- ![Ente Auth](../assets/img/logo/ente-auth.svg){ .lg .middle .twemoji } [Ente Auth](https://ente.io/auth/){:target="_blank"}
 
     ---
     **Ente Auth** არის ღია წყაროს მქონე და უფასო 2FA კოდების გენერატორი, რომელშიც
@@ -53,8 +53,8 @@ icon: material/two-factor-authentication
 
     <div class="grid cards" markdown>
     
-    - [:material-apple-ios: iOS 17](https://apps.apple.com/us/app/ente-auth/id6444121398)
-    - [:material-android: Android](https://play.google.com/store/apps/details?id=io.ente.auth)
+    - [:material-apple-ios: iOS 17](https://apps.apple.com/us/app/ente-auth/id6444121398){:target="_blank"}
+    - [:material-android: Android](https://play.google.com/store/apps/details?id=io.ente.auth){:target="_blank"}
     
     </div>
 
@@ -85,7 +85,7 @@ icon: material/two-factor-authentication
 
 დემონსტრაციისთვის, Google-ის ანგარიშზე ჩავრთავთ **Ente Auth**-ით დამატებით აუთენტიფიკაციას. 
 
-1. ლეპტოპის ბრაუზერით შედით გუგლის ანგარიშის [უსაფრთხოების პარამეტრების გვერდზე](https://myaccount.google.com/security)
+1. ლეპტოპის ბრაუზერით შედით გუგლის ანგარიშის [უსაფრთხოების პარამეტრების გვერდზე](https://myaccount.google.com/security){:target="_blank"}
 2. აირჩიეთ **2-Step Verification**
 3. აირჩიეთ **Authenticator** > **Set up authenticator**
 4. მობილურში, გახსენით **Ente Auth** და დააჭირეთ **Scan a QR Code** ან **+** ღილაკს

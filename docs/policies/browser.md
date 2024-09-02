@@ -89,8 +89,8 @@ N/A
     type: reference
     open: false
 
-- [DISA Stig](https://www.stigviewer.com/stig/google_chrome_current_windows/2023-11-21/finding/V-221567)
-- [Leaked Password Detection](https://www.usenix.org/conference/usenixsecurity23/presentation/kwong)
+- [DISA Stig](https://www.stigviewer.com/stig/google_chrome_current_windows/2023-11-21/finding/V-221567){:target="_blank"}
+- [Leaked Password Detection](https://www.usenix.org/conference/usenixsecurity23/presentation/kwong){:target="_blank"}
 
 ///
 

@@ -28,7 +28,7 @@ icon: material/apple-ios
 ჩაწერა პრობლემურია, პაროლის დასაგენერირებლად გამოვიყენებთ **1Password**-ის ონლაინ გენერატორს,
 თუმცა პაროლს მაინც **Bitwarden**-ში შევინახავთ.
 
-სწრაფად შესაყვანი პაროლის დასაგენერირებლად, შეგიძლიათ ისარგებლოთ [1Password Online Generator](https://1password.com/password-generator/)-ით.
+სწრაფად შესაყვანი პაროლის დასაგენერირებლად, შეგიძლიათ ისარგებლოთ [1Password Online Generator](https://1password.com/password-generator/){:target="_blank"}-ით.
 
 #### ახალი პაროლის შექმნა
 
@@ -81,7 +81,7 @@ Apple Watch ავტომატურად განიბლოკება 
 FOI Security Policy მოიცავს შემდეგ კონფიგურაციას და ავტომატურად გააქტიურდება.
 
 დაყენებული პარამეტრების დათვალიერება ასევე შეგიძლიათ 
-[iMazing Profile Editor](https://apps.apple.com/us/app/imazing-profile-editor/id1487860882?mt=12)-ის მეშვეობით
+[iMazing Profile Editor](https://apps.apple.com/us/app/imazing-profile-editor/id1487860882?mt=12){:target="_blank"}-ის მეშვეობით
 
 ### DNSSettings | DNS პარამეტრები
 

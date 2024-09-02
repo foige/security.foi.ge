@@ -13,7 +13,7 @@ icon: material/chat
 
 <div class="grid cards" markdown>
 
-- ![Signal](../assets/img/logo/signal.svg){ .lg .middle .twemoji } [Signal](https://signal.org/download/)
+- ![Signal](../assets/img/logo/signal.svg){ .lg .middle .twemoji } [Signal](https://signal.org/download/){:target="_blank"}
 
     ---
     **Signal** არის ყველაზე უსაფრთხო კომუნიკაციის საშუალება. სიგნალი მომხმარებლის შესახებ
