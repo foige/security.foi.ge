@@ -26,7 +26,7 @@ hide:
 ### Windows პარამეტრები
 
 
-Windows-ის შემთხვევაში, აუცილებელია Pro ან Enterprise ვერსია. [;)](https://github.com/massgravel/Microsoft-Activation-Scripts)
+Windows-ის შემთხვევაში, აუცილებელია Pro ან Enterprise ვერსია. [;)](https://github.com/massgravel/Microsoft-Activation-Scripts){:target="_blank"}
 
 
 ### სარეზერვო ასლები

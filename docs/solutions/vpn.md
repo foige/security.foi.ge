@@ -15,7 +15,7 @@ icon: material/vpn
 
 <div class="grid cards" markdown>
 
-- ![Mullvad](../assets/img/logo/mullvad.svg){ .lg .middle .twemoji } [Mullvad](https://mullvad.net/en)
+- ![Mullvad](../assets/img/logo/mullvad.svg){ .lg .middle .twemoji } [Mullvad](https://mullvad.net/en){:target="_blank"}
 
     ---
     **Mullvad** არის შვედეთში დაფუძნებული VPN პროვაიდერი, რომლის ყველა აპლიკაცია ღია წყაროს
@@ -26,7 +26,7 @@ icon: material/vpn
 
 ## ინსტალაცია
 
-- შექმენით ანგარიში - [Mullvad](https://mullvad.net/en/account/create)
+- შექმენით ანგარიში - [Mullvad](https://mullvad.net/en/account/create){:target="_blank"}
 - შეინახეთ **Account Number** Bitwarden-ში.
 - შეავსეთ ანგარიში. რეკომენდირებულია **Monero**-ით გადახდა.
 

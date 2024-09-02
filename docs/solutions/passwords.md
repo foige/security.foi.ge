@@ -42,7 +42,7 @@ icon: material/key-variant
 
 <div class="grid cards" markdown>
 
-- ![Bitwarden](../assets/img/logo/bitwarden.svg){ .lg .middle .twemoji } [Bitwarden](https://bitwarden.com/)
+- ![Bitwarden](../assets/img/logo/bitwarden.svg){ .lg .middle .twemoji } [Bitwarden](https://bitwarden.com/){:target="_blank"}
 
     **მათთვის, ვისაც სიმარტივე ურჩევნია**
 
@@ -58,7 +58,7 @@ icon: material/key-variant
 
 <div class="grid cards" markdown>
 
-- ![KeePassXC](../assets/img/logo/keepassxc.svg){ .lg .middle .twemoji } [KeepassXC](https://keepassxc.org/)
+- ![KeePassXC](../assets/img/logo/keepassxc.svg){ .lg .middle .twemoji } [KeepassXC](https://keepassxc.org/){:target="_blank"}
 
     **მათთვის, ვინც მარტივად აგვარებს ტექნიკურ პრობლემებს**
 
@@ -71,7 +71,7 @@ icon: material/key-variant
 
     **KeepassXC** ძალიან უსაფრთხოა. მისი აპლიკაციები სხვადასხვა ოპერაციულ სისტემებზე
     სწორ პარამეტრებს იყენებენ 
-   (როგორიცაა მაგალითად [macOS/iOS kSecAttrAccessible](https://developer.apple.com/documentation/security/ksecattraccessible), ან [StrongBox](https://source.android.com/docs/security/best-practices/hardware) ანდროიდზე).
+   (როგორიცაა მაგალითად [macOS/iOS kSecAttrAccessible](https://developer.apple.com/documentation/security/ksecattraccessible){:target="_blank"}, ან [StrongBox](https://source.android.com/docs/security/best-practices/hardware){:target="_blank"} ანდროიდზე).
 
     მობილურისთვის, Android-ზე რეკომენდებულია [KeepassDX](https://www.keepassdx.com/) აპლიკაცია, ხოლო iOS-ზე - [KeePassium](https://keepassium.com/).
 

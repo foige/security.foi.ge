@@ -12,7 +12,7 @@ title: ტრენერებისთვის
 
 აუცილებლად გასაცნობი მასალა:
 
-- [The Harm Reduction Approach](https://www.securityeducationcompanion.org/articles#quick-start)
+- [The Harm Reduction Approach](https://www.securityeducationcompanion.org/articles#quick-start){:target="_blank"}
 
 ### ფოკუსირდით კითხვაზე "რატომ?" და არა "როგორ?"
 
