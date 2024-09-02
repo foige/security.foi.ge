@@ -66,7 +66,7 @@ FOI დამოუკიდებელი ოპერაციაა, რო�
 ### ლიცენზია
 
 საიტზე განთავსებული კონტენტი, მათ შორის FOI-ს მიერ შექმნილი კოდი, აპლიკაციები და 
-რეკომენდაციები სრულად ღიაა და ხელმისაწვდომია [Github](https://github.com/foige/security.foi.ge)-ზე.
+რეკომენდაციები სრულად ღიაა და ხელმისაწვდომია [Github](https://github.com/foige/security.foi.ge){:target="_blank"}-ზე.
 
 კონტენტი ლიცენზირებულია [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://github.com/foige/security.foi.ge/blob/main/LICENSE){:target="_blank"} ლიცენზიით.
 
