@@ -273,7 +273,7 @@ Ramdisk აუცილებელია აღდგენის გასა�
 - **Custom Fields**-ში შექმენით ორი ახალი ველი (ან თუ D დისკი არ გაქვთ, მხოლოდ ერთი):
     - **C: PIN**
     - **D: Password**
-- [1Password](https://1password.com/password-generator/)-ით დააგენერირეთ 4 მარცვლიანი პაროლი, დაამატეთ ორი ციფრი ნებისმიერ ადგილზე და შეინახეთ **C: PIN** ველში.
+- [1Password](https://1password.com/password-generator/){:target="_blank"}-ით დააგენერირეთ 4 მარცვლიანი პაროლი, დაამატეთ ორი ციფრი ნებისმიერ ადგილზე და შეინახეთ **C: PIN** ველში.
     - **1Password** კონფიგურაცია:
 
         | დასახელება        | მნიშვნელობა                       |
@@ -333,7 +333,7 @@ Ramdisk აუცილებელია აღდგენის გასა�
 - **Custom Fields**-ში შექმენით 2 ახალი ველი:
     - **Windows PIN**
     - **Windows Password**
-- [1Password](https://1password.com/password-generator/)-ით დააგენერირეთ 5 მარცვლიანი პაროლი და შეინახეთ ველში **Windows PIN**
+- [1Password](https://1password.com/password-generator/){:target="_blank"}-ით დააგენერირეთ 5 მარცვლიანი პაროლი და შეინახეთ ველში **Windows PIN**
     - **1Password** კონფიგურაცია:
 
         | დასახელება        | მნიშვნელობა                       |
@@ -342,7 +342,7 @@ Ramdisk აუცილებელია აღდგენის გასა�
         | **Password Type** | Memorable Password                |
         | **Full Words**    | :material-checkbox-blank-outline: |
 
-- [1Password](https://1password.com/password-generator/)-ით დააგენერირეთ 10 მარცვლიანი პაროლი და შეინახეთ ველში **Windows Password**
+- [1Password](https://1password.com/password-generator/){:target="_blank"}-ით დააგენერირეთ 10 მარცვლიანი პაროლი და შეინახეთ ველში **Windows Password**
     - ამ პაროლის შეყვანა ხელით არასდროს მოგიწევთ და მას მხოლოდ დამატებითი უსაფრთხოებისთვის ვაყენებთ.
     - **1Password** კონფიგურაცია:
 
@@ -398,7 +398,7 @@ Ramdisk აუცილებელია აღდგენის გასა�
 /// admonition | თითის ანაბეჭდის სენსორი
     type: info
 თუ თქვენს მოწყობილობას არ აქვს თითის ანაბეჭდის სენსორი, შეგიძლიათ შეიძინოთ 
-[USB მოწყობილობა](https://www.amazon.com/dp/B01NAVWPOJ), რომელიც ამ სენსორს დაამატებს.
+[USB მოწყობილობა](https://www.amazon.com/dp/B01NAVWPOJ){:target="_blank"}, რომელიც ამ სენსორს დაამატებს.
 
 ბიომეტრიული სენსორის გარეშე, თქვენი მოწყობილობის უსაფრთხოების დაცვა შეუძლებელი იქნება.
 ///

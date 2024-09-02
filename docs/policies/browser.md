@@ -321,6 +321,6 @@ chrome://policy - ჩამოთვლილი უნდა იყოს:
     type: reference
     open: false
 
-[DISA Stig](https://www.stigviewer.com/stig/google_chrome_current_windows/2023-11-21/finding/V-221558)
+[DISA Stig](https://www.stigviewer.com/stig/google_chrome_current_windows/2023-11-21/finding/V-221558){:target="_blank"}
 
 ///

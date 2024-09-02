@@ -73,7 +73,7 @@ icon: material/key-variant
     სწორ პარამეტრებს იყენებენ 
    (როგორიცაა მაგალითად [macOS/iOS kSecAttrAccessible](https://developer.apple.com/documentation/security/ksecattraccessible){:target="_blank"}, ან [StrongBox](https://source.android.com/docs/security/best-practices/hardware){:target="_blank"} ანდროიდზე).
 
-    მობილურისთვის, Android-ზე რეკომენდებულია [KeepassDX](https://www.keepassdx.com/) აპლიკაცია, ხოლო iOS-ზე - [KeePassium](https://keepassium.com/).
+    მობილურისთვის, Android-ზე რეკომენდებულია [KeepassDX](https://www.keepassdx.com/){:target="_blank"} აპლიკაცია, ხოლო iOS-ზე - [KeePassium](https://keepassium.com/){:target="_blank"}.
 
     სინქრონიზაციისთვის, შეგიძლიათ KeepassXC-ის მიერ შექმნილი ბაზის ფაილი შეინახოთ ფოლდერში,
     რომელიც ავტომატურად სინქრონიზდება მოწყობილობებს შორის (მაგ. Dropbox, Google Drive, iCloud, Syncthing და ა.შ.).
@@ -227,7 +227,7 @@ icon: material/key-variant
 
 #### პაროლის გენერირება
 
-- [1Password](https://1password.com/password-generator/)-ით დააგენერირეთ 5 ან მეტ სიტყვიანი პაროლი
+- [1Password](https://1password.com/password-generator/){:target="_blank"}-ით დააგენერირეთ 5 ან მეტ სიტყვიანი პაროლი
     - **1Password** კონფიგურაცია:
 
         | დასახელება        | მნიშვნელობა                 |
@@ -261,7 +261,7 @@ icon: material/key-variant
 
 ### პაროლების მენეჯერის ბაზის შექმნა
 
-1. გადმოწერეთ და დააინსტალირეთ აპლიკაცია - [https://bitwarden.com/download/#downloads-desktop](https://bitwarden.com/download/#downloads-desktop)
+1. გადმოწერეთ და დააინსტალირეთ აპლიკაცია - [https://bitwarden.com/download/#downloads-desktop](https://bitwarden.com/download/#downloads-desktop){:target="_blank"}
 2. **Create Account**
 3. **E-mail address** - შეიყვანეთ თქვენი ელ. ფოსტა
 4. **Master Password** - შეიყვანეთ ფურცელზე ჩაწერილი პაროლი
@@ -313,7 +313,7 @@ icon: material/key-variant
 
 ///
 
-1. დააყენეთ ბრაუზერის გაფართოება - [https://bitwarden.com/download/#downloads-web-browser](https://bitwarden.com/download/#downloads-web-browser)
+1. დააყენეთ ბრაუზერის გაფართოება - [https://bitwarden.com/download/#downloads-web-browser](https://bitwarden.com/download/#downloads-web-browser){:target="_blank"}
 2. აირჩიეთ დაყენებული გაფართოება და დაპინეთ (Chrome/Brave - მარჯვენა კლიკი > Pin)
 
 ბრაუზერის გაფართოების პარამეტრები:
@@ -329,7 +329,7 @@ icon: material/key-variant
 
 ### Android/iOS
 
-1. დააინსტალირეთ აპლიკაცია - [https://bitwarden.com/download/#downloads-mobile](https://bitwarden.com/download/#downloads-mobile)
+1. დააინსტალირეთ აპლიკაცია - [https://bitwarden.com/download/#downloads-mobile](https://bitwarden.com/download/#downloads-mobile){:target="_blank"}
 2. აირჩიეთ Bitwarden პაროლების მთავარ აპლიკაციად
 
 /// tab | Android
@@ -402,7 +402,7 @@ icon: material/key-variant
 
 ### Google Chrome-დან
 
-- გამოიყენეთ ინსტრუქციები [Bitwarden-ის საიტზე](https://bitwarden.com/help/import-from-chrome/)
+- გამოიყენეთ ინსტრუქციები [Bitwarden-ის საიტზე](https://bitwarden.com/help/import-from-chrome/){:target="_blank"}
 - დარწმუნდით, რომ ყველა პაროლი წარმატებით დაიმპორტდა პაროლების მენეჯერში
 - იმპორტის დასრულების შემდეგ, წაშალეთ პაროლები ბრაუზერიდან:
     - Chrome-ში დააჭირეთ :fontawesome-solid-ellipsis-vertical: > **Delete Browser Data** > **Advanced**
@@ -415,7 +415,7 @@ icon: material/key-variant
 iPhone-ში შენახული პაროლების ექსპორტი ტელეფონიდან შეუძლებელია. ამისთვის დაგჭირდებათ
 macOS.
 
-- გამოიყენეთ Safari-ს ინსტრუქციები [Bitwarden-ის საიტზე](https://bitwarden.com/help/import-from-safari/)
+- გამოიყენეთ Safari-ს ინსტრუქციები [Bitwarden-ის საიტზე](https://bitwarden.com/help/import-from-safari/){:target="_blank"}
 - დარწმუნდით, რომ ყველა პაროლი წარმატებით დაიმპორტდა პაროლების მენეჯერში
 - იმპორტის დასრულების შემდეგ, წაშალეთ პაროლები ყველა მოწყობილობიდან
     - iPhone: **Settings** > **Passwords**, პაროლების ჩამონათვალში 2 თითით ჩამოსქროლეთ, აირჩიეთ ყველა პაროლი და დააჭირეთ **Delete**.
@@ -425,7 +425,7 @@ macOS.
 
 ### ბიომეტრიული აუთენტიფიკაცია macOS-ზე
 
-Bitwarden-ში არსებული [ხარვეზის](https://github.com/bitwarden/clients/issues/5591) გამო, თუ ლეპტოპს დახურავთ, ხელახლა გახსნისას ბიომეტრიული აუთენტიფიკაციის ოფცია არ გამოჩნდება.
+Bitwarden-ში არსებული [ხარვეზის](https://github.com/bitwarden/clients/issues/5591){:target="_blank"} გამო, თუ ლეპტოპს დახურავთ, ხელახლა გახსნისას ბიომეტრიული აუთენტიფიკაციის ოფცია არ გამოჩნდება.
 
 დროებითი გამოსავალი:
 

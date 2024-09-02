@@ -33,7 +33,7 @@ icon: material/apple-ios
 #### ახალი პაროლის შექმნა
 
 - **Bitwarden**-ში შექმენით ახალი ჩანაწერი, დაარქვით სახელი, მაგ. `My iPhone 15 Password`
-- [1Password](https://1password.com/password-generator/)-ით დააგენერირეთ 5 მარცვლიანი პაროლი, 
+- [1Password](https://1password.com/password-generator/){:target="_blank"}-ით დააგენერირეთ 5 მარცვლიანი პაროლი, 
     ჩასვით **Bitwarden**-ის ჩანაწერში **Password** ველში და შეინახეთ.
     - **1Password** კონფიგურაცია:
 
