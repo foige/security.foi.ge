@@ -77,7 +77,7 @@ FileVault არის macOS-ის ფუნქცია, რომელიც
     ![Apple Settings](../assets/img/icons/apple/settings.svg){ .twemoji } **System Settings** > **Users & Groups** > **Add User**.
     შექმენით ახალი ადმინისტრატორის მომხმარებელი სახელით `unlock`.
 
-2. **Bitwarden**-ით დააგენერირეთ 5 სიტყვიანი პაროლი და შეინახეთ
+2. **[FOI პაროლების გენერატორით](../tools/password-generator.md?os=macos-hard)** დააგენერირეთ **macOS (admin/unlock)** ტიპის პაროლი და შეინახეთ Bitwarden-ში.
 
     (**არ გამოიყენოთ მაგალითში მოცემული პაროლი!**)
     ![Bitwarden](../assets/img/solutions/macos_unlock_user_bitwarden.png)
@@ -130,16 +130,16 @@ FileVault არის macOS-ის ფუნქცია, რომელიც
 
 `unlock` მომხმარებლის დამატების გარდა, აუცილებელია თქვენი სტანდარტული მომხმარებლის პაროლის შეცვლაც.
 
-1. დაბრუნდით მომხმარებლის ჩამონათვალში და თქვენი მომხმარებლის სახელის გასწვრივ დააჭირეთ **(i)** ღილაკს
+1. **[FOI პაროლების გენერატორით](../tools/password-generator.md?os=macos-easy)** დააგენერირეთ **macOS (user)** ტიპის პაროლი და შეინახეთ Bitwarden-ში.
+
+    (**არ გამოიყენოთ მაგალითში მოცემული პაროლი!**)
+    ![Bitwarden](../assets/img/solutions/macos_standard_user_bitwarden.png)
+
+2. დაბრუნდით მომხმარებლის ჩამონათვალში, თქვენი მომხმარებლის სახელის გასწვრივ დააჭირეთ **(i)** ღილაკს > **Change Password**.
     
     ![Apple Settings](../assets/img/icons/apple/settings.svg){ .twemoji }
     **System Settings** > **Users & Groups**
     ![Users & Groups](../assets/img/solutions/macos_change_password.png)
-
-2. Bitwarden-ით დააგენერირეთ 5 სიტყვიანი პაროლი და შეინახეთ
-
-    (**არ გამოიყენოთ მაგალითში მოცემული პაროლი!**)
-    ![Bitwarden](../assets/img/solutions/macos_standard_user_bitwarden.png)
 
 ### Touch ID
 
