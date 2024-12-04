@@ -45,7 +45,7 @@ if "%choice%"=="1" goto InstallGPO
 
 :CheckTPM
 cls
-echo TPM-is shemotsmeba...
+echo TPM-is shemowmeba...
 powershell -ExecutionPolicy Bypass -Command "$tpm = Get-Tpm; exit ([int]($tpm.TpmPresent -and $tpm.TpmEnabled))"
 set /a TPM_AVAILABLE=%ERRORLEVEL%
 if "%TPM_AVAILABLE%"=="0" (
