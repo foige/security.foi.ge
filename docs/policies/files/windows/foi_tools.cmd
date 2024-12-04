@@ -137,9 +137,7 @@ cls
 echo Mimdinareobs sarezervo aslis sheqmna...
 
 :: Get the current date and time to create a unique backup directory
-powershell -ExecutionPolicy Bypass -Command "Get-Date -Format yyyyMMdd_HHmmss" > "%TEMP%\datetime.txt"
-set /p datetime=<"%TEMP%\datetime.txt"
-del "%TEMP%\datetime.txt"
+for /f "delims=" %%I in ('powershell -Command "Get-Date -Format yyyyMMdd_HHmmss"') do set datetime=%%I
 set backupDir=%BackupBaseDir%\backup_%datetime%
 
 if not exist "%BackupBaseDir%\" mkdir "%BackupBaseDir%"
