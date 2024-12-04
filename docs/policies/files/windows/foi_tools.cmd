@@ -12,36 +12,26 @@ set "calledFromInstall=0"
 
 :MainMenu
 cls
-set "line1= _   _  ___       _____ ___       ____  _   _ ____ ____ ___    _    _   _      _        ___        __"
-set "line2=| \ | |/ _ \     |_   _/ _ \     |  _ \| | | / ___/ ___|_ _|  / \  | \ | |    | |      / \ \      / /"
-set "line3=|  \| | | | |      | || | | |    | |_) | | | \___ \___ \| |  / _ \ |  \| |    | |     / _ \ \ /\ / / "
-set "line4=| |\  | |_| |      | || |_| |    |  _ <| |_| |___) |__) | | / ___ \| |\  |    | |___ / ___ \ V  V /  "
-set "line5=|_| \_|\___/       |_| \___/     |_| \_\\___/|____/____/___/_/   \_\_| \_|    |_____/_/   \_\_/\_/   "
 
-echo !line1!
-echo !line2!
-echo !line3!
-echo !line4!
-echo !line5!
 echo.
 echo __________________________________________________
 echo Copyright (C) 2024 FOI Georgia https://security.foi.ge
 echo.
-echo       FOI Tools
+echo       FOI Security Tools
 echo     __________________________________________________
 echo.
-echo       [1] Install FOI Security Policy
-echo       [2] Enforce PIN Login (Disable Passwords)
-echo       [3] Enforce Fingerprint Timeout
-echo       [4] [EXPERT] Disable PIN Login Enforcement
-echo       [5] [EXPERT] Disable Multi-Factor Login
-echo       [6] [EXPERT] Save GPO
-echo       [7] Exit
+echo       [1] FOI Usafrtxoebis Politikis Dayeneba
+echo       [2] PIN Kodit Shesvlis Idzuleba
+echo       [3] Titis Anabechdis Drois Shezgudvis Gaaqtiureba
+echo       [4] [EXPERT] PIN Kodit Shesvlis Gauqmeba
+echo       [5] [EXPERT] Titis Anabechdis Drois Shezgudvis Gauqmeba
+echo       [6] [EXPERT] GPO-s Shenakhva
+echo       [7] Gamosvla
 echo     __________________________________________________
 echo.
-echo       Select an option:
+echo       Airchiet Operacia:
 echo.
-set /p choice="Enter your choice: "
+set /p choice="Sheiyvanet tqveni archevani: "
 
 :: Choice handling
 if "%choice%"=="7" goto :eof
@@ -52,28 +42,63 @@ if "%choice%"=="3" goto EnforceFingerprintTimeout
 if "%choice%"=="2" goto EnforcePINLogin
 if "%choice%"=="1" goto InstallGPO
 
+
+:CheckTPM
+cls
+echo TPM-is shemotsmeba...
+powershell -ExecutionPolicy Bypass -Command "$tpm = Get-Tpm; exit ([int]($tpm.TpmPresent -and $tpm.TpmEnabled))"
+set /a TPM_AVAILABLE=%ERRORLEVEL%
+if "%TPM_AVAILABLE%"=="0" (
+    echo TPM ar aris xelmisawvdomi an gaaktiurebuli!
+    echo Aucilebelia TPM 2.0-is arseboba da gaaqtiureba.
+    echo Gaaaqtiuret TPM BIOS-is parametrebshi da scadet xelaxla.
+    pause
+    exit /b 1
+)
+exit /b 0
+
+:: PIN Check Function
+:CheckPIN
+cls
+echo PIN kodis shemowmeba...
+powershell -ExecutionPolicy Bypass -Command "$path = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{D6886603-9D2F-4EB2-B667-1971041FA96B}'; $value = (Get-ChildItem $path | Get-ItemProperty).LogonCredsAvailable; exit ([int]([string]$value -eq '1'))"
+set /a PIN_SETUP=%ERRORLEVEL%
+if "%PIN_SETUP%"=="0" (
+    echo [ERROR] Windows PIN kodi ar aris dayenebuli.
+    echo [ERROR] Daayenet PIN kodi Windows-is parametrebshi.
+    echo [ERROR] PIN kodis dasayeneblad: Settings ^> Accounts ^> Sign-in options ^> PIN ^> Add
+    pause
+    exit /b 1
+)
+exit /b 0
+
 :EnforcePINLogin
 cls
-echo Enforcing PIN login...
+call :CheckTPM
+if errorlevel 1 goto MainMenu
+
+call :CheckPIN
+if errorlevel 1 goto MainMenu
+
+echo Mimdinareobs PIN kodit shesvlis idzulebis aqtivacia...
 powershell -ExecutionPolicy Bypass -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{60b78e88-ead8-445c-9cfd-0b87f74ea6cd}' -Name 'Disabled' -Value '1'"
 powershell -ExecutionPolicy Bypass -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{60b78e88-ead8-445c-9cfd-0b87f74ea6cd}\LogonPasswordReset' -Name 'Disabled' -Value '1'"
-echo PIN login has been enforced.
+echo [OK] PIN kodit shesvlis idzuleba gaaqtiurebulia.
 pause
 goto MainMenu
 
 :DisablePINLogin
 cls
-echo Disabling PIN login enforcement...
+echo Mimdinareobs PIN kodit shesvlis idzulebis gauqmeba...
 powershell -ExecutionPolicy Bypass -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{60b78e88-ead8-445c-9cfd-0b87f74ea6cd}' -Name 'Disabled' -Value '0'"
 powershell -ExecutionPolicy Bypass -Command "Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{60b78e88-ead8-445c-9cfd-0b87f74ea6cd}\LogonPasswordReset' -Name 'Disabled' -Value '0'"
-echo PIN login enforcement has been disabled.
+echo [OK] PIN kodit shesvlis idzuleba gauqmebulia.
 pause
 goto MainMenu
 
 :EnforceFingerprintTimeout
 cls
-echo Enforcing fingerprint timeout...
-:: Create timeout tasks
+echo Mimdinareobs titis anabechdis drois shezgudvis idzuleba...
 schtasks /create /tn "FOIPinEnforcementEnable" /xml "%ScriptDir%\tasks\FOIPinEnforcementEnable.xml" /f
 schtasks /create /tn "FOIPinEnforcementDisable" /xml "%ScriptDir%\tasks\FOIPinEnforcementDisable.xml" /f
 pause
@@ -81,7 +106,7 @@ goto MainMenu
 
 :DisableFingerprintTimeout
 cls
-echo Disabling fingerprint timeout...
+echo Mimdinareobs titis anabechdis drois shegudvis gauqmeba...
 schtasks /delete /tn "FOIPinEnforcementEnable" /f
 schtasks /delete /tn "FOIPinEnforcementDisable" /f
 pause
@@ -92,8 +117,8 @@ cls
 set "calledFromInstall=1"
 call :SaveGPO
 set "calledFromInstall=0"
-echo Installing FOI Security Policy...
-echo Copying definitions from: "%ScriptDir%\PolicyDefinitions" to "%SystemRoot%\PolicyDefinitions\"
+echo Mimdinareobs FOI usafrtxoebis politikis dayeneba...
+echo Parametrebis kopireba: "%ScriptDir%\PolicyDefinitions" to "%SystemRoot%\PolicyDefinitions\"
 xcopy /S /Y "%ScriptDir%\PolicyDefinitions" "%SystemRoot%\PolicyDefinitions\"
 cd "%ScriptDir%\LGPO"
 for /D %%D in ("%ScriptDir%\LGPO\policy\*") do (
@@ -101,42 +126,44 @@ for /D %%D in ("%ScriptDir%\LGPO\policy\*") do (
     goto InstallGPOComplete
 )
 :InstallGPOComplete
-echo Updating group policies...
+echo Mimdinareobs FOI usafrtxoebis politikis dayeneba...
 gpupdate /force
-echo Group Policy installation complete.
+echo [OK] FOI usafrtxoebis politikis dayeneba dasrulda.
 pause
 goto MainMenu
 
 :SaveGPO
 cls
-echo Performing Backup...
+echo Mimdinareobs sarezervo aslis sheqmna...
 
 :: Get the current date and time to create a unique backup directory
-for /f "delims=" %%I in ('powershell -Command "Get-Date -Format yyyyMMdd_HHmmss"') do set datetime=%%I
+powershell -ExecutionPolicy Bypass -Command "Get-Date -Format yyyyMMdd_HHmmss" > "%TEMP%\datetime.txt"
+set /p datetime=<"%TEMP%\datetime.txt"
+del "%TEMP%\datetime.txt"
 set backupDir=%BackupBaseDir%\backup_%datetime%
 
 if not exist "%BackupBaseDir%\" mkdir "%BackupBaseDir%"
 mkdir "%backupDir%"
 
-echo Starting LGPO backup...
+echo Iwyeba LGPO-is sarezervo aslis sheqmna...
 cd "%ScriptDir%\LGPO\"
 .\LGPO.exe /b "%backupDir%"
-echo Backup completed.
+echo Sarezervo aslis sheqmna dasrulda.
 
-echo Parsing backup data...
+echo Mimdinareobs sarezervo monacemebis damushaveba...
 set "BackupPath=%backupDir%"
 
 :: Process each .pol file and save the output to a txt file named after the directory
 for /r "%BackupPath%" %%f in (*.pol) do (
-    echo Processing file: %%~nxf
+    echo Mushavdeba faili: %%~nxf
     :: Extract the directory name
     for %%d in ("%%~pf.") do set "DirName=%%~nxd"
     set "OutputFile=%backupDir%\!DirName!.txt"
     .\LGPO.exe /parse /m "%%f" > "!OutputFile!"
-    echo Parsed data saved to: !OutputFile!
+    echo Damushavebuli monacemebi shenakhulia: !OutputFile!
 )
 
-echo All backup data has been parsed and saved.
+echo [OK] Sarezervo aslebis sheqmna dasrulda.
 echo.
 echo.
 echo.
