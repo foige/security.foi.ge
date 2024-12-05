@@ -37,8 +37,6 @@
 			<string>CDF4A0F0-0311-41BB-AAEE-DF030186571E</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
-			<key>allowSimple</key>
-			<false/>
 			<key>forcePIN</key>
 			<true/>
 			<key>maxFailedAttempts</key>
@@ -353,7 +351,7 @@
 		</dict>
 	</array>
 	<key>PayloadDisplayName</key>
-	<string>FOI Security Policy (macOS.2024-08-28)</string>
+	<string>FOI Security Policy (macOS.2024-12-05)</string>
 	<key>PayloadIdentifier</key>
 	<string>ge.foi.security-policy-mac</string>
 	<key>PayloadOrganization</key>
