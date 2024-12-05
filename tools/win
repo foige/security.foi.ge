@@ -6,10 +6,9 @@ $destinationFolder = "foi_$rand"
 $destination = Join-Path -Path $tempBase -ChildPath $destinationFolder
 $zipFile = Join-Path -Path $destination -ChildPath "$destinationFolder.zip"
 $extractedFolderName = "security.foi.ge-main"
-$cmdRelativePath = "docs\policies\files\windows"
-$fullCmdPath = Join-Path -Path $destination -ChildPath "$extractedFolderName\$cmdRelativePath"
-$cmdFile = Join-Path -Path $fullCmdPath -ChildPath "foi_tools.cmd"
-
+$psRelativePath = "docs\policies\files\windows"
+$fullPsPath = Join-Path -Path $destination -ChildPath "$extractedFolderName\$psRelativePath"
+$psFile = "foi_tools.ps1"
 
 # Create the destination directory if it does not exist
 if (-Not (Test-Path $destination)) {
@@ -30,16 +29,18 @@ try {
     Expand-Archive -Path $zipFile -DestinationPath $destination -Force
 } catch {
     Write-Output "Failed to expand the ZIP file: $_"
+    Read-Host "Press Enter to exit"
     exit
 }
 
-# Execute the specific CMD file from its directory
-if (Test-Path $cmdFile) {
-    Start-Process "cmd.exe" -ArgumentList "/c `"$cmdFile`"" -Verb RunAs -WorkingDirectory $fullCmdPath
-    Write-Output "CMD script executed from: $fullCmdPath"
+# Execute the PowerShell script with elevated privileges
+$scriptPath = Join-Path -Path $fullPsPath -ChildPath $psFile
+if (Test-Path $scriptPath) {
+    Start-Process powershell.exe -ArgumentList "-NoExit -NoLogo -NoProfile -ExecutionPolicy Bypass -Command `"[Console]::BackgroundColor = 'Black'; [Console]::ForegroundColor = 'White'; [Console]::Clear(); cd '$fullPsPath'; & '$scriptPath'`"" -Verb RunAs
+    Write-Output "PowerShell script executed from: $fullPsPath"
+    Remove-Item $zipFile -Force
+    exit
 } else {
-    Write-Output "No CMD file found at $cmdFile."
+    Write-Output "No PowerShell script found at $scriptPath"
+    Read-Host "Press Enter to exit"
 }
-
-# Optional: Clean up by removing the downloaded ZIP file
-Remove-Item $zipFile -Force
