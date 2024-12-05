@@ -26,7 +26,8 @@ echo       [3] Titis Anabechdis Drois Shezgudvis Gaaqtiureba
 echo       [4] [EXPERT] PIN Kodit Shesvlis Gauqmeba
 echo       [5] [EXPERT] Titis Anabechdis Drois Shezgudvis Gauqmeba
 echo       [6] [EXPERT] GPO-s Shenakhva
-echo       [7] Gamosvla
+echo       [7] [EXPERT] GPO-s Aghdgena
+echo       [8] Gamosvla
 echo     __________________________________________________
 echo.
 echo       Airchiet Operacia:
@@ -34,7 +35,8 @@ echo.
 set /p choice="Sheiyvanet tqveni archevani: "
 
 :: Choice handling
-if "%choice%"=="7" goto :eof
+if "%choice%"=="8" goto :eof
+if "%choice%"=="7" goto RestoreGPO
 if "%choice%"=="6" goto SaveGPO
 if "%choice%"=="5" goto DisableFingerprintTimeout
 if "%choice%"=="4" goto DisablePINLogin
@@ -112,12 +114,100 @@ schtasks /delete /tn "FOIPinEnforcementDisable" /f
 pause
 goto MainMenu
 
+:ResetGPO
+echo Mimdinareobs GPO-s sawyis parametrebze dabruneba...
+rmdir /s /q "%SystemRoot%\System32\GroupPolicy" 2>nul
+gpupdate /force
+exit /b
+
+:RestoreGPO
+cls
+echo Sarezervo aslebis sia...
+
+if not exist "%BackupBaseDir%" (
+    echo [ERROR] Sarezervo aslebis saqaghalde ar arsebobs: %BackupBaseDir%
+    pause
+    goto MainMenu
+)
+
+:: Create a temporary file to store backup directories
+set "tempFile=%temp%\backups.txt"
+dir /b /ad /o-d "%BackupBaseDir%\backup_*" > "%tempFile%" 2>nul
+
+:: Count lines in temp file
+set "count=0"
+for /f %%a in (%tempFile%) do set /a "count+=1"
+
+if %count% equ 0 (
+    echo [ERROR] Sarezervo aslebi ver moidzebna
+    del "%tempFile%" 2>nul
+    pause
+    goto MainMenu
+)
+
+echo.
+echo Bolo 10 sarezervo asli:
+echo ------------------------
+
+:: Display last 10 backups with numbers
+set "displayCount=0"
+for /f "delims=" %%a in (%tempFile%) do (
+    set /a "displayCount+=1"
+    if !displayCount! leq 10 (
+        set "backup=%%a"
+        :: Extract date and time from backup name (format: backup_YYYYMMDD_HHMMSS)
+        set "datetime=!backup:~7!"
+        :: Format date for display
+        set "year=!datetime:~0,4!"
+        set "month=!datetime:~4,2!"
+        set "day=!datetime:~6,2!"
+        set "hour=!datetime:~9,2!"
+        set "minute=!datetime:~11,2!"
+        set "second=!datetime:~13,2!"
+        echo [!displayCount!] !year!-!month!-!day! !hour!:!minute!:!second!
+        set "backup!displayCount!=%%a"
+    )
+)
+
+echo.
+set /p choice="Airchiet sarezervo asli (1-%displayCount%): "
+
+:: Validate choice
+set /a "choiceNum=%choice%" 2>nul
+if "%choiceNum%"=="" goto InvalidChoice
+if %choiceNum% lss 1 goto InvalidChoice
+if %choiceNum% gtr %displayCount% goto InvalidChoice
+
+:: Get selected backup path
+call set "selectedBackup=%%backup%choice%%%"
+set "backupPath=%BackupBaseDir%\%selectedBackup%"
+
+echo Mimdinareobs sarezervo aslis aghdgena: %selectedBackup%...
+
+:: Reset GPO and restore from backup
+call :ResetGPO
+cd "%ScriptDir%\LGPO"
+.\LGPO.exe /g "%backupPath%"
+gpupdate /force
+
+echo [OK] Sarezervo aslis aghdgena dasrulda
+del "%tempFile%" 2>nul
+pause
+goto MainMenu
+
+:InvalidChoice
+echo [ERROR] Araswori archevani
+del "%tempFile%" 2>nul
+pause
+goto MainMenu
+
 :InstallGPO
 cls
 set "calledFromInstall=1"
 call :SaveGPO
 set "calledFromInstall=0"
 echo Mimdinareobs FOI usafrtxoebis politikis dayeneba...
+call :ResetGPO
 echo Parametrebis kopireba: "%ScriptDir%\PolicyDefinitions" to "%SystemRoot%\PolicyDefinitions\"
 xcopy /S /Y "%ScriptDir%\PolicyDefinitions" "%SystemRoot%\PolicyDefinitions\"
 cd "%ScriptDir%\LGPO"
