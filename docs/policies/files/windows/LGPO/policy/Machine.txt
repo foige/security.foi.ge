@@ -1,6 +1,6 @@
 ; ----------------------------------------------------------------------
 ; PARSING Computer POLICY
-; Source file:  C:\Users\incor\Backups\LGPO\backup_20241216_111122\{B136FFA5-5DBA-458D-9EBF-337D7A1023CD}\DomainSysvol\GPO\Machine\registry.pol
+; Source file:  C:\Users\incor\Backups\LGPO\backup_20241217_014541\{57FFE815-191A-4CC3-954C-6DF873E3B357}\DomainSysvol\GPO\Machine\registry.pol
 
 Computer
 SOFTWARE\Microsoft\OneDrive

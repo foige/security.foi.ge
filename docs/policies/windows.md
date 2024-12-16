@@ -5,7 +5,7 @@ icon: material/microsoft-windows
 
 # Windows უსაფრთხოების პოლიტიკა
 
-*ბოლო განახლების თარიღი: 16 დეკემბერი, 2024.*
+*ბოლო განახლების თარიღი: 17 დეკემბერი, 2024.*
 
 FOI Security Policy ავტომატურად გააქტიურდება ყველა მომხმარებელზე.
 
@@ -1010,3 +1010,29 @@ Press any key to continue . . .
 
 განმარტება: გამორთავს ავთენტიფიკაციის მონაცემების შენახვის შეთავაზებას.
 ///
+
+### Control Panel
+
+##### SOFTWARE\Policies\Microsoft\Windows\Control Panel\Desktop
+
+/// admonition | ScreenSaveActive (Screen Saver-ის აქტივაცია)
+    type: info
+- [x] ჩართული (SZ:1)
+
+განმარტება: ჩართავს Screen Saver-ს, რათა მომხმარებლის სესია არ გრძელდებოდეს უვადოდ.
+///
+
+/// admonition | ScreenSaverIsSecure (Screen Saver-ის უსაფრთხოება)
+    type: info
+- [x] ჩართული (SZ:1)
+
+განმარტება: Screen Saver-ის გააქტიურების შემდეგ, მოითხოვს მომხმარებლის პაროლს.
+///
+
+/// admonition | ScreenSaveTimeOut (უაქტივობის დრო)
+    type: info
+- [x] ჩართული (SZ:900)
+
+განმარტება: გაააქტიურებს Screen Saver-ს მომხმარებლის უაქტივობიდან 15 წუთში.
+///
+
