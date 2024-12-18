@@ -8,8 +8,14 @@
 </a>
 
 <script>
+function isMobileViewport() {
+  const emBreakpoint = 76.1875;
+  const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+  return window.innerWidth <= emBreakpoint * rootFontSize;
+}
+
 function handleMatrixClick(e) {
-  if (window.innerWidth > 1218) return;
+  if (!isMobileViewport()) return;
   
   const btn = e.currentTarget;
   if (!btn.classList.contains('md-matrix-chat--expanded')) {
@@ -18,12 +24,11 @@ function handleMatrixClick(e) {
   }
 }
 
-// Reset expanded state when clicking outside
 document.addEventListener('click', function(e) {
-  if (window.innerWidth > 1218) return;
+  if (!isMobileViewport()) return;
   
   const btn = document.getElementById('matrix-chat-btn');
-  if (!btn.contains(e.target)) {
+  if (btn && !btn.contains(e.target)) {
     btn.classList.remove('md-matrix-chat--expanded');
   }
 });

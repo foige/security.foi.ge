@@ -52,19 +52,19 @@ video {
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
-    color: var(--md-default-fg-color--light);
-    background-color: var(--md-primary-fg-color);
+    color: var(--md-default-bg-color);
+    background-color: var(--md-default-fg-color--light);
     border-radius: 2rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     z-index: 100;
     text-decoration: none;
     transition: all 0.3s ease;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .md-matrix-chat:hover {
     opacity: 1;
-    background-color: var(--md-primary-fg-color--light);
+    background-color: var(--md-default-fg-color);
 }
 
 .md-matrix-chat__icon {
@@ -92,6 +92,8 @@ video {
         right: -6rem;
         bottom: 2rem;
         padding: 0.4rem 0.6rem;
+        background-color: var(--md-primary-fg-color);
+        opacity: 1;
     }
     
     .md-matrix-chat--expanded {
