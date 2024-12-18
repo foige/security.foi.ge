@@ -45,3 +45,60 @@ video {
     font-size: 1.7625em;
 }
 
+.md-matrix-chat {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: var(--md-default-bg-color);
+    background-color: var(--md-default-fg-color--light);
+    border-radius: 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.md-matrix-chat:hover {
+    opacity: 1;
+    background-color: var(--md-default-fg-color);
+}
+
+.md-matrix-chat__icon {
+    display: flex;
+    align-items: center;
+    margin-right: 0.4rem;
+    min-width: 20px;
+}
+
+.md-matrix-chat__icon svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.md-matrix-chat__label {
+    font-weight: 500;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 76.1875em) {
+    .md-matrix-chat {
+        right: -6rem;
+        bottom: 2rem;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .md-matrix-chat--expanded {
+        right: 1rem;
+    }
+    
+    .md-matrix-chat__icon {
+        margin-right: 0.5rem;
+    }
+}
