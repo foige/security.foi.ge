@@ -52,19 +52,19 @@ video {
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
-    color: var(--md-default-bg-color);
-    background-color: var(--md-default-fg-color--light);
+    color: var(--md-default-fg-color--light);
+    background-color: var(--md-primary-fg-color);
     border-radius: 2rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     z-index: 100;
     text-decoration: none;
     transition: all 0.3s ease;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .md-matrix-chat:hover {
     opacity: 1;
-    background-color: var(--md-default-fg-color);
+    background-color: var(--md-primary-fg-color--light);
 }
 
 .md-matrix-chat__icon {
