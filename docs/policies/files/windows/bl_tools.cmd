@@ -2,7 +2,7 @@
 setlocal EnableDelayedExpansion
 
 :: Set larger window size
-mode con cols=120 lines=40
+mode con cols=120 lines=50
 
 :: Check for admin privileges
 net session >nul 2>&1
@@ -131,14 +131,21 @@ if defined has_insecure_encryption (
     echo.
 )
 
+echo  Available Actions:
 echo  -----------------------------------------------
-echo    R. Refresh  Q. Quit
+echo    1-9. Enter number of a drive to manage BitLocker
+echo    R. Refresh status
+echo    Q. Exit program
 echo  -----------------------------------------------
 echo.
 set /p "choice=Selection: "
 
-if /i "%choice%"=="Q" goto :eof
-if /i "%choice%"=="R" goto menu
+if /i "!choice!"=="Q" (
+    echo.
+    echo Exiting BitLocker Manager...
+    goto :eof
+)
+if /i "!choice!"=="R" goto menu
 
 :: Validate choice is a number and within range
 set "valid=true"
@@ -184,74 +191,92 @@ echo  -------------------------------------------------------
 if defined is_encrypted (
     if defined is_encrypting (
         echo    BitLocker encryption in progress...
-        echo  -------------------------------------------------------
         echo.
-        
         :: Monitor encryption progress with fvenotify
         start /b fvenotify.exe !selected_drive!
-        
-        echo    1. Back to menu  R. Refresh
-        echo  -------------------------------------------------------
-        echo.
-        set /p "action=Selection: "
-
-        if /i "!action!"=="R" goto drive_menu
-        if /i "!action!"=="1" goto menu
     ) else if defined is_decrypting (
         echo    BitLocker decryption in progress...
-        echo  -------------------------------------------------------
         echo.
-        
         :: Monitor decryption progress with fvenotify
         start /b fvenotify.exe !selected_drive!
-        
-        echo    1. Back to menu  R. Refresh
-        echo  -------------------------------------------------------
-        echo.
-        set /p "action=Selection: "
-
-        if /i "!action!"=="R" goto drive_menu
-        if /i "!action!"=="1" goto menu
     ) else (
-        echo    1. Disable BitLocker  2. Back to menu  R. Refresh
-        echo  -------------------------------------------------------
-        echo.
-        set /p "action=Selection: "
-
-        if /i "!action!"=="R" goto drive_menu
-        if /i "!action!"=="1" goto disable_bitlocker
-        if /i "!action!"=="2" goto menu
+        echo    BitLocker is enabled
+    )
+) else (
+    if not defined os_encrypted (
+        if /i "%selected_drive%"=="%SystemDrive%" (
+            echo    BitLocker is not enabled
+        ) else (
+            echo  ERROR: OS Drive %SystemDrive% must be encrypted before encrypting data drives.
+            echo  Please encrypt the drive %SystemDrive% first.
+        )
+    ) else (
+        echo    BitLocker is not enabled
+    )
+)
+echo.
+echo  Available Actions:
+echo  -------------------------------------------------------
+if defined is_encrypted (
+    if defined is_encrypting (
+        echo    1. Back to main menu
+        echo    2. Refresh status
+    ) else if defined is_decrypting (
+        echo    1. Back to main menu
+        echo    2. Refresh status
+    ) else (
+        echo    1. Disable BitLocker
+        echo    2. Back to main menu
+        echo    3. Refresh status
     )
 ) else (
     if /i "%selected_drive%"=="%SystemDrive%" (
-        echo    1. Enable BitLocker   2. Back to menu  R. Refresh
-        echo  -------------------------------------------------------
-        echo.
-        set /p "action=Selection: "
-
-        if /i "!action!"=="R" goto drive_menu
-        if /i "!action!"=="1" goto enable_bitlocker
-        if /i "!action!"=="2" goto menu
+        echo    1. Enable BitLocker
+        echo    2. Back to main menu
+        echo    3. Refresh status
     ) else if not defined os_encrypted (
-        echo  ERROR: OS Drive %SystemDrive% must be encrypted before encrypting data drives.
-        echo  Please encrypt the drive %SystemDrive% first.
-        echo.
-        echo    1. Back to menu  R. Refresh
-        echo  -------------------------------------------------------
-        echo.
-        set /p "action=Selection: "
-
-        if /i "!action!"=="R" goto drive_menu
-        if /i "!action!"=="1" goto menu
+        echo    1. Back to main menu
+        echo    2. Refresh status
     ) else (
-        echo    1. Enable BitLocker   2. Back to menu  R. Refresh
-        echo  -------------------------------------------------------
-        echo.
-        set /p "action=Selection: "
+        echo    1. Enable BitLocker
+        echo    2. Back to main menu
+        echo    3. Refresh status
+    )
+)
+echo  -------------------------------------------------------
+echo.
+set /p "action=Selection: "
 
-        if /i "!action!"=="R" goto drive_menu
-        if /i "!action!"=="1" goto enable_bitlocker
-        if /i "!action!"=="2" goto menu
+:: Standardized action handling
+if defined is_encrypted (
+    if defined is_encrypting (
+        if "!action!"=="1" goto menu
+        if "!action!"=="2" goto drive_menu
+    ) else if defined is_decrypting (
+        if "!action!"=="1" goto menu
+        if "!action!"=="2" goto drive_menu
+    ) else (
+        if "!action!"=="1" (
+            echo.
+            choice /c YN /M "Are you sure you want to disable BitLocker on drive !selected_drive!? "
+            if !errorlevel! equ 1 goto disable_bitlocker
+            goto drive_menu
+        )
+        if "!action!"=="2" goto menu
+        if "!action!"=="3" goto drive_menu
+    )
+) else (
+    if /i "!selected_drive!"=="%SystemDrive%" (
+        if "!action!"=="1" goto enable_bitlocker
+        if "!action!"=="2" goto menu
+        if "!action!"=="3" goto drive_menu
+    ) else if not defined os_encrypted (
+        if "!action!"=="1" goto menu
+        if "!action!"=="2" goto drive_menu
+    ) else (
+        if "!action!"=="1" goto enable_bitlocker
+        if "!action!"=="2" goto menu
+        if "!action!"=="3" goto drive_menu
     )
 )
 
@@ -314,7 +339,7 @@ if %errorlevel% neq 0 goto enable_bitlocker_cleanup
 echo.
 echo  BitLocker will be enabled on drive %selected_drive%
 echo.
-pause
+timeout
 goto drive_menu
 
 :enable_bitlocker_cleanup
@@ -343,7 +368,7 @@ manage-bde -off %selected_drive%
 if %errorlevel% neq 0 goto disable_bitlocker_failed
 
 echo.
-echo  BitLocker disabled on drive %selected_drive%
+echo  BitLocker will be disabled on drive %selected_drive%
 pause
 goto drive_menu
 
