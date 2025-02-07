@@ -21,17 +21,6 @@ set "os_encrypted="
 set "restart_pending="
 set "has_insecure_encryption="
 set "insecure_drives="
-for /f "tokens=*" %%x in ('manage-bde -status %SystemDrive%') do (
-    set "line=%%x"
-    if not "!line:Conversion Status=!"=="!line!" (
-        if not "!line:Fully Encrypted=!"=="!line!" (
-            set "os_encrypted=1"
-        )
-    )
-    if not "!line:Encryption will begin after the hardware test succeeds=!"=="!line!" (
-        set "restart_pending=1"
-    )
-)
 
 cls
 echo.
@@ -42,24 +31,6 @@ echo FOI Security Tools - BitLocker Manager
 echo.
 echo =======================================
 echo.
-
-if defined has_insecure_encryption (
-    echo  WARNING: The following drives are using insecure encryption: !insecure_drives!
-    echo          Please disable BitLocker on these drives first and re-enable with XTS-AES256.
-    echo.
-    echo =======================================
-    echo.
-) else if defined restart_pending (
-    echo  NOTICE: Restart required to begin BitLocker encryption on %SystemDrive%
-    echo          Please restart your computer to continue.
-    echo.
-    echo =======================================
-    echo.
-) else if not defined os_encrypted (
-    echo  WARNING: OS Drive %SystemDrive% is not encrypted. Please encrypt the drive %SystemDrive% first
-    echo  before encrypting any data drives.
-    echo.
-)
 
 :: Get list of drives and check BitLocker status
 set "index=0"
@@ -73,6 +44,8 @@ for /f "delims=" %%a in ('powershell -noprofile -command "$volumes = Get-Volume 
     set "has_secure_encryption="
     set "encryption_method="
     set "is_fully_decrypted="
+    set "is_encrypting="
+    set "is_decrypting="
     set "current_drive=%%a"
 
     :: Check BitLocker status
@@ -111,6 +84,19 @@ for /f "delims=" %%a in ('powershell -noprofile -command "$volumes = Get-Volume 
         if not "!line:Fully Decrypted=!"=="!line!" (
             set "is_fully_decrypted=1"
             set "is_encrypted="
+        ) else if not "!line:Fully Encrypted=!"=="!line!" (
+            if /i "!current_drive!"=="%SystemDrive%" (
+                set "os_encrypted=1"
+            )
+        ) else if not "!line:Encryption in Progress=!"=="!line!" (
+            set "is_encrypting=1"
+        ) else if not "!line:Decryption in Progress=!"=="!line!" (
+            set "is_decrypting=1"
+        )
+
+        :: Check for pending restart
+        if not "!line:Encryption will begin after the hardware test succeeds=!"=="!line!" (
+            set "restart_pending=1"
         )
     )
 
@@ -131,6 +117,20 @@ for /f "delims=" %%a in ('powershell -noprofile -command "$volumes = Get-Volume 
 )
 
 echo.
+if defined has_insecure_encryption (
+    echo  WARNING: The following drives are using insecure encryption: !insecure_drives!
+    echo          Please disable BitLocker on these drives first and re-enable with XTS-AES256.
+    echo.
+) else if defined restart_pending (
+    echo  NOTICE: Restart required to begin BitLocker encryption on %SystemDrive%
+    echo          Please restart your computer to continue.
+    echo.
+) else if not defined os_encrypted (
+    echo  WARNING: OS Drive %SystemDrive% is not encrypted. Please encrypt the drive %SystemDrive% first
+    echo  before encrypting any data drives.
+    echo.
+)
+
 echo  -----------------------------------------------
 echo    R. Refresh  Q. Quit
 echo  -----------------------------------------------
@@ -156,14 +156,21 @@ if "%valid%"=="false" (
 cls
 set "selected_drive=!drive[%choice%]!"
 
-:: Check drive encryption status
+:: Check drive encryption status and conversion state
 set "is_encrypted="
-for /f "tokens=*" %%x in ('manage-bde -status %selected_drive% ^| findstr /i "BitLocker Version"') do (
+set "is_encrypting="
+set "is_decrypting="
+for /f "tokens=*" %%x in ('manage-bde -status %selected_drive% ^| findstr /i "BitLocker Version Conversion Status"') do (
     set "line=%%x"
     if not "!line:None=!"=="!line!" (
         set "is_encrypted="
     ) else if not "!line:2.0=!"=="!line!" (
         set "is_encrypted=1"
+    )
+    if not "!line:Encryption in Progress=!"=="!line!" (
+        set "is_encrypting=1"
+    ) else if not "!line:Decryption in Progress=!"=="!line!" (
+        set "is_decrypting=1"
     )
 )
 
@@ -175,14 +182,34 @@ manage-bde -status %selected_drive%
 echo.
 echo  -------------------------------------------------------
 if defined is_encrypted (
-    echo    1. Disable BitLocker  2. Back to menu  R. Refresh
-    echo  -------------------------------------------------------
-    echo.
-    set /p "action=Selection: "
+    if defined is_encrypting (
+        echo    BitLocker encryption in progress. Please refresh to check status.
+        echo    1. Back to menu  R. Refresh
+        echo  -------------------------------------------------------
+        echo.
+        set /p "action=Selection: "
 
-    if /i "!action!"=="R" goto drive_menu
-    if /i "!action!"=="1" goto disable_bitlocker
-    if /i "!action!"=="2" goto menu
+        if /i "!action!"=="R" goto drive_menu
+        if /i "!action!"=="1" goto menu
+    ) else if defined is_decrypting (
+        echo    BitLocker decryption in progress. Please refresh to check status.
+        echo    1. Back to menu  R. Refresh
+        echo  -------------------------------------------------------
+        echo.
+        set /p "action=Selection: "
+
+        if /i "!action!"=="R" goto drive_menu
+        if /i "!action!"=="1" goto menu
+    ) else (
+        echo    1. Disable BitLocker  2. Back to menu  R. Refresh
+        echo  -------------------------------------------------------
+        echo.
+        set /p "action=Selection: "
+
+        if /i "!action!"=="R" goto drive_menu
+        if /i "!action!"=="1" goto disable_bitlocker
+        if /i "!action!"=="2" goto menu
+    )
 ) else (
     if /i "%selected_drive%"=="%SystemDrive%" (
         echo    1. Enable BitLocker   2. Back to menu  R. Refresh
@@ -273,7 +300,7 @@ manage-bde -on %selected_drive% -encryptionmethod xts_aes256
 if %errorlevel% neq 0 goto enable_bitlocker_cleanup
 
 echo.
-echo  BitLocker enabled on drive %selected_drive%
+echo  BitLocker will be enabled on drive %selected_drive%
 echo.
 pause
 goto drive_menu
