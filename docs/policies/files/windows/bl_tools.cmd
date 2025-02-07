@@ -16,9 +16,11 @@ if %errorLevel% neq 0 (
 )
 
 :menu
-:: Check if OS drive is encrypted and protected
+:: Initialize variables
 set "os_encrypted="
 set "restart_pending="
+set "has_insecure_encryption="
+set "insecure_drives="
 for /f "tokens=*" %%x in ('manage-bde -status %SystemDrive%') do (
     set "line=%%x"
     if not "!line:Conversion Status=!"=="!line!" (
@@ -41,7 +43,13 @@ echo.
 echo =======================================
 echo.
 
-if defined restart_pending (
+if defined has_insecure_encryption (
+    echo  WARNING: The following drives are using insecure encryption: !insecure_drives!
+    echo          Please disable BitLocker on these drives first and re-enable with XTS-AES256.
+    echo.
+    echo =======================================
+    echo.
+) else if defined restart_pending (
     echo  NOTICE: Restart required to begin BitLocker encryption on %SystemDrive%
     echo          Please restart your computer to continue.
     echo.
@@ -88,11 +96,13 @@ for /f "delims=" %%a in ('powershell -noprofile -command "$volumes = Get-Volume 
                 :: Extract encryption method and trim whitespace
                 for /f "tokens=2 delims=:" %%m in ("!line!") do (
                     set "encryption_method=%%m"
-                    :: Trim leading and trailing spaces
                     set "encryption_method=!encryption_method: =!"
                 )
                 if "!encryption_method!"=="XTS-AES256" (
                     set "has_secure_encryption=1"
+                ) else if not "!encryption_method!"=="" (
+                    set "has_insecure_encryption=1"
+                    set "insecure_drives=!insecure_drives!!current_drive! "
                 )
             )
         )
@@ -257,9 +267,9 @@ if %errorlevel% equ 2 (
     goto enable_bitlocker_cleanup
 )
 
-:: Enable BitLocker
-echo Enabling BitLocker. This may take some time. Do not interrupt!
-manage-bde -on %selected_drive%
+:: Enable BitLocker with XTS-AES256 encryption
+echo Enabling BitLocker with XTS-AES256 encryption. This may take some time. Do not interrupt!
+manage-bde -on %selected_drive% -encryptionmethod xts_aes256
 if %errorlevel% neq 0 goto enable_bitlocker_cleanup
 
 echo.
