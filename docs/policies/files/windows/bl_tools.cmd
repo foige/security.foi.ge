@@ -183,25 +183,35 @@ echo.
 echo  -------------------------------------------------------
 if defined is_encrypted (
     if defined is_encrypting (
-        echo    BitLocker encryption in progress. Monitoring progress...
-        echo    Press any key to return to menu
+        echo    BitLocker encryption in progress...
         echo  -------------------------------------------------------
         echo.
         
         :: Monitor encryption progress with fvenotify
         start /b fvenotify.exe !selected_drive!
-        pause > nul
-        goto menu
+        
+        echo    1. Back to menu  R. Refresh
+        echo  -------------------------------------------------------
+        echo.
+        set /p "action=Selection: "
+
+        if /i "!action!"=="R" goto drive_menu
+        if /i "!action!"=="1" goto menu
     ) else if defined is_decrypting (
-        echo    BitLocker decryption in progress. Monitoring progress...
-        echo    Press any key to return to menu
+        echo    BitLocker decryption in progress...
         echo  -------------------------------------------------------
         echo.
         
         :: Monitor decryption progress with fvenotify
         start /b fvenotify.exe !selected_drive!
-        pause > nul
-        goto menu
+        
+        echo    1. Back to menu  R. Refresh
+        echo  -------------------------------------------------------
+        echo.
+        set /p "action=Selection: "
+
+        if /i "!action!"=="R" goto drive_menu
+        if /i "!action!"=="1" goto menu
     ) else (
         echo    1. Disable BitLocker  2. Back to menu  R. Refresh
         echo  -------------------------------------------------------
