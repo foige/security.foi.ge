@@ -62,7 +62,8 @@ for /f "delims=" %%a in ('powershell -noprofile -command "$volumes = Get-Volume 
     :: Get default status and checks
     set "encrypt_status=Not Encrypted"
     set "is_encrypted="
-    set "has_aes128="
+    set "has_secure_encryption="
+    set "encryption_method="
     set "is_fully_decrypted="
     set "current_drive=%%a"
 
@@ -83,9 +84,16 @@ for /f "delims=" %%a in ('powershell -noprofile -command "$volumes = Get-Volume 
         if not "!line:Encryption Method=!"=="!line!" (
             if not "!line:None=!"=="!line!" (
                 set "is_encrypted="
-            )
-            if not "!line:AES 128=!"=="!line!" (
-                set "has_aes128=1"
+            ) else (
+                :: Extract encryption method and trim whitespace
+                for /f "tokens=2 delims=:" %%m in ("!line!") do (
+                    set "encryption_method=%%m"
+                    :: Trim leading and trailing spaces
+                    set "encryption_method=!encryption_method: =!"
+                )
+                if "!encryption_method!"=="XTS-AES256" (
+                    set "has_secure_encryption=1"
+                )
             )
         )
 
@@ -100,8 +108,8 @@ for /f "delims=" %%a in ('powershell -noprofile -command "$volumes = Get-Volume 
     if defined is_encrypted (
         if defined is_fully_decrypted (
             set "encrypt_status=NOT ENCRYPTED"
-        ) else if defined has_aes128 (
-            set "encrypt_status=INSECURE (AES-128)"
+        ) else if not defined has_secure_encryption (
+            set "encrypt_status=INSECURE (!encryption_method!)"
         ) else (
             set "encrypt_status=ENCRYPTED"
         )
