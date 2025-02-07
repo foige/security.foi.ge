@@ -24,11 +24,12 @@ echo.
 echo       [1] FOI Usafrtxoebis Politikis Dayeneba
 echo       [2] PIN Kodit Shesvlis Idzuleba
 echo       [3] Titis Anabechdis Drois Shezgudvis Gaaqtiureba
-echo       [4] [EXPERT] PIN Kodit Shesvlis Gauqmeba
-echo       [5] [EXPERT] Titis Anabechdis Drois Shezgudvis Gauqmeba
-echo       [6] [EXPERT] GPO-s Shenakhva
-echo       [7] [EXPERT] GPO-s Aghdgena
-echo       [8] Gamosvla
+echo       [4] BitLocker-is Martva
+echo       [5] [EXPERT] PIN Kodit Shesvlis Gauqmeba
+echo       [6] [EXPERT] Titis Anabechdis Drois Shezgudvis Gauqmeba
+echo       [7] [EXPERT] GPO-s Shenakhva
+echo       [8] [EXPERT] GPO-s Aghdgena
+echo       [9] Gamosvla
 echo     __________________________________________________
 echo.
 echo       Airchiet Operacia:
@@ -36,11 +37,12 @@ echo.
 set /p choice="Sheiyvanet tqveni archevani: "
 
 :: Choice handling
-if "%choice%"=="8" goto :EOF
-if "%choice%"=="7" goto RestoreGPO
-if "%choice%"=="6" goto SaveGPO
-if "%choice%"=="5" goto DisableFingerprintTimeout
-if "%choice%"=="4" goto DisablePINLogin
+if "%choice%"=="9" goto :EOF
+if "%choice%"=="8" goto RestoreGPO
+if "%choice%"=="7" goto SaveGPO
+if "%choice%"=="6" goto DisableFingerprintTimeout
+if "%choice%"=="5" goto DisablePINLogin
+if "%choice%"=="4" goto ManageBitLocker
 if "%choice%"=="3" goto EnforceFingerprintTimeout
 if "%choice%"=="2" goto EnforcePINLogin
 if "%choice%"=="1" goto InstallGPO
@@ -78,6 +80,12 @@ if "%PIN_SETUP%"=="0" (
     exit /b 1
 )
 exit /b 0
+
+:ManageBitLocker
+cls
+echo BitLocker-is martvis instrumentis gashveba...
+start "FOI - BitLocker Management" cmd /c ""%ScriptDir%\bl_tools.cmd""
+goto MainMenu
 
 :EnforcePINLogin
 cls
