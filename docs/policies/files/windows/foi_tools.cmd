@@ -214,14 +214,14 @@ if %count% equ 0 (
 )
 
 echo.
-echo Bolo 10 sarezervo asli:
+echo Bolo 30 sarezervo asli:
 echo ------------------------
 
-:: Display last 10 backups with numbers
+:: Display last 30 backups with numbers
 set "displayCount=0"
 for /f "delims=" %%a in (%tempFile%) do (
     set /a "displayCount+=1"
-    if !displayCount! leq 10 (
+    if !displayCount! leq 30 (
         set "backup=%%a"
         :: Extract date and time from backup name (format: backup_YYYYMMDD_HHMMSS)
         set "datetime=!backup:~7!"
@@ -289,6 +289,17 @@ del "%tempFile%" 2>nul
 pause
 goto MainMenu
 
+:DisableHibernation
+echo [INFO] Mimdinareobs hibriduli dzilis gamortva...
+powercfg /h off
+if errorlevel 1 (
+    echo [ERROR] Hibriduli dzilis gamortvisas moxda shecdoma
+    pause
+    exit /b 1
+)
+echo [OK] Hibriduli dzili gamortulia.
+exit /b 0
+
 :InstallGPO
 cls
 set "calledFromInstall=1"
@@ -296,11 +307,14 @@ call :SaveGPO
 if errorlevel 1 goto MainMenu
 set "calledFromInstall=0"
 
-echo Mimdinareobs FOI usafrtxoebis politikis dayeneba...
+call :DisableHibernation
+if errorlevel 1 goto MainMenu
+
+echo [INFO] Mimdinareobs FOI usafrtxoebis politikis dayeneba...
 call :ResetGPO
 if errorlevel 1 goto MainMenu
 
-echo Parametrebis kopireba: "%ScriptDir%\PolicyDefinitions" to "%SystemRoot%\PolicyDefinitions\"
+echo [INFO] Parametrebis kopireba: "%ScriptDir%\PolicyDefinitions" to "%SystemRoot%\PolicyDefinitions\"
 xcopy /S /Y "%ScriptDir%\PolicyDefinitions" "%SystemRoot%\PolicyDefinitions\"
 if errorlevel 1 (
     echo [ERROR] Parametrebis kopirebisas moxda shecdoma
@@ -320,7 +334,7 @@ for /D %%D in ("%ScriptDir%\LGPO\policy\*") do (
 )
 
 :InstallGPOComplete
-echo Mimdinareobs FOI usafrtxoebis politikis dayeneba...
+echo [INFO] Mimdinareobs FOI usafrtxoebis politikis dayeneba...
 gpupdate /force
 if errorlevel 1 (
     echo [ERROR] GPO-s ganakhlebisas moxda shecdoma
@@ -329,12 +343,72 @@ if errorlevel 1 (
 )
 
 echo [OK] FOI usafrtxoebis politikis dayeneba dasrulda.
+
+call :ConfigureDNS
+
+:ConfigureDNS
+echo Mimdinareobs DNS-is konfiguracia...
+:: Clean up existing DoH settings
+echo [INFO] Arsebuli DNS over HTTPS konfigurebis washla...
+powershell -ExecutionPolicy Bypass -Command "Remove-Item 'HKLM:System\CurrentControlSet\Services\Dnscache\InterfaceSpecificParameters\*' -Recurse -ErrorAction SilentlyContinue; $template = 'https://cloudflare-dns.com/dns-query'; $oldIPs = (Get-DnsClientDohServerAddress | Where-Object { $_.DohTemplate -eq $template }).ServerAddress; if ($oldIPs) { $oldIPs | ForEach-Object { Remove-DnsClientDohServerAddress -ServerAddress $_ } }"
+
+:: Configure DoH settings first
+echo [INFO] DNS over HTTPS-is konfiguracia...
+powershell -ExecutionPolicy Bypass -Command "Add-DnsClientDohServerAddress -ServerAddress '1.1.1.1' -DohTemplate 'https://cloudflare-dns.com/dns-query' -AllowFallbackToUdp $false -AutoUpgrade $true; Add-DnsClientDohServerAddress -ServerAddress '1.0.0.1' -DohTemplate 'https://cloudflare-dns.com/dns-query' -AllowFallbackToUdp $false -AutoUpgrade $true"
+if errorlevel 1 (
+    echo [ERROR] DNS over HTTPS konfigurebisas moxda shecdoma
+    pause
+) else (
+    :: Configure DNS servers
+    powershell -ExecutionPolicy Bypass -Command "$adapters = Get-NetAdapter | Where-Object { $_.InterfaceDescription -match '(Ethernet|Wireless|Wi-Fi)' -and $_.Status -eq 'Up' }; foreach ($adapter in $adapters) { Write-Host '[INFO] DNS-is konfiguracia: ' $adapter.Name; Set-DnsClientServerAddress -InterfaceIndex $adapter.ifIndex -ServerAddresses @('1.1.1.1','1.0.0.1') }"
+    if errorlevel 1 (
+        echo [ERROR] DNS serverebis konfigurebisas moxda shecdoma
+        pause
+    ) else (
+        :: Enable mandatory DoH
+        echo [INFO] DNS over HTTPS-is idzulebis konfiguracia...
+        powershell -ExecutionPolicy Bypass -Command "$adapters = Get-NetAdapter | Where-Object { $_.InterfaceDescription -match '(Ethernet|Wireless|Wi-Fi)' -and $_.Status -eq 'Up' }; foreach ($adapter in $adapters) { Write-Host '[INFO] DoH idzulebis konfiguracia: ' $adapter.Name; foreach ($dns in @('1.1.1.1','1.0.0.1')) { $regPath = 'HKLM:System\CurrentControlSet\Services\Dnscache\InterfaceSpecificParameters\' + $adapter.InterfaceGuid + '\DohInterfaceSettings\Doh\' + $dns; $item = New-Item -Path $regPath -Force; New-ItemProperty -Path $regPath -Name 'DohFlags' -Value 2 -PropertyType QWORD -Force | Out-Null; New-ItemProperty -Path $regPath -Name 'DohTemplate' -Value 'https://cloudflare-dns.com/dns-query' -PropertyType String -Force | Out-Null } }; Clear-DnsClientCache"
+        if errorlevel 1 (
+            echo [ERROR] DNS over HTTPS idzulebis konfigurebisas moxda shecdoma
+            pause
+        ) else (
+            echo [OK] DNS konfiguracia dasrulda.
+        )
+    )
+)
+if errorlevel 1 (
+    echo [ERROR] DNS-is konfigurebisas moxda shecdoma
+    pause
+) else (
+    echo [OK] DNS konfiguracia dasrulda.
+)
+
+:CheckKernelDMAProtection
+echo [INFO] Mimdinareobs Kernel DMA Protection-is shemowmeba...
+set "temp_report=%TEMP%\msinfo32_report.txt"
+msinfo32 /report "%temp_report%" /categories +SystemSummary
+if errorlevel 1 (
+    echo [ERROR] Sistemis informaciis migeba ver moxerxda
+    del "%temp_report%" 2>nul
+    pause
+    goto MainMenu
+)
+
+powershell -ExecutionPolicy Bypass -Command "$content = Get-Content -Encoding Unicode '%temp_report%'; $line = $content | Where-Object { $_ -like '*Kernel DMA Protection*' }; if ($line) { $value = ($line -split '\s+')[3]; if ($value -eq 'Off') { Write-Host '[INFO] Kernel DMA Protection gamortulia - vrtavt BitLocker DMA Protection-s'; cd '%ScriptDir%\LGPO'; .\LGPO.exe /m 'dma_on\registry.pol'; Write-Host '[OK] BitLocker DMA Protection chartulia' } elseif ($value -eq 'On') { Write-Host '[INFO] Kernel DMA Protection chartulia - ar vcvlit BitLocker DMA Protection-s' } } else { Write-Host '[INFO] Sistema ar sheicavs Kernel DMA Protection-is parametrs - ar vcvlit BitLocker DMA parametrebs' }"
+if errorlevel 1 (
+    echo [ERROR] DMA Protection-is parametris dayenebisas moxda shecdoma
+    del "%temp_report%" 2>nul
+    pause
+    goto MainMenu
+)
+
+del "%temp_report%" 2>nul
 pause
 goto MainMenu
 
 :SaveGPO
 cls
-echo Mimdinareobs sarezervo aslis sheqmna...
+echo [INFO] Mimdinareobs sarezervo aslis sheqmna...
 
 :: Get the current date and time to create a unique backup directory
 for /f "delims=" %%I in ('powershell -Command "Get-Date -Format yyyyMMdd_HHmmss"') do set datetime=%%I
@@ -362,9 +436,9 @@ if errorlevel 1 (
     pause
     goto MainMenu
 )
-echo Sarezervo aslis sheqmna dasrulda.
+echo [INFO] Sarezervo aslis sheqmna dasrulda.
 
-echo Mimdinareobs sarezervo monacemebis damushaveba...
+echo [INFO] Mimdinareobs sarezervo monacemebis damushaveba...
 set "BackupPath=%backupDir%"
 
 :: Process each .pol file and save the output to a txt file named after the directory
@@ -379,7 +453,7 @@ for /r "%BackupPath%" %%f in (*.pol) do (
         pause
         goto MainMenu
     )
-    echo Damushavebuli monacemebi shenakhulia: !OutputFile!
+    echo [INFO] Damushavebuli monacemebi shenakhulia: !OutputFile!
 )
 
 echo [OK] Sarezervo aslebis sheqmna dasrulda.
