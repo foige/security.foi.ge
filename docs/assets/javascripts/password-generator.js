@@ -152,45 +152,49 @@ function generatePassphrase(config, useSharedWord = false) {
   return result;
 }
 
-function stylePassphrase(passphrase, isSharedWord = false) {
+function stylePassphrase(passphrase, isSharedWord = false, isCritical = false) {
   if (!passphrase.includes(' ')) {
     // For passwords without spaces (Android)
     const chars = passphrase.split('');
-    const upperIndices = chars.reduce((acc, char, i) => {
-      if (char === char.toUpperCase() && char.match(/[A-Z]/)) {
-        acc.push(i);
+    
+    if (isSharedWord) {
+      // Find the last word by looking for the pattern: uppercase followed by lowercase
+      const matches = passphrase.match(/[A-Z][a-z]+/g);
+      if (matches) {
+        const lastWord = matches[matches.length - 1];
+        const lastWordIndex = passphrase.lastIndexOf(lastWord);
+        
+        const firstPart = passphrase.substring(0, lastWordIndex);
+        const lastPart = passphrase.substring(lastWordIndex);
+
+        const styledFirst = firstPart.split('').map(char => {
+          if (char === char.toUpperCase() && char.match(/[A-Z]/)) {
+            return `<span style="color: #ffd700; font-weight: bold;">${char}</span>`;
+          } else if (char.match(/[0-9]/)) {
+            return `<span style="color: #b8860b; font-weight: bold;">${char}</span>`;
+          }
+          return char;
+        }).join('');
+
+        const styledLast = lastPart.split('').map(char => {
+          if (char === char.toUpperCase() && char.match(/[A-Z]/)) {
+            return `<span style="color: #ffd700; font-weight: bold;">${char}</span>`;
+          } else if (char.match(/[0-9]/)) {
+            return `<span style="color: #b8860b; font-weight: bold;">${char}</span>`;
+          }
+          return char;
+        }).join('');
+
+        const memoryPart = `<span class="memory-container"><span class="memory-word">${styledLast}</span><span class="memory-indicator">🧠</span></span>`;
+        if (isCritical) {
+          return `<span class="write-container"><span class="write-indicator">✍️</span>${styledFirst}</span>${memoryPart}`;
+        }
+        return `${styledFirst}${memoryPart}`;
       }
-      return acc;
-    }, []);
-
-    if (isSharedWord && upperIndices.length > 0) {
-      const lastUpperIndex = upperIndices[upperIndices.length - 1];
-      const firstPart = chars.slice(0, lastUpperIndex);
-      const lastPart = chars.slice(lastUpperIndex);
-
-      const styledFirst = firstPart.map(char => {
-        if (char === char.toUpperCase() && char.match(/[A-Z]/)) {
-          return `<span style="color: #ffd700; font-weight: bold;">${char}</span>`;
-        } else if (char.match(/[0-9]/)) {
-          return `<span style="color: #b8860b; font-weight: bold;">${char}</span>`;
-        }
-        return char;
-      }).join('');
-
-      const styledLast = lastPart.map(char => {
-        if (char === char.toUpperCase() && char.match(/[A-Z]/)) {
-          return `<span style="color: #ffd700; font-weight: bold;">${char}</span>`;
-        } else if (char.match(/[0-9]/)) {
-          return `<span style="color: #b8860b; font-weight: bold;">${char}</span>`;
-        }
-        return char;
-      }).join('');
-
-      return `${styledFirst}<span class="memory-container"><span class="memory-word">${styledLast}</span><span class="memory-indicator">🧠</span></span>`;
     }
 
-    // Style all characters if not a shared word or no uppercase found
-    return chars.map(char => {
+    // Style all characters if not a shared word
+    const styledText = chars.map(char => {
       if (char === char.toUpperCase() && char.match(/[A-Z]/)) {
         return `<span style="color: #ffd700; font-weight: bold;">${char}</span>`;
       } else if (char.match(/[0-9]/)) {
@@ -198,6 +202,11 @@ function stylePassphrase(passphrase, isSharedWord = false) {
       }
       return char;
     }).join('');
+    
+    if (isCritical) {
+      return `<span class="write-container"><span class="write-indicator">✍️</span>${styledText}</span>`;
+    }
+    return styledText;
   }
 
   const words = passphrase.split(' ');
@@ -217,7 +226,14 @@ function stylePassphrase(passphrase, isSharedWord = false) {
     return styledChars;
   });
 
-  return styledWords.join(' ');
+  const joinedWords = styledWords.join(' ');
+  if (isCritical) {
+    const lastSpaceIndex = joinedWords.lastIndexOf('<span class="memory-container">');
+    const beforeMemory = joinedWords.substring(0, lastSpaceIndex);
+    const afterMemory = joinedWords.substring(lastSpaceIndex);
+    return `<span class="write-container"><span class="write-indicator">✍️</span>${beforeMemory}</span>${afterMemory}`;
+  }
+  return joinedWords;
 }
 
 // Function to reset the page state
@@ -272,8 +288,8 @@ function generatePasswords() {
   const bitwardenElement = document.getElementById('bitwarden-password');
   const mobileElement = document.getElementById('mobile-password');
   
-  bitwardenElement.innerHTML = stylePassphrase(bitwardenPass, true);
-  mobileElement.innerHTML = stylePassphrase(mobilePass, true);
+  bitwardenElement.innerHTML = stylePassphrase(bitwardenPass, true, true);
+  mobileElement.innerHTML = stylePassphrase(mobilePass, true, true);
   
   // Add protection to critical passwords
   addCopyProtection(bitwardenElement);
