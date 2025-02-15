@@ -360,14 +360,14 @@ if errorlevel 1 (
     pause
 ) else (
     :: Configure DNS servers
-    powershell -ExecutionPolicy Bypass -Command "$adapters = Get-NetAdapter | Where-Object { $_.InterfaceDescription -match '(Ethernet|Wireless|Wi-Fi)' -and $_.Status -eq 'Up' }; foreach ($adapter in $adapters) { Write-Host '[INFO] DNS-is konfiguracia: ' $adapter.Name; Set-DnsClientServerAddress -InterfaceIndex $adapter.ifIndex -ServerAddresses @('1.1.1.1','1.0.0.1') }"
+    powershell -ExecutionPolicy Bypass -Command "$adapters = Get-NetAdapter | Where-Object { $_.InterfaceDescription -match '(Ethernet|Wireless|Wi-Fi)' }; foreach ($adapter in $adapters) { Write-Host '[INFO] DNS-is konfiguracia: ' $adapter.Name; Set-DnsClientServerAddress -InterfaceIndex $adapter.ifIndex -ServerAddresses @('1.1.1.1','1.0.0.1') }"
     if errorlevel 1 (
         echo [ERROR] DNS serverebis konfigurebisas moxda shecdoma
         pause
     ) else (
         :: Enable mandatory DoH
         echo [INFO] DNS over HTTPS-is idzulebis konfiguracia...
-        powershell -ExecutionPolicy Bypass -Command "$adapters = Get-NetAdapter | Where-Object { $_.InterfaceDescription -match '(Ethernet|Wireless|Wi-Fi)' -and $_.Status -eq 'Up' }; foreach ($adapter in $adapters) { Write-Host '[INFO] DoH idzulebis konfiguracia: ' $adapter.Name; foreach ($dns in @('1.1.1.1','1.0.0.1')) { $regPath = 'HKLM:System\CurrentControlSet\Services\Dnscache\InterfaceSpecificParameters\' + $adapter.InterfaceGuid + '\DohInterfaceSettings\Doh\' + $dns; $item = New-Item -Path $regPath -Force; New-ItemProperty -Path $regPath -Name 'DohFlags' -Value 2 -PropertyType QWORD -Force | Out-Null; New-ItemProperty -Path $regPath -Name 'DohTemplate' -Value 'https://cloudflare-dns.com/dns-query' -PropertyType String -Force | Out-Null } }; Clear-DnsClientCache"
+        powershell -ExecutionPolicy Bypass -Command "$adapters = Get-NetAdapter | Where-Object { $_.InterfaceDescription -match '(Ethernet|Wireless|Wi-Fi)' }; foreach ($adapter in $adapters) { Write-Host '[INFO] DoH idzulebis konfiguracia: ' $adapter.Name; foreach ($dns in @('1.1.1.1','1.0.0.1')) { $regPath = 'HKLM:System\CurrentControlSet\Services\Dnscache\InterfaceSpecificParameters\' + $adapter.InterfaceGuid + '\DohInterfaceSettings\Doh\' + $dns; $item = New-Item -Path $regPath -Force; New-ItemProperty -Path $regPath -Name 'DohFlags' -Value 2 -PropertyType QWORD -Force | Out-Null; New-ItemProperty -Path $regPath -Name 'DohTemplate' -Value 'https://cloudflare-dns.com/dns-query' -PropertyType String -Force | Out-Null } }; Clear-DnsClientCache"
         if errorlevel 1 (
             echo [ERROR] DNS over HTTPS idzulebis konfigurebisas moxda shecdoma
             pause
