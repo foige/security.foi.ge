@@ -3,11 +3,33 @@ title: "FOI პაროლების გენერატორი"
 hide:
   - navigation
 ---
-<link rel="stylesheet" href="../../assets/stylesheets/password-generator.css?v=2025-02-15_2">
+<link rel="stylesheet" href="../../assets/stylesheets/password-generator.css?v=2025-02-17">
 
 # პაროლების გენერატორი
 
 მარტივად დამახსოვრებადი და გამოყენებაზე მორგებული ძლიერი პაროლების გენერატორი.
+
+<div class="language-selection-container">
+  <h3>აირჩიეთ პაროლის ენა</h3>
+  <div class="language-selection">
+    <label class="language-option recommended">
+      <input type="radio" name="password-language" value="combined" checked>
+      <span class="language-icon">🌐</span>
+      <span>კომბინირებული</span>
+      <span class="strength-indicator">💪</span>
+    </label>
+    <label class="language-option">
+      <input type="radio" name="password-language" value="ka">
+      <span class="language-icon">🇬🇪</span>
+      <span>ქართული</span>
+    </label>
+    <label class="language-option">
+      <input type="radio" name="password-language" value="en">
+      <span class="language-icon">🇬🇧</span>
+      <span>ინგლისური</span>
+    </label>
+  </div>
+</div>
 
 <div class="os-selection-container">
   <h3>აირჩიეთ თქვენი მოწყობილობები</h3>
@@ -128,4 +150,4 @@ hide:
 <div id="additional-note" style="margin: 20px 0;"></div>
 <div id="error-message" style="color: red;"></div>
 
-<script src="../../assets/javascripts/password-generator.js?v=2025-02-15_2"></script>
+<script src="../../assets/javascripts/password-generator.js?v=2025-02-17"></script>

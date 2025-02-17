@@ -1,15 +1,102 @@
-let words = [];
-let wordsLoaded = false;
+let wordsEn = [];
+let wordsKa = [];
+let syllablesEn = [];
+let syllablesKa = [];
+let words = []; // Current active word list
+let syllables = []; // Current active syllables list
+let wordsLoaded = { en: false, ka: false };
+let syllablesLoaded = { en: false, ka: false };
 let minWordLength = Infinity;
 let maxWordLength = -Infinity;
 let sharedWord = '';
+
+// Load English resources
+Promise.all([
+  fetch('../foi_words_en.txt').then(response => {
+    if (!response.ok) throw new Error('Failed to load English words');
+    return response.text();
+  }),
+  fetch('../foi_syllables_en.txt').then(response => {
+    if (!response.ok) throw new Error('Failed to load English syllables');
+    return response.text();
+  })
+])
+.then(([wordsData, syllablesData]) => {
+  wordsEn = wordsData.split('\n').filter(Boolean);
+  syllablesEn = syllablesData.split('\n').filter(Boolean);
+  wordsLoaded.en = true;
+  syllablesLoaded.en = true;
+  checkWordsLoaded();
+})
+.catch(error => {
+  document.getElementById('error-message').textContent = 'Error: Unable to load English resources.';
+  console.error('Error fetching English resources:', error);
+});
+
+// Load Georgian resources
+Promise.all([
+  fetch('../foi_words_ka.txt').then(response => {
+    if (!response.ok) throw new Error('Failed to load Georgian words');
+    return response.text();
+  }),
+  fetch('../foi_syllables_ka.txt').then(response => {
+    if (!response.ok) throw new Error('Failed to load Georgian syllables');
+    return response.text();
+  })
+])
+.then(([wordsData, syllablesData]) => {
+  wordsKa = wordsData.split('\n').filter(Boolean);
+  syllablesKa = syllablesData.split('\n').filter(Boolean);
+  wordsLoaded.ka = true;
+  syllablesLoaded.ka = true;
+  checkWordsLoaded();
+})
+.catch(error => {
+  document.getElementById('error-message').textContent = 'Error: Unable to load Georgian resources.';
+  console.error('Error fetching Georgian resources:', error);
+});
+
+function checkWordsLoaded() {
+  if (wordsLoaded.en && wordsLoaded.ka && syllablesLoaded.en && syllablesLoaded.ka) {
+    // Set initial word list based on default language selection
+    const selectedLanguage = document.querySelector('input[name="password-language"]:checked').value;
+    updateWordList(selectedLanguage);
+    document.getElementById('generate-button').disabled = false;
+  }
+}
+
+function updateWordList(language) {
+  switch (language) {
+    case 'en':
+      words = wordsEn;
+      syllables = syllablesEn;
+      break;
+    case 'ka':
+      words = wordsKa;
+      syllables = syllablesKa;
+      break;
+    case 'combined':
+      words = [...wordsEn, ...wordsKa];
+      syllables = [...syllablesEn, ...syllablesKa];
+      break;
+  }
+  computeWordLengths();
+}
+
+// Add event listener for language selection
+document.querySelectorAll('input[name="password-language"]').forEach(radio => {
+  radio.addEventListener('change', (e) => {
+    updateWordList(e.target.value);
+    resetPasswordContainer();
+  });
+});
 
 const osConfigs = {
   'ios': {
     type: 'passphrase',
     numWords: 4,
     separator: ' ',
-    maxLength: 20,
+    maxLength: 25,
     additionalHTML: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/ios/">iOS კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ მაღალი ასოს და გამოტოვებების (სფეისის) შეყვანა.<br>- კომფორტის შესანარჩუნებლად გამოიყენეთ Face ID.</p>'
   },
   'android': {
@@ -18,6 +105,7 @@ const osConfigs = {
     separator: '',
     maxLength: 16,
     titleCase: true,
+    useSyllables: true, // Use syllables for non-shared words
     additionalHTML: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/android/">Android კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ მაღალი ასოს და ყოველი სიტყვის პირველი ასოს დიდ რეგისტრში შეყვანა.<br>- კომფორტის შესანარჩუნებლად გამოიყენეთ თითის ანაბეჭდი.</p>'
   },
   'macos': {
@@ -61,24 +149,6 @@ const osConfigs = {
   }
 };
 
-fetch('../short_words.txt')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Failed to load words.txt');
-    }
-    return response.text();
-  })
-  .then(data => {
-    words = data.split('\n').filter(Boolean);
-    wordsLoaded = true;
-    computeWordLengths();
-    document.getElementById('generate-button').disabled = false;
-  })
-  .catch(error => {
-    document.getElementById('error-message').textContent = 'Error: Unable to load word list.';
-    console.error('Error fetching words.txt:', error);
-  });
-
 function computeWordLengths() {
   for (let word of words) {
     const length = word.length;
@@ -93,7 +163,14 @@ function getRandomInt(max) {
   return Math.floor(buffer[0] / (0xFFFFFFFF + 1) * max);
 }
 
-function generateRandomWord() {
+function generateRandomWord(useSyllables = false) {
+  if (useSyllables) {
+    let result = '';
+    for (let i = 0; i < 1; i++) {
+      result += syllables[getRandomInt(syllables.length)];
+    }
+    return result;
+  }
   return words[getRandomInt(words.length)];
 }
 
@@ -120,10 +197,11 @@ function generatePassphrase(config, useSharedWord = false) {
     attempts++;
     const selectedWords = [];
     for (let i = 0; i < config.numWords - (useSharedWord ? 1 : 0); i++) {
-      selectedWords.push(generateRandomWord());
+      selectedWords.push(generateRandomWord(config.useSyllables));
     }
 
     if (useSharedWord) {
+      // Always use a regular word for the shared word, not syllables
       selectedWords.push(sharedWord);
     }
 
@@ -249,8 +327,8 @@ document.querySelectorAll('input[name="mobile-os"], input[name="desktop-os"]').f
 });
 
 function generatePasswords() {
-  if (!wordsLoaded) {
-    document.getElementById('error-message').textContent = 'სიტყვების ჩატვირთვას ველოდებით...';
+  if (!wordsLoaded.en || !wordsLoaded.ka || !syllablesLoaded.en || !syllablesLoaded.ka) {
+    document.getElementById('error-message').textContent = 'ველოდებით რესურსების ჩატვირთვას...';
     return;
   }
 
