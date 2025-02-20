@@ -12,14 +12,24 @@ let sharedWord = '';
 
 // Load English resources
 Promise.all([
-  fetch('../foi_words_en.txt').then(response => {
-    if (!response.ok) throw new Error('Failed to load English words');
-    return response.text();
-  }),
-  fetch('../foi_syllables_en.txt').then(response => {
-    if (!response.ok) throw new Error('Failed to load English syllables');
-    return response.text();
-  })
+  fetch('../foi_words_en.txt')
+    .then(response => {
+      if (!response.ok) throw new Error('Failed to load English words');
+      return response.text();
+    })
+    .then(async content => {
+      await verifyIntegrity('foi_words_en.txt', content);
+      return content;
+    }),
+  fetch('../foi_syllables_en.txt')
+    .then(response => {
+      if (!response.ok) throw new Error('Failed to load English syllables');
+      return response.text();
+    })
+    .then(async content => {
+      await verifyIntegrity('foi_syllables_en.txt', content);
+      return content;
+    })
 ])
 .then(([wordsData, syllablesData]) => {
   wordsEn = wordsData.split('\n').filter(Boolean);
@@ -29,20 +39,31 @@ Promise.all([
   checkWordsLoaded();
 })
 .catch(error => {
-  document.getElementById('error-message').textContent = 'Error: Unable to load English resources.';
+  document.getElementById('error-message').textContent = 'Error: Unable to load English resources. ' + error.message;
   console.error('Error fetching English resources:', error);
+  document.getElementById('generate-button').disabled = true;
 });
 
 // Load Georgian resources
 Promise.all([
-  fetch('../foi_words_ka.txt').then(response => {
-    if (!response.ok) throw new Error('Failed to load Georgian words');
-    return response.text();
-  }),
-  fetch('../foi_syllables_ka.txt').then(response => {
-    if (!response.ok) throw new Error('Failed to load Georgian syllables');
-    return response.text();
-  })
+  fetch('../foi_words_ka.txt')
+    .then(response => {
+      if (!response.ok) throw new Error('Failed to load Georgian words');
+      return response.text();
+    })
+    .then(async content => {
+      await verifyIntegrity('foi_words_ka.txt', content);
+      return content;
+    }),
+  fetch('../foi_syllables_ka.txt')
+    .then(response => {
+      if (!response.ok) throw new Error('Failed to load Georgian syllables');
+      return response.text();
+    })
+    .then(async content => {
+      await verifyIntegrity('foi_syllables_ka.txt', content);
+      return content;
+    })
 ])
 .then(([wordsData, syllablesData]) => {
   wordsKa = wordsData.split('\n').filter(Boolean);
@@ -52,8 +73,9 @@ Promise.all([
   checkWordsLoaded();
 })
 .catch(error => {
-  document.getElementById('error-message').textContent = 'Error: Unable to load Georgian resources.';
+  document.getElementById('error-message').textContent = 'Error: Unable to load Georgian resources. ' + error.message;
   console.error('Error fetching Georgian resources:', error);
+  document.getElementById('generate-button').disabled = true;
 });
 
 function checkWordsLoaded() {
