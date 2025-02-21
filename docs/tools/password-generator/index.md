@@ -1,11 +1,12 @@
 ---
 title: "FOI პაროლების გენერატორი"
+icon: material/key
 hide:
   - navigation
 ---
-<link rel="stylesheet" href="../../assets/stylesheets/password-generator.css?v=2025-02-20">
+<link rel="stylesheet" href="../../assets/stylesheets/password-generator.css?v=2025-02-22">
 
-# პაროლების გენერატორი
+# FOI პაროლების გენერატორი
 
 მარტივად დამახსოვრებადი და გამოყენებაზე მორგებული ძლიერი პაროლების გენერატორი.
 
@@ -159,7 +160,7 @@ hide:
 <script>
 // File integrity checksums (SHA-256)
 const INTEGRITY_CHECKSUMS = {
-  'password-generator.js': '4b168075646545971f0e1a91c82f6607dd072578d6c026bdd6f5efe5617822fc',
+  'password-generator.js': '34532a1122cf35704e9f3044a53d3d07a6f3371beca1afc02ff1c3736d314964',
   'foi_words_en.txt': 'b294dd133291abeb153593f4c44ea3583473d29dda0284699a1a9887967cff68',
   'foi_words_ka.txt': '8a0eb56e7df296b9860d074608a692bda46928560283ab57821446c201e0066f',
   'foi_syllables_en.txt': '98f25a9e8a0584b69d325214ce6d03c2f761278f0efdeb2f0cc146d6c3dbd601',
@@ -198,7 +199,7 @@ async function verifyIntegrity(filename, content) {
 // Load and verify password generator script
 (async function loadPasswordGenerator() {
   try {
-    const response = await fetch('../../assets/javascripts/password-generator.js?v=2025-02-20');
+    const response = await fetch('../../assets/javascripts/password-generator.js?v=2025-02-22');
     if (!response.ok) throw new Error('Failed to load password generator');
     const content = await response.text();
     

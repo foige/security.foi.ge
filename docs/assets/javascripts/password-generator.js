@@ -12,7 +12,7 @@ let sharedWord = '';
 
 // Load English resources
 Promise.all([
-  fetch('../foi_words_en.txt')
+  fetch('foi_words_en.txt')
     .then(response => {
       if (!response.ok) throw new Error('Failed to load English words');
       return response.text();
@@ -21,7 +21,7 @@ Promise.all([
       await verifyIntegrity('foi_words_en.txt', content);
       return content;
     }),
-  fetch('../foi_syllables_en.txt')
+  fetch('foi_syllables_en.txt')
     .then(response => {
       if (!response.ok) throw new Error('Failed to load English syllables');
       return response.text();
@@ -46,7 +46,7 @@ Promise.all([
 
 // Load Georgian resources
 Promise.all([
-  fetch('../foi_words_ka.txt')
+  fetch('foi_words_ka.txt')
     .then(response => {
       if (!response.ok) throw new Error('Failed to load Georgian words');
       return response.text();
@@ -55,7 +55,7 @@ Promise.all([
       await verifyIntegrity('foi_words_ka.txt', content);
       return content;
     }),
-  fetch('../foi_syllables_ka.txt')
+  fetch('foi_syllables_ka.txt')
     .then(response => {
       if (!response.ok) throw new Error('Failed to load Georgian syllables');
       return response.text();

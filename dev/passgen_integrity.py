@@ -15,10 +15,10 @@ def update_checksums_in_markdown():
     """Update checksums in the password generator markdown file."""
     files = {
         'password-generator.js': 'docs/assets/javascripts/password-generator.js',
-        'foi_words_en.txt': 'docs/tools/foi_words_en.txt',
-        'foi_words_ka.txt': 'docs/tools/foi_words_ka.txt',
-        'foi_syllables_en.txt': 'docs/tools/foi_syllables_en.txt',
-        'foi_syllables_ka.txt': 'docs/tools/foi_syllables_ka.txt'
+        'foi_words_en.txt': 'docs/tools/password-generator/foi_words_en.txt',
+        'foi_words_ka.txt': 'docs/tools/password-generator/foi_words_ka.txt',
+        'foi_syllables_en.txt': 'docs/tools/password-generator/foi_syllables_en.txt',
+        'foi_syllables_ka.txt': 'docs/tools/password-generator/foi_syllables_ka.txt'
     }
     
     new_checksums = {}
@@ -30,7 +30,7 @@ def update_checksums_in_markdown():
             print(f"Error processing {name}: {e}")
             return
 
-    md_path = 'docs/tools/password-generator.md'
+    md_path = 'docs/tools/password-generator/index.md'
     with open(md_path, 'r', encoding='utf-8') as f:
         content = f.read()
     checksum_pattern = r'const INTEGRITY_CHECKSUMS = \{[^}]+\};'

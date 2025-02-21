@@ -92,7 +92,7 @@ nav:
           - "iOS": policies/ios.md
           - "ბრაუზერები": policies/browser.md
   - FOI პაროლების გენერატორი:
-      - tools/password-generator.md
+      - tools/password-generator/index.md
   - "FOI-ს შესახებ":
       - about/index.md
       - about/tos.md
