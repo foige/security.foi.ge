@@ -96,7 +96,7 @@ _check_run_as_user() {
     if [[ "$(whoami | tr '[:upper:]' '[:lower:]')" == "$user" ]]; then
         echo_success "Check passed! Running as $(whoami)"
     else
-        echo_error "Check failed! Login from '$user' user to run this script\n"
+        echo_error "Check failed! Login from the '$user' user and run this script from there\n"
         pause
         main_menu
     fi
@@ -119,7 +119,13 @@ enforce_filevault_user() {
     echo_header "Enforcing FileVault User"
     echo_lb
 
+    echo_log "Checking if logged in with $FV_UNLOCK_USER user..."
+    sleep 1
+    _check_run_as_user "$FV_UNLOCK_USER"
+
     echo_log "\nChecking if FileVault is Enabled..."
+    echo_log "\n    If prompted, enter password for the '$FV_UNLOCK_USER' user"
+    echo_log "\n    You will not be able to see the password while typing\n"
     sleep 1
     _check_filevault_status
 
@@ -127,16 +133,12 @@ enforce_filevault_user() {
     sleep 1
     _check_icloud_key
 
-    echo_log "Checking if logged in with $FV_UNLOCK_USER user..."
-    sleep 1
-    _check_run_as_user "$FV_UNLOCK_USER"
-
-    echo_log "Disabling FileVault permissions for all users except 'unlock'..."
+    echo_log "Disabling FileVault permissions for all users except '$FV_UNLOCK_USER'..."
     sleep 1
     all_users=$(sudo fdesetup list | awk -F',' '{print $1}')
     other_users=$(echo "$all_users" | grep -v "$FV_UNLOCK_USER")
     if [[ "$all_users" == "$FV_UNLOCK_USER" ]]; then
-        echo_success "SUCCESS: 'unlock' is already the only user with FileVault access.\n"
+        echo_success "SUCCESS: '$FV_UNLOCK_USER' is already the only user with FileVault access.\n"
         pause
         main_menu
     fi
