@@ -7,13 +7,11 @@ icon: material/microsoft-windows
 
 *ბოლო განახლების თარიღი: 15 თებერვალი, 2025.*
 
-FOI Security Policy ავტომატურად გააქტიურდება ყველა მომხმარებელზე.
-
 ## ინსტალაცია
 
-### Windows-ის ვერსიის შეცვლა
+### Windows გამოცემები
 
-პარამეტრების გამოსაყენებლად, დაგჭირდებათ **Windows Pro** ან **Windows IoT Enterprise** ვერსია [;)](https://github.com/massgravel/Microsoft-Activation-Scripts){:target="_blank"}
+{% include-markdown "../../includes/windows_edition_change.md"%}
 
 ### FOI უსაფრთხოების პოლიტიკის დაყენება
 
