@@ -44,6 +44,7 @@ tmp
 # Agents & Claude
 .agents
 .claude
+.direnv
 
 # IDEs & Editors
 .idea

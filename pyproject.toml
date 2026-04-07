@@ -1,21 +1,16 @@
-[tool.poetry]
-name = "security.foi.ge"
+[project]
+name = "security-foi-ge"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
-readme = "README.md"
+description = "FOI Security — digital security guide and tools"
+requires-python = ">=3.11"
+dependencies = [
+    "mkdocs>=1.6.0",
+    "mkdocs-material[imaging]>=9.5.34",
+    "pymdown-extensions>=10.8.1",
+    "mkdocs-include-markdown-plugin>=6.2.1",
+    "material-plausible-plugin>=0.2.0",
+    "mkdocs-minify-plugin>=0.8.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-mkdocs-material = {extras = ["imaging"], version = "^9.5.34"}
-pymdown-extensions = "^10.8.1"
-mkdocs-include-markdown-plugin = "^6.2.1"
-mkdocs = "^1.6.0"
-mkdocs-zip-folders = "^1.0.3"
-material-plausible-plugin = "^0.2.0"
-mkdocs-minify-plugin = "^0.8.0"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.uv]
+package = false
