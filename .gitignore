@@ -38,6 +38,13 @@ example.zip
 TODO
 tmp
 
+# Private
+.private
+
+# Agents & Claude
+.agents
+.claude
+
 # IDEs & Editors
 .idea
 *~
