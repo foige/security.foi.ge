@@ -268,7 +268,7 @@ Translate the Windows edition change instructions snippet.
 
 ## Phase 6: docs/index.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -289,8 +289,8 @@ Translate the homepage.
 
 ```tasks
 - text: Read docs/index.md fully, create docs/index.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: b3ae822
 ```
 
 ### Acceptance criteria
@@ -299,14 +299,14 @@ Translate the homepage.
 - text: English homepage mirrors Georgian structure and conveys the "we decide for you" value proposition
   traces: [REQ-00053, REQ-00054, REQ-00056]
   layer: L5
-  artifact:
+  artifact: docs/index.en.md
 ```
 
 ---
 
 ## Phase 7: docs/solutions/index.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -326,8 +326,8 @@ Translate the solutions landing page.
 
 ```tasks
 - text: Read docs/solutions/index.md fully, create docs/solutions/index.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: e3f5175
 ```
 
 ### Acceptance criteria
@@ -336,14 +336,14 @@ Translate the solutions landing page.
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/solutions/index.en.md
 ```
 
 ---
 
 ## Phase 8: docs/solutions/passwords.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -366,8 +366,8 @@ Translate the password manager guide — the longest and most critical solution 
 
 ```tasks
 - text: Read docs/solutions/passwords.md fully, create docs/solutions/passwords.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 721fb1f
 ```
 
 ### Acceptance criteria
@@ -376,14 +376,14 @@ Translate the password manager guide — the longest and most critical solution 
 - text: English file mirrors Georgian structure, all configuration tables preserved
   traces: [REQ-00053, REQ-00054, REQ-00056]
   layer: L5
-  artifact:
+  artifact: docs/solutions/passwords.en.md
 ```
 
 ---
 
 ## Phase 9: docs/solutions/mfa.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -404,8 +404,8 @@ Translate the multi-factor authentication guide.
 
 ```tasks
 - text: Read docs/solutions/mfa.md fully, create docs/solutions/mfa.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 7347b90
 ```
 
 ### Acceptance criteria
@@ -414,14 +414,14 @@ Translate the multi-factor authentication guide.
 - text: English file mirrors Georgian structure, uses MFA terminology consistently
   traces: [REQ-00053, REQ-00054, REQ-00056]
   layer: L5
-  artifact:
+  artifact: docs/solutions/mfa.en.md
 ```
 
 ---
 
 ## Phase 10: docs/solutions/windows.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -444,8 +444,8 @@ Translate the Windows configuration guide.
 
 ```tasks
 - text: Read docs/solutions/windows.md fully, create docs/solutions/windows.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 7bb7338
 ```
 
 ### Acceptance criteria
@@ -454,14 +454,14 @@ Translate the Windows configuration guide.
 - text: English file mirrors Georgian structure, Windows-specific terminology correct
   traces: [REQ-00053, REQ-00054, REQ-00056]
   layer: L5
-  artifact:
+  artifact: docs/solutions/windows.en.md
 ```
 
 ---
 
 ## Phase 11: docs/solutions/macos.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -483,8 +483,8 @@ Translate the macOS configuration guide.
 
 ```tasks
 - text: Read docs/solutions/macos.md fully, create docs/solutions/macos.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: a5c5a54
 ```
 
 ### Acceptance criteria
@@ -493,14 +493,14 @@ Translate the macOS configuration guide.
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054, REQ-00056]
   layer: L5
-  artifact:
+  artifact: docs/solutions/macos.en.md
 ```
 
 ---
 
 ## Phase 12: docs/solutions/ios.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -520,8 +520,8 @@ Translate the iOS configuration guide.
 
 ```tasks
 - text: Read docs/solutions/ios.md fully, create docs/solutions/ios.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 421f847
 ```
 
 ### Acceptance criteria
@@ -530,14 +530,14 @@ Translate the iOS configuration guide.
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/solutions/ios.en.md
 ```
 
 ---
 
 ## Phase 13: docs/solutions/android.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -558,8 +558,8 @@ Translate the Android configuration guide.
 
 ```tasks
 - text: Read docs/solutions/android.md fully, create docs/solutions/android.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: e86dac3
 ```
 
 ### Acceptance criteria
@@ -568,7 +568,7 @@ Translate the Android configuration guide.
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/solutions/android.en.md
 ```
 
 ---
