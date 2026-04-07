@@ -836,7 +836,7 @@ Translate the hardware security keys analysis page.
 
 ## Phase 21: docs/policies/index.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -856,8 +856,8 @@ Translate the FOI Security Policy landing page.
 
 ```tasks
 - text: Read docs/policies/index.md fully, create docs/policies/index.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 44d4915
 ```
 
 ### Acceptance criteria
@@ -866,14 +866,14 @@ Translate the FOI Security Policy landing page.
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/policies/index.en.md
 ```
 
 ---
 
 ## Phase 22: docs/policies/windows.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -894,8 +894,8 @@ Translate the Windows security policy documentation — the most detailed policy
 
 ```tasks
 - text: Read docs/policies/windows.md fully, create docs/policies/windows.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: d83f386
 ```
 
 ### Acceptance criteria
@@ -904,14 +904,14 @@ Translate the Windows security policy documentation — the most detailed policy
 - text: English file mirrors Georgian structure, all registry paths and values preserved exactly
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/policies/windows.en.md
 ```
 
 ---
 
 ## Phase 23: docs/policies/macos.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -932,8 +932,8 @@ Translate the macOS security policy documentation.
 
 ```tasks
 - text: Read docs/policies/macos.md fully, create docs/policies/macos.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: dfc9000
 ```
 
 ### Acceptance criteria
@@ -942,14 +942,14 @@ Translate the macOS security policy documentation.
 - text: English file mirrors Georgian structure, all policy parameter names preserved
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/policies/macos.en.md
 ```
 
 ---
 
 ## Phase 24: docs/policies/ios.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -970,8 +970,8 @@ Translate the iOS security policy documentation.
 
 ```tasks
 - text: Read docs/policies/ios.md fully, create docs/policies/ios.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 761c851
 ```
 
 ### Acceptance criteria
@@ -980,14 +980,14 @@ Translate the iOS security policy documentation.
 - text: English file mirrors Georgian structure, all policy parameter names preserved
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/policies/ios.en.md
 ```
 
 ---
 
 ## Phase 25: docs/policies/browser.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -1008,8 +1008,8 @@ Translate the browser security policy documentation.
 
 ```tasks
 - text: Read docs/policies/browser.md fully, create docs/policies/browser.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: c8cd136
 ```
 
 ### Acceptance criteria
@@ -1018,14 +1018,14 @@ Translate the browser security policy documentation.
 - text: English file mirrors Georgian structure, all policy paths preserved
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/policies/browser.en.md
 ```
 
 ---
 
 ## Phase 26: docs/tools/password-generator/index.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -1046,8 +1046,8 @@ Translate the password generator page. The generator JS is already bilingual —
 
 ```tasks
 - text: Read docs/tools/password-generator/index.md fully, create docs/tools/password-generator/index.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 4c05921
 ```
 
 ### Acceptance criteria
@@ -1056,7 +1056,7 @@ Translate the password generator page. The generator JS is already bilingual —
 - text: English file mirrors Georgian structure, all script/checksum references preserved
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/tools/password-generator/index.en.md
 ```
 
 ---
@@ -1096,7 +1096,7 @@ Translate the about page. Has Georgia-specific content per divergence registry.
 - text: English file mirrors Georgian structure with documented divergences applied
   traces: [REQ-00053, REQ-00054, CON-00060]
   layer: L5
-  artifact:
+  artifact: docs/policies/index.en.md
 ```
 
 ---
@@ -1135,7 +1135,7 @@ Translate the terms of service page. Has Georgia-specific content per divergence
 - text: English file mirrors Georgian structure with documented divergences applied
   traces: [REQ-00053, REQ-00054, CON-00060]
   layer: L5
-  artifact:
+  artifact: docs/policies/index.en.md
 ```
 
 ---
@@ -1172,7 +1172,7 @@ Translate the privacy policy page.
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/policies/index.en.md
 ```
 
 ---
@@ -1209,7 +1209,7 @@ Translate the trainers guide.
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/policies/index.en.md
 ```
 
 ---
@@ -1245,7 +1245,7 @@ Translate the prerequisites page (currently not in nav but exists in docs).
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/policies/index.en.md
 ```
 
 ---
