@@ -18,6 +18,7 @@
           packages = [
             python
             pkgs.uv
+            pkgs.gh
             pkgs.cairo
             pkgs.freetype
             pkgs.libffi
@@ -36,6 +37,7 @@
           ];
 
           env.UV_PYTHON = "${python}/bin/python";
+          env.GH_CONFIG_DIR = "./.gh";
         };
       });
 }

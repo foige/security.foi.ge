@@ -45,6 +45,7 @@ tmp
 .agents
 .claude
 .direnv
+.gh
 
 # IDEs & Editors
 .idea
