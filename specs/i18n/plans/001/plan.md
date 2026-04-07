@@ -575,7 +575,7 @@ Translate the Android configuration guide.
 
 ## Phase 14: docs/solutions/messaging.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -595,8 +595,8 @@ Translate the secure messaging (Signal) guide.
 
 ```tasks
 - text: Read docs/solutions/messaging.md fully, create docs/solutions/messaging.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: d425b40
 ```
 
 ### Acceptance criteria
@@ -605,14 +605,14 @@ Translate the secure messaging (Signal) guide.
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/solutions/messaging.en.md
 ```
 
 ---
 
 ## Phase 15: docs/solutions/dns.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -633,8 +633,8 @@ Translate the encrypted DNS guide.
 
 ```tasks
 - text: Read docs/solutions/dns.md fully, create docs/solutions/dns.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 1c85197
 ```
 
 ### Acceptance criteria
@@ -643,14 +643,14 @@ Translate the encrypted DNS guide.
 - text: English file mirrors Georgian structure, all technical values preserved
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/solutions/dns.en.md
 ```
 
 ---
 
 ## Phase 16: docs/solutions/vpn.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -671,8 +671,8 @@ Translate the VPN guide. Has Georgia-specific content per divergence registry.
 
 ```tasks
 - text: Read docs/solutions/vpn.md fully, create docs/solutions/vpn.en.md with divergence applied
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 5b2e463
 ```
 
 ### Acceptance criteria
@@ -681,14 +681,14 @@ Translate the VPN guide. Has Georgia-specific content per divergence registry.
 - text: English file mirrors Georgian structure with documented divergence applied
   traces: [REQ-00053, REQ-00054, CON-00060]
   layer: L5
-  artifact:
+  artifact: docs/solutions/vpn.en.md
 ```
 
 ---
 
 ## Phase 17: docs/solutions/antivirus.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -707,8 +707,8 @@ Translate the antivirus guide.
 
 ```tasks
 - text: Read docs/solutions/antivirus.md fully, create docs/solutions/antivirus.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 0c6413f
 ```
 
 ### Acceptance criteria
@@ -717,14 +717,14 @@ Translate the antivirus guide.
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/solutions/antivirus.en.md
 ```
 
 ---
 
 ## Phase 18: docs/solutions/misconceptions.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -744,8 +744,8 @@ Translate the cybersecurity misconceptions page.
 
 ```tasks
 - text: Read docs/solutions/misconceptions.md fully, create docs/solutions/misconceptions.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 9addc91
 ```
 
 ### Acceptance criteria
@@ -754,14 +754,14 @@ Translate the cybersecurity misconceptions page.
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/solutions/misconceptions.en.md
 ```
 
 ---
 
 ## Phase 19: docs/solutions/behavior.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -782,8 +782,8 @@ Translate the general security behavior guide. Has Georgia-specific content per 
 
 ```tasks
 - text: Read docs/solutions/behavior.md fully, create docs/solutions/behavior.en.md with divergence applied
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: d285212
 ```
 
 ### Acceptance criteria
@@ -792,14 +792,14 @@ Translate the general security behavior guide. Has Georgia-specific content per 
 - text: English file mirrors Georgian structure with documented divergence applied
   traces: [REQ-00053, REQ-00054, CON-00060]
   layer: L5
-  artifact:
+  artifact: docs/solutions/behavior.en.md
 ```
 
 ---
 
 ## Phase 20: docs/solutions/hardware-keys.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -819,8 +819,8 @@ Translate the hardware security keys analysis page.
 
 ```tasks
 - text: Read docs/solutions/hardware-keys.md fully, create docs/solutions/hardware-keys.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 32843b1
 ```
 
 ### Acceptance criteria
@@ -829,7 +829,7 @@ Translate the hardware security keys analysis page.
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact:
+  artifact: docs/solutions/hardware-keys.en.md
 ```
 
 ---
