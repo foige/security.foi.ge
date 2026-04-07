@@ -31,6 +31,16 @@ markdown_extensions:
       toc_depth: 4
 plugins:
   - material-plausible
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: ka
+          name: ქართული
+          default: true
+          build: true
+        - locale: en
+          name: English
+          build: true
   - include-markdown
   - search
   - privacy

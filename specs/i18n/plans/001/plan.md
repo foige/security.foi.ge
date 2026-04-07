@@ -22,7 +22,7 @@ created: 2026-04-07
 
 ## Phase 0: i18n infrastructure setup
 
-status: not-started
+status: done
 
 Set up mkdocs-static-i18n plugin so the site can serve both languages.
 
@@ -53,14 +53,14 @@ No content is translated yet — just the infrastructure.
 
 ```tasks
 - text: Add mkdocs-static-i18n to pyproject.toml dependencies
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: phase-0
 - text: Configure i18n plugin in mkdocs.yml
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: phase-0
 - text: Run uv lock && uv run mkdocs build — verify site builds with language switcher
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: phase-0
 ```
 
 ### Acceptance criteria
@@ -69,11 +69,11 @@ No content is translated yet — just the infrastructure.
 - text: Site builds successfully with i18n plugin configured
   traces: [REQ-00057]
   layer: L5
-  artifact:
+  artifact: mkdocs.yml
 - text: Georgian URLs are unchanged from pre-i18n state
   traces: [REQ-00057]
   layer: L5
-  artifact:
+  artifact: mkdocs.yml
 ```
 
 ---
