@@ -80,7 +80,7 @@ No content is translated yet — just the infrastructure.
 
 ## Phase 1: includes/device_has_updates.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -102,8 +102,8 @@ Translate the "ensure your device receives updates" warning snippet.
 
 ```tasks
 - text: Read includes/device_has_updates.md fully, create includes/device_has_updates.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 95abba4
 ```
 
 ### Acceptance criteria
@@ -112,14 +112,14 @@ Translate the "ensure your device receives updates" warning snippet.
 - text: English include file exists and mirrors Georgian structure
   traces: [REQ-00058]
   layer: L5
-  artifact:
+  artifact: includes/device_has_updates.en.md
 ```
 
 ---
 
 ## Phase 2: includes/foi_security_policy.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -139,8 +139,8 @@ Translate the one-line FOI Security Policy auto-activation note.
 
 ```tasks
 - text: Read includes/foi_security_policy.md fully, create includes/foi_security_policy.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 4200488
 ```
 
 ### Acceptance criteria
@@ -149,14 +149,14 @@ Translate the one-line FOI Security Policy auto-activation note.
 - text: English include file exists and mirrors Georgian structure
   traces: [REQ-00058]
   layer: L5
-  artifact:
+  artifact: includes/foi_security_policy.en.md
 ```
 
 ---
 
 ## Phase 3: includes/mobile_biometrics.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -177,8 +177,8 @@ Translate the biometric authentication recommendation snippet.
 
 ```tasks
 - text: Read includes/mobile_biometrics.md fully, create includes/mobile_biometrics.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 840fe8f
 ```
 
 ### Acceptance criteria
@@ -187,14 +187,14 @@ Translate the biometric authentication recommendation snippet.
 - text: English include file exists and mirrors Georgian structure
   traces: [REQ-00058]
   layer: L5
-  artifact:
+  artifact: includes/mobile_biometrics.en.md
 ```
 
 ---
 
 ## Phase 4: includes/password_paper_storage.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -214,8 +214,8 @@ Translate the password paper storage warning snippet.
 
 ```tasks
 - text: Read includes/password_paper_storage.md fully, create includes/password_paper_storage.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: d6c4ab2
 ```
 
 ### Acceptance criteria
@@ -224,14 +224,14 @@ Translate the password paper storage warning snippet.
 - text: English include file exists and mirrors Georgian structure
   traces: [REQ-00058]
   layer: L5
-  artifact:
+  artifact: includes/password_paper_storage.en.md
 ```
 
 ---
 
 ## Phase 5: includes/windows_edition_change.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -251,8 +251,8 @@ Translate the Windows edition change instructions snippet.
 
 ```tasks
 - text: Read includes/windows_edition_change.md fully, create includes/windows_edition_change.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 5c41ad1
 ```
 
 ### Acceptance criteria
@@ -261,7 +261,7 @@ Translate the Windows edition change instructions snippet.
 - text: English include file exists and mirrors Georgian structure
   traces: [REQ-00058]
   layer: L5
-  artifact:
+  artifact: includes/windows_edition_change.en.md
 ```
 
 ---
