@@ -1063,7 +1063,7 @@ Translate the password generator page. The generator JS is already bilingual —
 
 ## Phase 27: docs/about/index.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -1086,8 +1086,8 @@ Translate the about page. Has Georgia-specific content per divergence registry.
 
 ```tasks
 - text: Read docs/about/index.md fully, create docs/about/index.en.md with divergences applied
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 04bbefb
 ```
 
 ### Acceptance criteria
@@ -1096,14 +1096,14 @@ Translate the about page. Has Georgia-specific content per divergence registry.
 - text: English file mirrors Georgian structure with documented divergences applied
   traces: [REQ-00053, REQ-00054, CON-00060]
   layer: L5
-  artifact: docs/policies/index.en.md
+  artifact: docs/about/index.en.md
 ```
 
 ---
 
 ## Phase 28: docs/about/tos.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -1125,8 +1125,8 @@ Translate the terms of service page. Has Georgia-specific content per divergence
 
 ```tasks
 - text: Read docs/about/tos.md fully, create docs/about/tos.en.md with divergences applied
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: a3aa4d5
 ```
 
 ### Acceptance criteria
@@ -1135,14 +1135,14 @@ Translate the terms of service page. Has Georgia-specific content per divergence
 - text: English file mirrors Georgian structure with documented divergences applied
   traces: [REQ-00053, REQ-00054, CON-00060]
   layer: L5
-  artifact: docs/policies/index.en.md
+  artifact: docs/about/tos.en.md
 ```
 
 ---
 
 ## Phase 29: docs/about/privacy.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -1162,8 +1162,8 @@ Translate the privacy policy page.
 
 ```tasks
 - text: Read docs/about/privacy.md fully, create docs/about/privacy.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: da2a7df
 ```
 
 ### Acceptance criteria
@@ -1172,14 +1172,14 @@ Translate the privacy policy page.
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact: docs/policies/index.en.md
+  artifact: docs/about/privacy.en.md
 ```
 
 ---
 
 ## Phase 30: docs/about/trainers.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -1199,8 +1199,8 @@ Translate the trainers guide.
 
 ```tasks
 - text: Read docs/about/trainers.md fully, create docs/about/trainers.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 2f44a26
 ```
 
 ### Acceptance criteria
@@ -1209,14 +1209,14 @@ Translate the trainers guide.
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact: docs/policies/index.en.md
+  artifact: docs/about/trainers.en.md
 ```
 
 ---
 
 ## Phase 31: docs/guide/prerequisites.en.md
 
-status: not-started
+status: done
 
 ### Intent
 
@@ -1235,8 +1235,8 @@ Translate the prerequisites page (currently not in nav but exists in docs).
 
 ```tasks
 - text: Read docs/guide/prerequisites.md fully, create docs/guide/prerequisites.en.md
-  builder:
-  commit:
+  builder: 004-claude-build
+  commit: 00388d6
 ```
 
 ### Acceptance criteria
@@ -1245,7 +1245,7 @@ Translate the prerequisites page (currently not in nav but exists in docs).
 - text: English file mirrors Georgian structure
   traces: [REQ-00053, REQ-00054]
   layer: L5
-  artifact: docs/policies/index.en.md
+  artifact: docs/guide/prerequisites.en.md
 ```
 
 ---
