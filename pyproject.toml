@@ -13,5 +13,8 @@ dependencies = [
     "mkdocs-static-i18n[material]>=1.2.0",
 ]
 
+[tool.setuptools]
+packages = []
+
 [tool.uv]
 package = false
