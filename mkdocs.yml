@@ -41,6 +41,18 @@ plugins:
         - locale: en
           name: English
           build: true
+          site_name: "FOI Security"
+          nav_translations:
+            მთავარი: "Home"
+            გადაწყვეტები: "Solutions"
+            "საბაზისო": "Fundamentals"
+            "ოპერაციული სისტემები": "Operating Systems"
+            "რეკომენდაციები": "Recommendations"
+            "საფრთხეები": "Threats"
+            "ინსტალაცია და პარამეტრები": "Installation & Settings"
+            "ბრაუზერები": "Browsers"
+            "FOI პაროლების გენერატორი": "FOI Password Generator"
+            "FOI-ს შესახებ": "About FOI"
   - include-markdown
   - search
   - privacy
