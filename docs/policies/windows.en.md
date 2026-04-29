@@ -11,7 +11,7 @@ icon: material/microsoft-windows
 
 ### Windows Editions
 
-{% include-markdown "../../includes/windows_edition_change.md"%}
+{% include-markdown "../../includes/windows_edition_change.en.md"%}
 
 ### Installing FOI Security Policy
 

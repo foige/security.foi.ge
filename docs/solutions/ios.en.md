@@ -14,7 +14,7 @@ icon: material/apple-ios
       is necessary before following the instructions on this page.
 
 
-{% include-markdown "../../includes/device_has_updates.md"%}
+{% include-markdown "../../includes/device_has_updates.en.md"%}
 
 ## System configuration
 

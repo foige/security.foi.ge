@@ -142,7 +142,7 @@ the automatic upload of standard user folders (Desktop, Music, Pictures, Videos)
 
 ## Windows Editions
 
-{% include-markdown "../../includes/windows_edition_change.md"%}
+{% include-markdown "../../includes/windows_edition_change.en.md"%}
 
 ## Data Encryption
 

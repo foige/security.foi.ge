@@ -21,7 +21,7 @@ use Macs with Apple Silicon (M1/M2/M3+).
       in the Password Manager
 
 
-{% include-markdown "../../includes/device_has_updates.md"%}
+{% include-markdown "../../includes/device_has_updates.en.md"%}
 
 ## FOI Security Policy
 
@@ -204,7 +204,7 @@ In addition to adding the `unlock` user, it is necessary to change your standard
 
 ### Touch ID
 
-{% include-markdown "../../includes/mobile_biometrics.md" %}
+{% include-markdown "../../includes/mobile_biometrics.en.md" %}
 
 For additional security, [FOI Security Policy](../policies/index.md) will require password entry at least once every 8 hours.
 

@@ -10,7 +10,7 @@ icon: material/android
 - [x] Install a [Password Manager](passwords.md)
     - To store a unique, strong password for the phone that is also easy to enter.
 
-{% include-markdown "../../includes/device_has_updates.md"%}
+{% include-markdown "../../includes/device_has_updates.en.md"%}
 
 ## Recommended devices
 
@@ -46,7 +46,7 @@ compared to other Android devices, receive updates the fastest and for the longe
 
 Android limits the maximum password length to 16 characters, so we will use short syllables randomly selected by a computer, making it practically impossible to crack, while you'll only need to enter it once every 72 hours.
 
-{% include-markdown "../../includes/mobile_biometrics.md" %}
+{% include-markdown "../../includes/mobile_biometrics.en.md" %}
 
 #### Creating a new password
 
@@ -81,7 +81,7 @@ Android limits the maximum password length to 16 characters, so we will use shor
 4. Enter the existing password
 5. Enter the new password. Since the password length is limited on Android, instead of separating with a dot or space, start each word with a capital letter
 
-{% include-markdown "../../includes/password_paper_storage.md" %}
+{% include-markdown "../../includes/password_paper_storage.en.md" %}
 
 ### DNS
 

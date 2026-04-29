@@ -24,7 +24,7 @@ Instead of the browser's password manager, you should use the recommended Passwo
     open: true
 
 /// tab | Windows
-{% include-markdown "../../includes/foi_security_policy.md"%}
+{% include-markdown "../../includes/foi_security_policy.en.md"%}
 
 /// details | Manual configuration
     type: info
@@ -43,7 +43,7 @@ Firefox:
 ///
 
 /// tab | macOS | iOS
-{% include-markdown "../../includes/foi_security_policy.md"%}
+{% include-markdown "../../includes/foi_security_policy.en.md"%}
 /// details | Manual configuration
     type: info
     open: false
@@ -106,7 +106,7 @@ disable the browser's DNS Resolver and use the system's DNS settings (DNS-over-H
     open: true
 
 /// tab | Windows
-{% include-markdown "../../includes/foi_security_policy.md"%}
+{% include-markdown "../../includes/foi_security_policy.en.md"%}
 
 /// details | Manual configuration
     type: info
@@ -119,7 +119,7 @@ Computer Configuration > Administrative Templates > Classic Administrative Templ
 ///
 
 /// tab | macOS | iOS
-{% include-markdown "../../includes/foi_security_policy.md"%}
+{% include-markdown "../../includes/foi_security_policy.en.md"%}
 /// details | Manual configuration
     type: info
     open: false
@@ -174,7 +174,7 @@ in the browser.
     open: true
 
 /// tab | Windows
-{% include-markdown "../../includes/foi_security_policy.md"%}
+{% include-markdown "../../includes/foi_security_policy.en.md"%}
 
 /// details | Manual configuration
     type: info
@@ -187,7 +187,7 @@ Computer Configuration > Administrative Templates > Classic Administrative Templ
 ///
 
 /// tab | macOS | iOS
-{% include-markdown "../../includes/foi_security_policy.md"%}
+{% include-markdown "../../includes/foi_security_policy.en.md"%}
 /// details | Manual configuration
     type: info
     open: false
@@ -245,7 +245,7 @@ and this capability should only remain for systems on the local network.
     open: true
 
 /// tab | Windows
-{% include-markdown "../../includes/foi_security_policy.md"%}
+{% include-markdown "../../includes/foi_security_policy.en.md"%}
 
 /// details | Manual configuration
     type: info
@@ -267,7 +267,7 @@ Not required.
 ///
 
 /// tab | macOS | iOS
-{% include-markdown "../../includes/foi_security_policy.md"%}
+{% include-markdown "../../includes/foi_security_policy.en.md"%}
 /// details | Manual configuration
     type: info
     open: false

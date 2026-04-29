@@ -1,13 +1,24 @@
 <div class="md-copyright">
     <div class="md-copyright__highlight">
-        საიტი არ იღებს შემოსავალს არც ერთი რეკომენდირებული ხელსაწყოსგან.
-        </br>
-        ბოლო განახლების თარიღი: {{ build_date_utc.strftime('%B %d, %Y at %I:%M%p') }}
-        </br></br>
-        <p>
-            <a href="/about/tos/"><b>პირობები</b></a> |
-            <a href="/about/privacy/"><b>კონფიდენციალობის პოლიტიკა</b></a>
-        </p>
+        {% if config.theme.language == 'en' %}
+            The site does not earn revenue from any of the recommended tools.
+            </br>
+            Last updated: {{ build_date_utc.strftime('%B %d, %Y at %I:%M%p') }}
+            </br></br>
+            <p>
+                <a href="/en/about/tos/"><b>Terms</b></a> |
+                <a href="/en/about/privacy/"><b>Privacy Policy</b></a>
+            </p>
+        {% else %}
+            საიტი არ იღებს შემოსავალს არც ერთი რეკომენდირებული ხელსაწყოსგან.
+            </br>
+            ბოლო განახლების თარიღი: {{ build_date_utc.strftime('%B %d, %Y at %I:%M%p') }}
+            </br></br>
+            <p>
+                <a href="/about/tos/"><b>პირობები</b></a> |
+                <a href="/about/privacy/"><b>კონფიდენციალობის პოლიტიკა</b></a>
+            </p>
+        {% endif %}
         &copy; 2024 FOI Georgia
     </div>
 </div>

@@ -32,6 +32,7 @@ markdown_extensions:
       toc_depth: 4
 hooks:
   - dev/sitemap_lastmod_hook.py
+  - dev/translation_check_hook.py
 plugins:
   - material-plausible
   - i18n:

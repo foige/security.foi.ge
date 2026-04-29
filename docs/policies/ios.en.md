@@ -23,7 +23,7 @@ you will not be able to install it. Therefore, changing the password before prof
 For the new password, we will use 4 short words randomly selected by a computer, making it practically impossible to crack,
 while you will only need to enter it once every 72 hours.
 
-{% include-markdown "../../includes/mobile_biometrics.md" %}
+{% include-markdown "../../includes/mobile_biometrics.en.md" %}
 
 #### Creating a new password
 
@@ -58,7 +58,7 @@ while you will only need to enter it once every 72 hours.
 5. Select **Passcode Options** > **Custom Alphanumeric Code**
 6. Enter the new password. Enter a space between words
 
-{% include-markdown "../../includes/password_paper_storage.md" %}
+{% include-markdown "../../includes/password_paper_storage.en.md" %}
 
 
 ### Installing the Profile
