@@ -1,5 +1,6 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 site_name: FOI უსაფრთხოება
+site_url: https://security.foi.ge/
 repo_url: https://github.com/foige/security.foi.ge
 repo_name: ""
 markdown_extensions:
@@ -29,6 +30,8 @@ markdown_extensions:
       slugify: !!python/name:pymdownx.slugs.uslugify
       permalink: true
       toc_depth: 4
+hooks:
+  - dev/sitemap_lastmod_hook.py
 plugins:
   - material-plausible
   - i18n:
@@ -58,6 +61,9 @@ plugins:
   - privacy
   - minify
   - social
+  - git-revision-date-localized:
+      enable_creation_date: false
+      fallback_to_build_date: true
 extra:
   generator: false
 extra_css:

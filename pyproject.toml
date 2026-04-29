@@ -11,6 +11,7 @@ dependencies = [
     "material-plausible-plugin>=0.2.0",
     "mkdocs-minify-plugin>=0.8.0",
     "mkdocs-static-i18n[material]>=1.2.0",
+    "mkdocs-git-revision-date-localized-plugin>=1.2.0",
 ]
 
 [tool.setuptools]

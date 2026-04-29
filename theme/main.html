@@ -1,5 +1,42 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+  {% if config.extra.alternate is iterable %}
+    {% for alt in config.extra.alternate %}
+      {% if alt.lang == "en" %}
+        <link rel="alternate" href="{{ alt.link | url }}" hreflang="x-default">
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  <script>
+    (function () {
+      if (location.pathname === "/") {
+        var pref;
+        try { pref = localStorage.getItem("lang-pref"); } catch (e) {}
+        if (pref === "en") { location.replace("/en/"); return; }
+        if (pref !== "ka") {
+          var tz; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) {}
+          var langs = (navigator.languages || [navigator.language || ""]).map(function (l) {
+            return (l || "").toLowerCase().slice(0, 2);
+          });
+          if (tz !== "Asia/Tbilisi" && langs.indexOf("ka") === -1) {
+            location.replace("/en/");
+            return;
+          }
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        var links = document.querySelectorAll("a[hreflang]");
+        for (var i = 0; i < links.length; i++) {
+          links[i].addEventListener("click", function () {
+            try { localStorage.setItem("lang-pref", this.getAttribute("hreflang")); } catch (e) {}
+          });
+        }
+      });
+    })();
+  </script>
+{% endblock %}
+
 {% block content %}
   {{ super() }}
   {% include "partials/matrix-chat.html" %}
