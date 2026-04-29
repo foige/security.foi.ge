@@ -12,7 +12,7 @@ let sharedWord = '';
 
 // Load English resources
 Promise.all([
-  fetch('foi_words_en.txt')
+  fetch('/tools/password-generator/foi_words_en.txt')
     .then(response => {
       if (!response.ok) throw new Error('Failed to load English words');
       return response.text();
@@ -21,7 +21,7 @@ Promise.all([
       await verifyIntegrity('foi_words_en.txt', content);
       return content;
     }),
-  fetch('foi_syllables_en.txt')
+  fetch('/tools/password-generator/foi_syllables_en.txt')
     .then(response => {
       if (!response.ok) throw new Error('Failed to load English syllables');
       return response.text();
@@ -46,7 +46,7 @@ Promise.all([
 
 // Load Georgian resources
 Promise.all([
-  fetch('foi_words_ka.txt')
+  fetch('/tools/password-generator/foi_words_ka.txt')
     .then(response => {
       if (!response.ok) throw new Error('Failed to load Georgian words');
       return response.text();
@@ -55,7 +55,7 @@ Promise.all([
       await verifyIntegrity('foi_words_ka.txt', content);
       return content;
     }),
-  fetch('foi_syllables_ka.txt')
+  fetch('/tools/password-generator/foi_syllables_ka.txt')
     .then(response => {
       if (!response.ok) throw new Error('Failed to load Georgian syllables');
       return response.text();
@@ -113,13 +113,50 @@ document.querySelectorAll('input[name="password-language"]').forEach(radio => {
   });
 });
 
+const LANG = document.documentElement.lang === 'en' ? 'en' : 'ka';
+
+const NOTES = {
+  ios: {
+    ka: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/ios/">iOS კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ მაღალი ასოს და გამოტოვებების (სფეისის) შეყვანა.<br>- კომფორტის შესანარჩუნებლად გამოიყენეთ Face ID.</p>',
+    en: '<p style="color: #b8860b;">- See the <a href="/en/solutions/ios/">iOS configuration page.</a><br>- Don\'t forget to enter capital letters and spaces.<br>- Use Face ID for convenience.</p>'
+  },
+  android: {
+    ka: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/android/">Android კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ მაღალი ასოს და ყოველი სიტყვის პირველი ასოს დიდ რეგისტრში შეყვანა.<br>- კომფორტის შესანარჩუნებლად გამოიყენეთ თითის ანაბეჭდი.</p>',
+    en: '<p style="color: #b8860b;">- See the <a href="/en/solutions/android/">Android configuration page.</a><br>- Don\'t forget to enter capital letters, with the first letter of each word in uppercase.<br>- Use the fingerprint sensor for convenience.</p>'
+  },
+  macosUser: {
+    ka: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/macos/">macOS კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ მაღალი ასოს და გამოტოვებების შეყვანა.<br>- კომფორტის შესანარჩუნებლად გამოიყენეთ Touch ID.</p>',
+    en: '<p style="color: #b8860b;">- See the <a href="/en/solutions/macos/">macOS configuration page.</a><br>- Don\'t forget to enter capital letters and spaces.<br>- Use Touch ID for convenience.</p>'
+  },
+  macosAdmin: {
+    ka: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/macos/">macOS კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ გამოტოვებების შეყვანა.</p>',
+    en: '<p style="color: #b8860b;">- See the <a href="/en/solutions/macos/">macOS configuration page.</a><br>- Don\'t forget to enter spaces.</p>'
+  },
+  windowsPin: {
+    ka: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/windows/">Windows კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ მაღალი ასოს და გამოტოვებების შეყვანა.<br>- კომფორტის შესანარჩუნებლად გამოიყენეთ <a href="/solutions/windows/#ბიომეტრიული-აუთენტიფიკაცია">თითის ანაბეჭდი</a></p>',
+    en: '<p style="color: #b8860b;">- See the <a href="/en/solutions/windows/">Windows configuration page.</a><br>- Don\'t forget to enter capital letters and spaces.<br>- Use a <a href="/en/solutions/windows/#biometric-authentication">fingerprint sensor</a> for convenience.</p>'
+  },
+  windowsUser: {
+    ka: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/windows/">Windows კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ მაღალი ასოს და გამოტოვებების შეყვანა.<br>- ამ პაროლის ხელით შეყვანა არასდროს მოგიწევთ.</p>',
+    en: '<p style="color: #b8860b;">- See the <a href="/en/solutions/windows/">Windows configuration page.</a><br>- Don\'t forget to enter capital letters and spaces.<br>- You\'ll never need to type this password manually.</p>'
+  },
+  windowsBitlocker: {
+    ka: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/windows/">Windows კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ მაღალი ასოს და გამოტოვებების შეყვანა.</p>',
+    en: '<p style="color: #b8860b;">- See the <a href="/en/solutions/windows/">Windows configuration page.</a><br>- Don\'t forget to enter capital letters and spaces.</p>'
+  },
+  bitwarden: {
+    ka: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/passwords/">პაროლების მენეჯერის კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ გამოტოვებების შეყვანა.<br>- ბოლო სიტყვა დაიმახსოვრეთ და არ ჩაიწეროთ!</p>',
+    en: '<p style="color: #b8860b;">- See the <a href="/en/solutions/passwords/">password manager configuration page.</a><br>- Don\'t forget to enter spaces.<br>- Memorize the last word and don\'t write it down!</p>'
+  }
+};
+
 const osConfigs = {
   'ios': {
     type: 'passphrase',
     numWords: 4,
     separator: ' ',
     maxLength: 25,
-    additionalHTML: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/ios/">iOS კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ მაღალი ასოს და გამოტოვებების (სფეისის) შეყვანა.<br>- კომფორტის შესანარჩუნებლად გამოიყენეთ Face ID.</p>'
+    additionalHTML: NOTES.ios[LANG]
   },
   'android': {
     type: 'passphrase',
@@ -128,20 +165,20 @@ const osConfigs = {
     maxLength: 16,
     titleCase: true,
     useSyllables: true, // Use syllables for non-shared words
-    additionalHTML: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/android/">Android კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ მაღალი ასოს და ყოველი სიტყვის პირველი ასოს დიდ რეგისტრში შეყვანა.<br>- კომფორტის შესანარჩუნებლად გამოიყენეთ თითის ანაბეჭდი.</p>'
+    additionalHTML: NOTES.android[LANG]
   },
   'macos': {
     user: {
       type: 'passphrase',
       numWords: 4,
       separator: ' ',
-      additionalHTML: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/macos/">macOS კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ მაღალი ასოს და გამოტოვებების შეყვანა.<br>- კომფორტის შესანარჩუნებლად გამოიყენეთ Touch ID.</p>'
+      additionalHTML: NOTES.macosUser[LANG]
     },
     admin: {
       type: 'passphrase',
       numWords: 5,
       separator: ' ',
-      additionalHTML: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/macos/">macOS კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ გამოტოვებების შეყვანა.</p>'
+      additionalHTML: NOTES.macosAdmin[LANG]
     }
   },
   'windows': {
@@ -149,7 +186,7 @@ const osConfigs = {
       type: 'passphrase',
       numWords: 4,
       separator: ' ',
-      additionalHTML: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/windows/">Windows კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ მაღალი ასოს და გამოტოვებების შეყვანა.<br>- კომფორტის შესანარჩუნებლად გამოიყენეთ <a href="/solutions/windows/#ბიომეტრიული-აუთენტიფიკაცია">თითის ანაბეჭდი</a></p>'
+      additionalHTML: NOTES.windowsPin[LANG]
     },
     user: {
       type: 'passphrase',
@@ -158,20 +195,20 @@ const osConfigs = {
       maxLength: 19,
       titleCase: true,
       useSyllables: true,
-      additionalHTML: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/windows/">Windows კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ მაღალი ასოს და გამოტოვებების შეყვანა.<br>- ამ პაროლის ხელით შეყვანა არასდროს მოგიწევთ.</p>'
+      additionalHTML: NOTES.windowsUser[LANG]
     },
     bitlocker: {
       type: 'passphrase',
       numWords: 5,
       separator: ' ',
-      additionalHTML: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/windows/">Windows კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ მაღალი ასოს და გამოტოვებების შეყვანა.</p>'
+      additionalHTML: NOTES.windowsBitlocker[LANG]
     }
   },
   'bitwarden': {
     type: 'passphrase',
     numWords: 5,
     separator: ' ',
-    additionalHTML: '<p style="color: #b8860b;">- გაეცანით <a href="/solutions/passwords/">პაროლების მენეჯერის კონფიგურაციის გვერდს.</a><br>- არ დაგავიწყდეთ გამოტოვებების შეყვანა.<br>- ბოლო სიტყვა დაიმახსოვრეთ და არ ჩაიწეროთ!</p>'
+    additionalHTML: NOTES.bitwarden[LANG]
   }
 };
 
